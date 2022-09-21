@@ -1,11 +1,7 @@
 # API-Airbnb
-# `<name of application here>`
 
 ## Database Schema Design
-
-`<insert database schema design here>`
-![Untitled](https://user-images.githubusercontent.com/103289506/191617168-3515d2da-1d21-4755-8b3f-ccdbc79c16e1.png)
-
+![Schema](https://user-images.githubusercontent.com/103289506/191617561-c705ea3d-37cb-4f06-b5a0-95d60d684fcb.png)
 
 
 ## API Documentation
