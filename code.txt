@@ -17,3 +17,7 @@ npm install sequelize-cli@6
 npm install -D sqlite3
 npm install -D dotenv-cli
 npm install -D nodemon
+
+
+//start server
+npm start
