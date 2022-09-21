@@ -1,0 +1,19 @@
+Install server's package - Dependencies
+//Dependencies
+npm install cookie-parser
+npm install cors
+npm install csurf
+npm install dotenv
+npm install express
+npm install express-async-errors
+npm install helmet
+npm install jsonwebtoken
+npm install morgan
+npm install per-env
+npm install sequelize@6
+npm install sequelize-cli@6
+
+// dev-dependencies
+npm install -D sqlite3
+npm install -D dotenv-cli
+npm install -D nodemon
