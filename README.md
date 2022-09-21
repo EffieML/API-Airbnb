@@ -4,6 +4,7 @@
 ## Database Schema Design
 
 `<insert database schema design here>`
+<img width="1570" alt="Schema" src="https://user-images.githubusercontent.com/103289506/191616211-29d1cc6c-61a1-46e5-be00-f3f4eee1bc27.PNG">
 
 ## API Documentation
 
