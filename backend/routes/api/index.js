@@ -1,5 +1,8 @@
 // backend/routes/api/index.js
 const router = require('express').Router();
+const sessionRouter = require('./session.js');
+const usersRouter = require('./users.js');
+
 
 // // ... for test only
 // router.post('/test', function (req, res) {
@@ -7,6 +10,7 @@ const router = require('express').Router();
 // });
 // // ...
 
+//Autheticate token test refer back to Week12 day4 phase3
 // // GET /api/set-token-cookie
 // const { setTokenCookie } = require('../../utils/auth.js');
 // const { User } = require('../../db/models');
@@ -46,5 +50,12 @@ router.use(restoreUser);
 //     }
 // );
 
+router.use('/session', sessionRouter);
+
+router.use('/users', usersRouter);
+
+router.post('/test', (req, res) => {
+    res.json({ requestBody: req.body });
+});
 
 module.exports = router;
