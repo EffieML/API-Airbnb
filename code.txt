@@ -21,3 +21,38 @@ npm install -D nodemon
 
 //start server
 npm start
+
+
+//////git hub
+//check path set up
+git remote get-url origin
+//check git branch, to exit :q
+* main
+//check anything need commit
+git status
+// create a branch "dev" off main
+git checkout -b dev
+//push the new dev branch to github repo
+git push origin dev
+//checkout a feature branch auth-setup
+git checkout -b auth-setup
+
+
+// install for hash password
+npm install bcryptjs
+
+//Users table(model) migration, in backend folder
+npx sequelize model:generate --name User --attributes username:string,email:string,hashedPassword:string
+//migrate table
+dotenv npx sequelize db:migrate
+//undo migrate
+dotenv npx sequelize db:migrate:undo
+//check table
+sqlite3 db/dev.db ".schema Users"
+
+//User model update
+//User seed
+npx sequelize seed:generate --name demo-user
+dotenv npx sequelize db:seed:all
+dotenv npx sequelize db:seed:undo
+dotenv npx sequelize db:seed:undo:all
