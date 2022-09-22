@@ -36,6 +36,7 @@ git checkout -b dev
 git push origin dev
 //checkout a feature branch auth-setup
 git checkout -b auth-setup
+git push --set-upstream origin auth-setup
 
 
 // install for hash password
