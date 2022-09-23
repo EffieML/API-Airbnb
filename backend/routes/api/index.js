@@ -5,9 +5,9 @@ const usersRouter = require('./users.js');
 
 
 // // ... for test only
-// router.post('/test', function (req, res) {
-//     res.json({ requestBody: req.body });
-// });
+router.post('/test', function (req, res) {
+    res.json({ requestBody: req.body });
+});
 // // ...
 
 //Autheticate token test refer back to Week12 day4 phase3
