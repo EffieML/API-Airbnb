@@ -1,5 +1,30 @@
 {
   "dependencies": {
-    "bcryptjs": "^2.4.3"
-  }
+    "bcryptjs": "^2.4.3",
+    "pg": "^8.8.0"
+  },
+  "name": "airbnb",
+  "description": "## Database Schema Design ![Schema](https://user-images.githubusercontent.com/103289506/191617561-c705ea3d-37cb-4f06-b5a0-95d60d684fcb.png)",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "npm --prefix backend install backend",
+    "dev:backend": "npm install --prefix backend start",
+    "sequelize": "npm run --prefix backend sequelize",
+    "sequelize-cli": "npm run --prefix backend sequelize-cli",
+    "start": "npm start --prefix backend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EffieML/API-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EffieML/API-project/issues"
+  },
+  "homepage": "https://github.com/EffieML/API-project#readme"
 }
