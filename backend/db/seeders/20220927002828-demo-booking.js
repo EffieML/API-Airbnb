@@ -44,12 +44,13 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
+    //dynamic create with bulkCreate
     await Booking.bulkCreate(validBookings, {
       validate: true
     });
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.bulkDelete('Booking', null, {});
+    await queryInterface.bulkDelete('Bookings', null, {});
   }
 };

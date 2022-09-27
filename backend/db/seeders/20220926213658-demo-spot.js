@@ -67,12 +67,13 @@ const validSpots = [
 
 module.exports = {
   async up(queryInterface, Sequelize) {
+    //dynamic create with bulkCreate
     await Spot.bulkCreate(validSpots, {
       validate: true
     });
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.bulkDelete('Spot', null, {});
+    await queryInterface.bulkDelete('Spots', null, {});
   }
 };
