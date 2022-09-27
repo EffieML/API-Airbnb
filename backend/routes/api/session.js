@@ -28,18 +28,27 @@ router.post(
         const user = await User.login({ credential, password });
 
         if (!user) {
-            const err = new Error('Login failed');
-            err.status = 401;
-            err.title = 'Login failed';
-            err.errors = ['The provided credentials were invalid.'];
-            return next(err);
+            // const err = new Error('Login failed');
+            // err.status = 401;
+            // err.title = 'Login failed';
+            // err.errors = ['The provided credentials were invalid.'];
+            // return next(err);
+            res.status(401);
+            return res.json({
+                message: "Invalid credentials",
+                statusCode: 401,
+                errors: 'The provided credentials were invalid.',
+            })
         }
 
-        await setTokenCookie(res, user);
+        const token = await setTokenCookie(res, user);
+        const userJSON = user.toJSON();
+        userJSON.token = token;
 
-        return res.json({
-            user
-        });
+
+        return res.json(
+            userJSON
+        );
     }
 );
 
@@ -60,9 +69,9 @@ router.get(
     (req, res) => {
         const { user } = req;
         if (user) {
-            return res.json({
-                user: user.toSafeObject()
-            });
+            return res.json(
+                user.toSafeObject()
+            );
         } else return res.json({});
     }
 );

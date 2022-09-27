@@ -82,7 +82,12 @@ app.use((err, _req, res, _next) => {
         title: err.title || 'Server Error',
         message: err.message,
         errors: err.errors,
-        stack: isProduction ? null : err.stack
+        stack: isProduction ? null : err.stack,
+
+        //Ming's version for User Signup wrong
+        // message: err.title || 'Server Error',
+        // statusCode: err.statusCode,
+        // errors: err.errors,
     });
 });
 
