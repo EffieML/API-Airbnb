@@ -25,29 +25,54 @@ const validateSignup = [
         .withMessage('Password must be 6 characters or more.'),
     check('firstName')
         .exists({ checkFalsy: true })
-        .isLength({ min: 1 })
-        .withMessage('Please provide your first name with at least 1 characters.'),
+        .withMessage('First Name is required'),
     check('lastName')
         .exists({ checkFalsy: true })
-        .isLength({ min: 1 })
-        .withMessage('Please provide your last name with at least 1 characters.'),
+        .withMessage('Last Name is required'),
     handleValidationErrors
 ];
 
 // Sign up
-router.post(
-    '/',
-    validateSignup,
-    async (req, res) => {
-        const { email, password, username } = req.body;
-        const user = await User.signup({ email, username, password });
-
-        await setTokenCookie(res, user);
-
+router.post('/', validateSignup, async (req, res) => {
+    const { firstName, lastName, email, password, username } = req.body;
+    const checkEmail = await User.findOne({
+        where: {
+            email: email
+        }
+    })
+    if (checkEmail) {
+        res.status(403);
         return res.json({
-            user
-        });
+            message: "User already exists",
+            statusCode: 403,
+            errors: { email: "User with that email already exists" }
+        })
     }
+
+    const checkUser = await User.findOne({
+        where: {
+            username: username
+        }
+    })
+    if (checkUser) {
+        res.status(403);
+        return res.json({
+            message: "User already exists",
+            statusCode: 403,
+            errors: { email: "User with that username already exists" }
+        })
+    }
+
+    const user = await User.signup({ firstName, lastName, username, email, password });
+
+    const token = await setTokenCookie(res, user);
+    const userJSON = user.toJSON();
+    userJSON.token = token;
+
+    return res.json(
+        userJSON
+    );
+}
 );
 
 
