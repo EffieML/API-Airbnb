@@ -20,3 +20,9 @@
     6.spotImages table:
     npx sequelize model:generate --name SpotImage --attributes spotId:integer,url:string,preview:boolean
     npx sequelize seed:generate --name demo-spot-images
+
+
+2. git push:
+ git add .
+ git commit -m "add database tables and seeder files"
+ git push --set-upstream origin addTables
