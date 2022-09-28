@@ -37,7 +37,6 @@ router.post(
             return res.json({
                 message: "Invalid credentials",
                 statusCode: 401,
-                errors: 'The provided credentials were invalid.',
             })
         }
 
