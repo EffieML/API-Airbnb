@@ -71,9 +71,9 @@ router.get('/', async (req, res) => {
         //add average rating to spot
         const avgR = await avgRate(Spots[i].id);
         const avgRvalue = avgR[0].avgRating === null ? 0 : avgR[0].avgRating;
-        const avgRvalFixed = Number(avgRvalue.toFixed(1));
+        const avgRvalFixed = Number(avgRvalue).toFixed(1);
 
-        Spots[i].avgRating = avgRvalFixed;
+        Spots[i].avgRating = Number(avgRvalFixed);
 
         //add image preview to spot
         const prevImgUrl = await SpotImage.findOne({
