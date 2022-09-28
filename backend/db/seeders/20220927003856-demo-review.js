@@ -8,7 +8,7 @@ module.exports = {
         spotId: 5,
         userId: 1,
         review: 'The home is in a great part of San Francisco. Easy walking distance to many areas.',
-        stars: 5,
+        stars: 4.5,
       },
       {
         spotId: 4,
