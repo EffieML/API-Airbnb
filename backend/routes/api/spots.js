@@ -53,20 +53,20 @@ const validateReview = [
     handleValidationErrors
 ];
 
-//calculate average rating to use for all later spot returns
-const avgRate = async (spotId) => {
-    const avgR = await Review.findAll({
-        where: {
-            spotId
-        },
-        raw: true,
-        next: true,
-        attributes: [[sequelize.fn('AVG', sequelize.col('stars')),
-            'avgRating'
-        ]]
-    })
-    return avgR;
-}
+// //calculate average rating to use for all later spot returns
+// const avgRate = async (spotId) => {
+//     const avgR = await Review.findAll({
+//         where: {
+//             spotId
+//         },
+//         raw: true,
+//         next: true,
+//         attributes: [[sequelize.fn('AVG', sequelize.col('stars')),
+//             'avgRating'
+//         ]]
+//     })
+//     return avgR;
+// }
 
 //Get all Spots, Auth:false
 router.get('/', async (req, res) => {
@@ -80,11 +80,26 @@ router.get('/', async (req, res) => {
     for (let i = 0; i < Spots.length; i++) {
 
         //add average rating to spot
-        const avgR = await avgRate(Spots[i].id);
-        const avgRvalue = avgR[0].avgRating === null ? 0 : avgR[0].avgRating;
-        const avgRvalFixed = Number(avgRvalue).toFixed(1);
+        const avgRate = await Review.findAll({
+            where: { spotId: Spots[i].id },
+            attributes: [[sequelize.fn('AVG', sequelize.col('stars')),
+                'avgRating'
+            ]],
+            raw: true,
+            next: true,
+        })
+        console.log(avgRate[0].avgRating)
+        const avgR = avgRate[0].avgRating;
+        Spots[i].avgRating = parseFloat(Number(avgR).toFixed(1))
 
-        Spots[i].avgRating = avgRvalFixed;
+
+
+        // //add average rating to spot
+        // const avgR = await avgRate(Spots[i].id);
+        // const avgRvalue = avgR[0].avgRating === null ? 0 : avgR[0].avgRating;
+        // const avgRvalFixed = Number(avgRvalue).toFixed(1);
+
+        // Spots[i].avgRating = avgRvalFixed;
 
         //add image preview to spot
         const prevImgUrl = await SpotImage.findOne({
