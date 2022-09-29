@@ -7,13 +7,13 @@ module.exports = {
       {
         spotId: 5,
         userId: 1,
-        review: 'The home is in a great part of San Francisco. Easy walking distance to many areas.',
+        review: 'We enjoyed our time here. Comfy and clean!',
         stars: 4,
       },
       {
         spotId: 5,
         userId: 2,
-        review: 'The home is in a good part of San Francisco. Easy walking distance to many areas.',
+        review: 'The home is in a great part of San Francisco. Easy walking distance to many areas.',
         stars: 5,
       },
       {
