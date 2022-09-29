@@ -70,10 +70,11 @@ router.get('/', async (req, res) => {
 
         //add average rating to spot
         const avgR = await avgRate(Spots[i].id);
-        const avgRvalue = avgR[0].avgRating === null ? 0 : avgR[0].avgRating;
-        const avgRvalFixed = avgRvalue.toFixed(1);
+        // const avgRvalue = avgR[0].avgRating === null ? 0 : avgR[0].avgRating;
+        const avgRvalue = avgR[0].avgRating;
+        const avgRvalFixed = Number.parseFloat(avgRvalue).toFixed(1);
 
-        Spots[i].avgRating = parseFloat(avgRvalFixed);
+        Spots[i].avgRating = avgRvalFixed;
 
         //add image preview to spot
         const prevImgUrl = await SpotImage.findOne({
@@ -102,6 +103,9 @@ router.get('/', async (req, res) => {
 // Create a spot, Auth:true
 router.post('/', requireAuth, validateSpot, async (req, res) => {
     const { address, city, state, country, lat, lng, name, description, price } = req.body;
+    lat = parseFloat(lat);
+    lng = parseFloat(lng);
+    price = parseFloat(price);
     const newSpot = await Spot.create({ ownerId: req.user.id, address, city, state, country, lat, lng, name, description, price });
 
     res.status(201);
