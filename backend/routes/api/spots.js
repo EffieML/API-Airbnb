@@ -42,6 +42,17 @@ const validateSpot = [
     handleValidationErrors
 ];
 
+//validate reviews
+const validateReview = [
+    check('review')
+        .exists({ checkFalsy: true })
+        .withMessage('Review text is required'),
+    check('stars')
+        .exists({ checkFalsy: true })
+        .withMessage('Stars must be an integer from 1 to 5'),
+    handleValidationErrors
+];
+
 //calculate average rating to use for all later spot returns
 const avgRate = async (spotId) => {
     const avgR = await Review.findAll({
@@ -71,9 +82,13 @@ router.get('/', async (req, res) => {
         //add average rating to spot
         const avgR = await avgRate(Spots[i].id);
         const avgRvalue = avgR[0].avgRating === null ? 0 : avgR[0].avgRating;
+<<<<<<< HEAD
         const avgRvalFixed = parseFloat(Number(avgRvalue).toFixed(1));
+=======
+        const avgRvalFixed = Number(avgRvalue).toFixed(1);
+>>>>>>> reviewAPIs_v1
 
-        Spots[i].avgRating = avgRvalFixed;
+        Spots[i].avgRating = parseFloat(avgRvalFixed);
 
         //add image preview to spot
         const prevImgUrl = await SpotImage.findOne({
@@ -159,9 +174,15 @@ router.get('/current', requireAuth, async (req, res) => {
         //add average rating to spot
         const avgR = await avgRate(Spots[i].id);
         const avgRvalue = avgR[0].avgRating === null ? 0 : avgR[0].avgRating;
+<<<<<<< HEAD
         const avgRvalFixed = parseFloat(Number(avgRvalue).toFixed(1));
 
         Spots[i].avgRating = avgRvalFixed
+=======
+        const avgRvalFixed = Number(avgRvalue).toFixed(1);
+
+        Spots[i].avgRating = parseFloat(avgRvalFixed);
+>>>>>>> reviewAPIs_v1
 
         //add image preview to spot
         const prevImgUrl = await SpotImage.findOne({
@@ -213,8 +234,13 @@ router.get('/:spotId', requireAuth, async (req, res) => {
     //add average rating to spot
     const avgR = await avgRate(spotId);
     const avgRvalue = avgR[0].avgRating === null ? 0 : avgR[0].avgRating;
+<<<<<<< HEAD
     const avgRvalFixed = parseFloat(Number(avgRvalue).toFixed(1));
     spot.avgStarRating = avgRvalFixed;
+=======
+    const avgRvalFixed = Number(avgRvalue).toFixed(1);
+    spot.avgStarRating = parseFloat(avgRvalFixed);
+>>>>>>> reviewAPIs_v1
 
     //add spotimages to spot
     const spotimages = await SpotImage.findAll({
@@ -292,6 +318,88 @@ router.delete('/:spotId', requireAuth, async (req, res) => {
     }
 
 })
+
+
+// Create a review for a spot based on the spot's id
+//Auth:true
+router.post('/:spotId/reviews', requireAuth, validateReview, async (req, res) => {
+    const { review, stars } = req.body;
+
+    let userId = req.user.id;
+    let spotId = parseInt(req.params.spotId);
+
+    const spot = await Spot.findByPk(spotId)
+    if (!spot) {
+        res.status(404);
+        return res.json({
+            message: "Spot couldn't be found",
+            statusCode: 404,
+        })
+    }
+
+    const spotReviews = await Review.findOne({
+        where: {
+            userId: userId,
+            spotId: spotId,
+        }
+    })
+    if (spotReviews) {
+        res.status(403);
+        return res.json({
+            message: "User already has a review for this spot",
+            statusCode: 403,
+        })
+    }
+
+    if (stars > 0 && stars <= 5) {
+        const newReview = await Review.create({ userId, spotId, review, stars })
+        res.status(201);
+        return res.json(newReview)
+
+    } else {
+        res.status(400);
+        return res.json({
+            message: "Validation error",
+            statusCode: 400,
+            errors: {
+                stars: "Stars must be an integer from 1 to 5",
+            }
+        })
+    }
+})
+
+
+//Get all reviews by a spot's id, Auth:false
+router.get('/:spotId/reviews', async (req, res) => {
+    let userId = req.user.id;
+    let spotId = parseInt(req.params.spotId);
+
+    const spot = await Spot.findByPk(spotId)
+    if (!spot) {
+        res.status(404);
+        return res.json({
+            message: "Spot couldn't be found",
+            statusCode: 404,
+        })
+    }
+
+    const Reviews = await Review.findAll({
+        where: { spotId },
+        include: [
+            {
+                model: User,
+                attributes: ['id', 'firstName', 'lastName']
+            },
+            {
+                model: ReviewImage,
+                attributes: ['id', 'url']
+            },
+        ],
+    })
+
+    return res.json({ Reviews })
+})
+
 
 
 module.exports = router;
