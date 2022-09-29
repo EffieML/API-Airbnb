@@ -82,11 +82,7 @@ router.get('/', async (req, res) => {
         //add average rating to spot
         const avgR = await avgRate(Spots[i].id);
         const avgRvalue = avgR[0].avgRating === null ? 0 : avgR[0].avgRating;
-<<<<<<< HEAD
-        const avgRvalFixed = parseFloat(Number(avgRvalue).toFixed(1));
-=======
         const avgRvalFixed = Number(avgRvalue).toFixed(1);
->>>>>>> reviewAPIs_v1
 
         Spots[i].avgRating = parseFloat(avgRvalFixed);
 
@@ -174,15 +170,9 @@ router.get('/current', requireAuth, async (req, res) => {
         //add average rating to spot
         const avgR = await avgRate(Spots[i].id);
         const avgRvalue = avgR[0].avgRating === null ? 0 : avgR[0].avgRating;
-<<<<<<< HEAD
-        const avgRvalFixed = parseFloat(Number(avgRvalue).toFixed(1));
-
-        Spots[i].avgRating = avgRvalFixed
-=======
         const avgRvalFixed = Number(avgRvalue).toFixed(1);
 
         Spots[i].avgRating = parseFloat(avgRvalFixed);
->>>>>>> reviewAPIs_v1
 
         //add image preview to spot
         const prevImgUrl = await SpotImage.findOne({
@@ -234,13 +224,8 @@ router.get('/:spotId', requireAuth, async (req, res) => {
     //add average rating to spot
     const avgR = await avgRate(spotId);
     const avgRvalue = avgR[0].avgRating === null ? 0 : avgR[0].avgRating;
-<<<<<<< HEAD
-    const avgRvalFixed = parseFloat(Number(avgRvalue).toFixed(1));
-    spot.avgStarRating = avgRvalFixed;
-=======
     const avgRvalFixed = Number(avgRvalue).toFixed(1);
     spot.avgStarRating = parseFloat(avgRvalFixed);
->>>>>>> reviewAPIs_v1
 
     //add spotimages to spot
     const spotimages = await SpotImage.findAll({
