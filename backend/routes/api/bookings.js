@@ -83,6 +83,15 @@ router.put('/:bookingId', requireAuth, async (req, res) => {
         })
     }
 
+
+    //can't edit booking to a past date
+    if (new Date(startDate) < today || new Date(endDate) < today) {
+        res.status(403);
+        return res.json({
+            message: "booking can't use past date",
+            statusCode: 403,
+        })
+    }
     //booking must belong to current user
     if (booking.toJSON().userId == userId) {
 

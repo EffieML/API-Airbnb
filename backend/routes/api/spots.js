@@ -81,7 +81,19 @@ const avgRate = async (spotId) => {
 
 //Get all Spots, Auth:false
 router.get('/', async (req, res) => {
-    const { page, size, minLat, maxLat, minLng, maxLng, minPrice, maxPrice } = req.query;
+    let { page, size, minLat, maxLat, minLng, maxLng, minPrice, maxPrice } = req.query;
+
+    //pagination
+    if (!page) { page = 1 };
+    if (!size) { size = 20 };
+    if (page > 10) { page = 10 };
+    if (size > 20) { size = 20 };
+
+    let pagination = {};
+    if (page >= 1 && size >= 1) {
+        pagination.limit = size;
+        pagination.offset = size * (page - 1)
+    }
 
     //Query validation error response
     if (page <= 0 || size <= 0 || minPrice < 0 || maxPrice < 0 || maxLat < minLat || maxLng < minLng || maxPrice < minPrice || maxLat > 90 || minLat < -90 || maxLng > 180 || minLng < -180) {
@@ -94,24 +106,12 @@ router.get('/', async (req, res) => {
                 size: "Size must be greater than or equal to 1",
                 maxLat: "Maximum latitude is invalid",
                 minLat: "Minimum latitude is invalid",
-                minLng: "Maximum longitude is invalid",
-                maxLng: "Minimum longitude is invalid",
-                minPrice: "Maximum price must be greater than or equal to 0",
-                maxPrice: "Minimum price must be greater than or equal to 0"
+                minLng: "Minimum longitude is invalid",
+                maxLng: "Maximum longitude is invalid",
+                minPrice: "Minimum price must be greater than or equal to 0",
+                maxPrice: "Maximum price must be greater than or equal to 0"
             }
         })
-    }
-
-    //pagination
-    if (!page) { page = 1 };
-    if (!size) { size = 20 };
-    if (page > 10) { page = 10 };
-    if (size > 20) { size = 20 };
-
-    let pagination = {};
-    if (page >= 1 && size >= 1) {
-        pagination.limit = size;
-        pagination.offset = size * (page - 1)
     }
 
     //query filters
