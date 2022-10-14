@@ -78,3 +78,12 @@ router.post('/', validateSignup, async (req, res) => {
 
 
 module.exports = router;
+
+
+// window.store.dispatch(window.sessionActions.signup({
+//     firstName: 'New',
+//     lastName:'User',
+//     username: 'NewUser',
+//     email: 'new@user.io',
+//     password: 'password'
+//   }));
