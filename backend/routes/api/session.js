@@ -64,14 +64,14 @@ router.delete(
 // Restore session user
 router.get(
     '/',
-    restoreUser,
+    // restoreUser,
     (req, res) => {
         const { user } = req;
         if (user) {
             return res.json(
                 user.toSafeObject()
             );
-        } else return res.json({});
+        } else { res.json(null) };
     }
 );
 
