@@ -20,6 +20,18 @@ function LoginForm() {
         );
     };
 
+    const demoUser = (e) => {
+        e.preventDefault();
+        setErrors([]);
+        return dispatch(sessionActions.login({ credential: 'DemoUser1', password: 'password' })).catch(
+            async (res) => {
+                const data = await res.json();
+                if (data && data.errors) setErrors(data.errors);
+            }
+        );
+    };
+
+
     return (
         <div className='loginform'>
             <p className='login-title'>Log in</p>
@@ -50,8 +62,12 @@ function LoginForm() {
                         />
                     </label>
                 </div>
-                <button className='login-button' type="submit">Log In</button>
-
+                <div>
+                    <button className='login-button' type="submit">Log In</button>
+                </div>
+                <div>
+                    <button className='login-button' onClick={demoUser}>Demo User</button>
+                </div>
             </form>
         </div >
         // <form onSubmit={handleSubmit}>
