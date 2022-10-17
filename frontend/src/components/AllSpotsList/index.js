@@ -2,11 +2,12 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react';
 import { listAllSpots } from '../../store/spots';
+import './AllSpotsList.css';
 
 function AllSpotsList() {
     const dispatch = useDispatch();
     const spotsObj = useSelector(state => state.spots)
-    // console.log("AllSpotsList spotsObj: ", spotsObj)
+    console.log("AllSpotsList spotsObj: ", spotsObj)
     const spots = Object.values(spotsObj);
     // console.log("AllSpotsList spots: ", spots)
 
@@ -18,8 +19,8 @@ function AllSpotsList() {
         <div className='all-spots-list'>
             {spots && (
                 spots.map(spot => (
-                    // <Link key={spot.id} to={`/spots/${spot.id}`}>
-                    <div className='spot-card'>
+
+                    <div key={spot.id} className='spot-card'>
                         <div >
                             <img src={spot.previewImage} alt='Spot preview image' />
                         </div>
