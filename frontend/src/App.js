@@ -5,7 +5,8 @@ import { Route, Switch } from "react-router-dom";
 // import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
-import AllSpotsList from "./components/AllSpotsList"
+import AllSpotsList from "./components/AllSpotsList";
+import OneSpotList from "./components/OneSpotList"
 
 function App() {
   const dispatch = useDispatch();
@@ -27,6 +28,9 @@ function App() {
           </Route> */}
           <Route exact path="/">
             <AllSpotsList />
+          </Route>
+          <Route path="/spots/:spotId">
+            <OneSpotList />
           </Route>
 
           //all other routes shown as not found
