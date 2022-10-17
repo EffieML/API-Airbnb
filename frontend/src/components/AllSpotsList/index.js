@@ -19,7 +19,7 @@ function AllSpotsList() {
         <div className='all-spots-list'>
             {spots && (
                 spots.map(spot => (
-                    // <Link key={spot.id} to={`/spots/${spot.id}`}>
+
                     <div key={spot.id} className='spot-card'>
                         <div >
                             <img src={spot.previewImage} alt='Spot preview image' />
