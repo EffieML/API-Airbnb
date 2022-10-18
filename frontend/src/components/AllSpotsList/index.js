@@ -7,7 +7,7 @@ import './AllSpotsList.css';
 function AllSpotsList() {
     const dispatch = useDispatch();
     const spotsObj = useSelector(state => state.spots)
-    console.log("AllSpotsList spotsObj: ", spotsObj)
+    // console.log("AllSpotsList spotsObj: ", spotsObj)
     const spots = Object.values(spotsObj);
     // console.log("AllSpotsList spots: ", spots)
 
@@ -19,24 +19,24 @@ function AllSpotsList() {
         <div className='all-spots-list'>
             {spots && (
                 spots.map(spot => (
-
-                    <div key={spot.id} className='spot-card'>
-                        <div >
-                            <img src={spot.previewImage} alt='Spot preview image' />
-                        </div>
-                        <div className='spot-info'>
-                            <div>
-                                {`${spot.city}, ${spot.state}`}
-                            </div>
+                    <Link key={spot.id} to={`/spots/${spot.id}`}>
+                        <div key={spot.id} className='spot-card'>
                             <div >
-                                <span>${spot.price} </span>night
+                                <img src={spot.previewImage} alt='Spot preview image' />
                             </div>
-                            <div>
-                                rating?
+                            <div className='spot-info'>
+                                <div>
+                                    {`${spot.city}, ${spot.state}`}
+                                </div>
+                                <div >
+                                    <span>${spot.price} </span>night
+                                </div>
+                                <div>
+                                    rating?
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    // </Link>
+                    </Link>
                 ))
             )}
         </div>
