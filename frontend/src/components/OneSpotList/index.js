@@ -8,7 +8,7 @@ function OneSpotList() {
     const dispatch = useDispatch();
     const { spotId } = useParams();
     // console.log("spot Id: ", spotId)
-    const spot = useSelector(state => state.spots)
+    const spot = useSelector(state => state.spots.singleSpot)
     // console.log("OneSpotList spotObj: ", spot)
     // console.log("spot name:", spot.name)
     const [isLoaded, setIsLoaded] = useState(false);
@@ -17,6 +17,8 @@ function OneSpotList() {
     useEffect(() => {
         dispatch(listOneSpot(spotId)).then(() => setIsLoaded(true));
     }, [dispatch, spotId]);
+
+    if (!spot) return null;
 
     return (
         <div className='one-spot-list'>

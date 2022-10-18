@@ -8,7 +8,7 @@ function UserListingPage() {
     const dispatch = useDispatch();
     const spotsObj = useSelector(state => state.spots)
     const spots = Object.values(spotsObj);
-    console.log("UserListingpage spots: ", spots)
+    // console.log("UserListingpage spots: ", spots)
     //array obj lists
     const currUser = useSelector(state => state.session.user)
     // console.log('UserListingpage currUserid: ', currUser.id)

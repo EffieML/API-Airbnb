@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, Redirect } from 'react-router-dom';
 import * as sessionActions from '../../store/session';
 
 
@@ -47,10 +47,14 @@ function ProfileButton({ user }) {
                         <Link> Manage Reviews</Link>
                     </li>
                     <li>
-                        <Link to={`/spots/current}`}> Manage Listings</Link>
+                        <Link to={'/spots/current'}> Manage Listings</Link>
                     </li>
                     <li>
-                        <button onClick={logout}>Log Out</button>
+                        <button onClick={logout}>
+                            {/* <Redirect to="/spots" /> */}
+                            Log Out
+                        </button>
+
                     </li>
                 </ul>
             )}
