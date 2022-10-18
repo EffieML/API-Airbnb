@@ -6,11 +6,13 @@ import { Route, Switch } from "react-router-dom";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import AllSpotsList from "./components/AllSpotsList";
-import OneSpotList from "./components/OneSpotList"
+import OneSpotList from "./components/OneSpotList";
+import UserListingPage from "./components/UserListingPage";
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
@@ -26,11 +28,20 @@ function App() {
           {/* <Route path="/signup">
             <SignupFormPage />
           </Route> */}
-          <Route exact path="/">
-            <AllSpotsList />
+          <Route exact path="/spots/current">
+            <UserListingPage />
           </Route>
+
           <Route path="/spots/:spotId">
             <OneSpotList />
+          </Route>
+
+          <Route exact path="/spots">
+            <AllSpotsList />
+          </Route>
+
+          <Route exact path="/">
+            <AllSpotsList />
           </Route>
 
           //all other routes shown as not found
