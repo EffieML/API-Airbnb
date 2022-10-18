@@ -6,10 +6,9 @@ import './UserListingPage.css';
 
 function UserListingPage() {
     const dispatch = useDispatch();
-    const spotsObj = useSelector(state => state.spots)
-    const spots = Object.values(spotsObj);
+    const spots = Object.values(useSelector(state => state.spots.allSpots))
     // console.log("UserListingpage spots: ", spots)
-    //array obj lists
+    //spots is an array obj lists
     const currUser = useSelector(state => state.session.user)
     // console.log('UserListingpage currUserid: ', currUser.id)
     const [isloaded, setIsLoaded] = useState(false);
@@ -19,6 +18,7 @@ function UserListingPage() {
         dispatch(listUserSpots()).then(() => setIsLoaded(true));
     }, [dispatch, currUser.id]);
 
+    if (spots.length == 0) return null;
 
     return (
         <div className='user-listing-page'>

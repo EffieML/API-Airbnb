@@ -7,21 +7,14 @@ import './AllSpotsList.css';
 function AllSpotsList() {
     const dispatch = useDispatch();
     const spots = Object.values(useSelector(state => state.spots.allSpots))
-    console.log("AllSpotsList spots: ", spots)
-
-    // const spots = Object.values(spots)
+    // console.log("AllSpotsList spots: ", spots)
 
     useEffect(() => {
         dispatch(listAllSpots());
     }, [dispatch]);
 
-    if (!spots) return null;
-
-
-    // console.log("AllSpotsList spots: ", spots)
-
-    // const spots = Object.values(allSpotsObj[0]);
-    // console.log("AllSpotsList spots: ", spots)
+    // if statement locate below useEffect
+    if (spots.length == 0) return null;
 
     return (
         <div className='all-spots-list'>

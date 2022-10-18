@@ -145,28 +145,16 @@ const spotsReducer = (state = initialState, action) => {
         case GET_ALL_SPOTS:
             let allSpots = {};
             action.spots.map(spot => { allSpots[spot.id] = spot });
-            // console.log("newState", newState)
             newState = { ...state };
-            newState.allSpots = allSpots
+            newState.allSpots = allSpots;
+            // console.log("newState", newState)
             return newState;
-        // let allSpots = {}
-        // console.log("action.payload ", action.payload)
-        // action.payload.map(spot => {
-        //     allSpots[spot.id] = spot // assign id of each spot to the spot obj
-        // })
-        // newState = { ...state, allSpots }
-        // // console.log(action)
-        // console.log("newState", newState)
-
-        // return newState
 
         case GET_ONE_SPOT:
-            newState = {};
+            newState = { ...state };
             let singleSpot = { ...action.spot }
-            // const spot = action.spot;
-            // newState[action.spot.spotId] = action.spot;
             // console.log("action spot", action.spot)  single object
-            newState.singleSpot = singleSpot
+            newState.singleSpot = singleSpot;
             return newState;
 
         // case ADD_ONE_SPOT:
