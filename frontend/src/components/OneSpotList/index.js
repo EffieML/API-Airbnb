@@ -9,7 +9,7 @@ function OneSpotList() {
     const { spotId } = useParams();
     // console.log("spot Id: ", spotId)
     const spot = useSelector(state => state.spots)
-    console.log("OneSpotList spotObj: ", spot)
+    // console.log("OneSpotList spotObj: ", spot)
     // console.log("spot name:", spot.name)
     const [isLoaded, setIsLoaded] = useState(false);
 

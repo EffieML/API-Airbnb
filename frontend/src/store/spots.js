@@ -28,21 +28,34 @@ const getOneSpot = (spot) => {
 // thunk: get all spots
 export const listAllSpots = () => async (dispatch) => {
     const response = await csrfFetch('/api/spots');
-    const data = await response.json();
-    // console.log("store spots thunk spots data: ", data)
-    dispatch(getAllSpots(data.Spots));
-    return response;
+    if (response.ok) {
+        const data = await response.json();
+        // console.log("store spots thunk spots data: ", data)
+        dispatch(getAllSpots(data.Spots));
+        return response;
+    }
 };
 // thunk: get one spot
 export const listOneSpot = (spotId) => async (dispatch) => {
     // console.log("store spots thunk spotId", spotId)
     const response = await csrfFetch(`/api/spots/${spotId}`);
-    const data = await response.json();
-    // console.log("store spots thunk data:", data)
-    dispatch(getOneSpot(data));
-    return response;
+    if (response.ok) {
+        const data = await response.json();
+        // console.log("store spots thunk data:", data)
+        dispatch(getOneSpot(data));
+        return response;
+    }
 };
-
+// thunk: get all spots for current user
+export const listUserSpots = () => async (dispatch) => {
+    const response = await csrfFetch('/api/spots/current');
+    if (response.ok) {
+        const data = await response.json();
+        console.log("store spots thunk user spots data: ", data)
+        dispatch(getAllSpots(data.Spots));
+        return response;
+    }
+};
 
 
 // load inital spots and convert to object lsit
