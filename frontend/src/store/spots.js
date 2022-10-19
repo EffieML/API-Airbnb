@@ -42,7 +42,7 @@ const addSpotImage = (spot, img) => {
 //action: edit one spot
 const editOneSpot = (spot) => {
     return {
-        type: ADD_ONE_SPOT,
+        type: EDIT_ONE_SPOT,
         spot
     }
 }
@@ -85,7 +85,6 @@ export const listUserSpots = () => async (dispatch) => {
 // thunk: add one spot for current user
 export const addSpot = (spot) => async dispatch => {
     try {
-
         const response = await csrfFetch('/api/spots', {
             method: 'POST',
             headers: { 'Content-Type': "application/json" },
@@ -109,13 +108,13 @@ export const addSpot = (spot) => async dispatch => {
                     }
                 )
             });
+
             if (imageRes.ok) {
                 const imageData = await imageRes.json();
                 console.log("imgdata and spot data", data, imageData);
                 dispatch(addSpotImage(data, imageData));
                 return data;
             }
-
         }
     } catch (err) {
         console.log(err);
@@ -126,8 +125,7 @@ export const addSpot = (spot) => async dispatch => {
 // thunk: edit one spot for current user
 export const editSpot = (spot, spotId) => async dispatch => {
     try {
-
-        const response = await csrfFetch('/api/spots', {
+        const response = await csrfFetch(`/api/spots/${spotId}`, {
             method: 'PUT',
             headers: { 'Content-Type': "application/json" },
             body: JSON.stringify(spot)
@@ -200,6 +198,19 @@ const spotsReducer = (state = initialState, action) => {
             // console.log("addspotimage reducer:", newState)
             //{allspots{}, singlespot{id,address, SpotImages{1:xxx, 2:xxx}}}
             return newState
+
+        case EDIT_ONE_SPOT:
+            // newState = { ...state, allSpots: { ...state.allSpots }, singleSpot: { ...state.singleSpot } };
+            // const editedSpot = { ...action.spot };
+            // newState.allSpots[action.spot.id] = editedSpot;
+            // newState.singleSpot = editedSpot;
+            // // console.log("spots reducer add one spot newState: ", newState)
+            // return newState;
+            console.log("update payload:", action.spot)
+            newState = { ...state };
+            newState.allSpots = { ...state.allSpots, [action.spot.id]: action.spot }
+            newState.singleSpot = { ...state.singleSpot, ...action.spot }
+            return newState;
 
 
         default:

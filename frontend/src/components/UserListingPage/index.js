@@ -2,7 +2,8 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react';
 import { listUserSpots } from '../../store/spots';
-import AddNewSpotModal from '../AddNewSpotModal'
+import AddNewSpotModal from '../AddNewSpotModal';
+import EditSpotModal from '../EditSpotModal';
 import './UserListingPage.css';
 
 function UserListingPage() {
@@ -45,7 +46,9 @@ function UserListingPage() {
                                         </div>
                                     </div>
                                     <div className='listed-spot-edit-delete-button'>
-                                        <button> Edit Listing </button>
+                                        <div>
+                                            <EditSpotModal />
+                                        </div>
                                         <button> Delete Listing </button>
                                     </div>
                                 </div>

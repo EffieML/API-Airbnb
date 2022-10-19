@@ -1,24 +1,27 @@
 import React, { useState } from 'react'
 // import { Redirect } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import * as spotsActions from "../../store/spots";
 
 
-function AddNewSpotForm() {
+function EditSpotForm(spotId) {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const [address, setAddress] = useState('');
-    const [city, setCity] = useState('');
-    const [state, setState] = useState('');
-    const [country, setCountry] = useState('');
-    const [lat, setLat] = useState('');
-    const [lng, setLng] = useState('');
-    const [name, setName] = useState("");
-    const [description, setDescription] = useState('');
-    const [price, setPrice] = useState('');
-    const [url, setUrl] = useState("");
+    const allSpots = Object.values(useSelector(state => state.spots.allSpots));
+    console.log('editSpotForm spot', allSpots);
+    const spot = allSpots[spotId];
+
+    const [address, setAddress] = useState(spot ? spot.address : '');
+    const [city, setCity] = useState(spot ? spot.city : '');
+    const [state, setState] = useState(spot ? spot.state : '');
+    const [country, setCountry] = useState(spot ? spot.country : '');
+    const [lat, setLat] = useState(spot ? spot.lat : '');
+    const [lng, setLng] = useState(spot ? spot.lng : '');
+    const [name, setName] = useState(spot ? spot.name : '');
+    const [description, setDescription] = useState(spot ? spot.description : '');
+    const [price, setPrice] = useState(spot ? spot.price : '');
     const [errors, setErrors] = useState([]);
 
 
@@ -34,19 +37,18 @@ function AddNewSpotForm() {
             name,
             description,
             price,
-            url
         }
 
-        const addedSpot = await dispatch(spotsActions.addSpot(newSpot))
+        const editedSpot = await dispatch(spotsActions.editSpot(newSpot))
             .catch(async (res) => {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors);
             });
         // console.log("NewListForm added new spot,", addedSpot);
 
-        if (addedSpot) {
+        if (editedSpot) {
             setErrors([]);
-            history.replace(`/spots/${addedSpot.id}`)
+            // history.replace(`/spots/${editedSpot.id}`)
         }
     };
 
@@ -158,21 +160,10 @@ function AddNewSpotForm() {
                         />
                     </label>
                 </div>
-                <div className="add-new-spot-elem">
-                    <label>
-                        Preview Image
-                        <input
-                            type="link"
-                            value={url}
-                            onChange={(e) => setUrl(e.target.value)}
-                            required
-                        />
-                    </label>
-                </div>
                 <button className="add-new-spot-button" type="submit">Submit</button>
             </form >
         </div >
     );
 }
 
-export default AddNewSpotForm;
+export default EditSpotForm;
