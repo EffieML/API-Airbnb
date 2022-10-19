@@ -6,6 +6,8 @@ const GET_ONE_SPOT = 'spots/getOneSpot';
 const ADD_ONE_SPOT = 'spots/addOneSpot';
 const ADD_SPOT_IMAGE = 'spots/addSpotImage';
 const EDIT_ONE_SPOT = 'spots/editOneSpot';
+const DELETE_ONE_SPOT = 'spots/deleteOneSpot';
+
 
 
 //todo: define action creators
@@ -46,6 +48,16 @@ const editOneSpot = (spot) => {
         spot
     }
 }
+
+//action: delete one spot
+const deleteOneSpot = (spotId) => {
+    return {
+        type: DELETE_ONE_SPOT,
+        spotId
+    }
+}
+
+
 
 //todo: thunks section
 // thunk: get all spots
@@ -145,6 +157,24 @@ export const editSpot = (spot, spotId) => async dispatch => {
     }
 }
 
+
+// thunk: delete one spot for current user
+export const deleteSpot = (spotId) => async dispatch => {
+    console.log("spots thunk delete spot spotId : ", spotId);
+    console.log(typeof spotId);
+    try {
+        const response = await csrfFetch(`/api/spots/${spotId}`, {
+            method: 'DELETE',
+        })
+        if (response.ok) {
+            dispatch(deleteOneSpot(spotId));
+            return response;
+        }
+    } catch (err) {
+        console.log(err);
+        throw err;
+    }
+}
 // load inital spots and convert to object lsit
 // function normalizeArray(dataArray) {
 //     if (!(dataArray instanceof Array)) throw new Error('Normalize problem: data invalid')

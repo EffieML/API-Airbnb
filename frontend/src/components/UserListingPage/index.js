@@ -1,13 +1,17 @@
 import { Link, Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react';
+import { useHistory } from "react-router";
 import { listUserSpots } from '../../store/spots';
 import AddNewSpotModal from '../AddNewSpotModal';
 import EditSpotModal from '../EditSpotModal';
+import * as spotsActions from "../../store/spots";
 import './UserListingPage.css';
 
 function UserListingPage() {
     const dispatch = useDispatch();
+    const history = useHistory();
+
     const spots = Object.values(useSelector(state => state.spots.allSpots))
     // console.log("UserListingpage spots: ", spots)
     //spots is an array obj lists
@@ -29,6 +33,13 @@ function UserListingPage() {
 
 
 
+
+    const handleDelete = async (spotId) => {
+        await dispatch(spotsActions.deleteSpot(spotId))
+            .then(() => history.replace('/spots/current'))
+    }
+
+    if (spots.length == 0) return null;
 
     return (
         <div className='user-listing-page'>
@@ -60,6 +71,7 @@ function UserListingPage() {
                                 <div className='listed-spot-edit-delete-button'>
                                     <div>
                                         <EditSpotModal spot={spot} spotId={spot.id} />
+                                        <button onClick={() => handleDelete(spot.id)}> Delete Listing </button>
                                     </div>
                                     <button> Delete Listing </button>
                                 </div>
