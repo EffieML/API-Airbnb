@@ -1,12 +1,16 @@
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react';
+import { useHistory } from "react-router";
 import { listUserSpots } from '../../store/spots';
-import AddNewSpotModal from '../AddNewSpotModal'
+import AddNewSpotModal from '../AddNewSpotModal';
+import * as spotsActions from "../../store/spots";
 import './UserListingPage.css';
 
 function UserListingPage() {
     const dispatch = useDispatch();
+    const history = useHistory();
+
     const spots = Object.values(useSelector(state => state.spots.allSpots))
     // console.log("UserListingpage spots: ", spots)
     //spots is an array obj lists
@@ -18,6 +22,12 @@ function UserListingPage() {
     useEffect(() => {
         dispatch(listUserSpots()).then(() => setIsLoaded(true));
     }, [dispatch, currUser.id]);
+
+
+    const handleDelete = async (spotId) => {
+        await dispatch(spotsActions.deleteSpot(spotId))
+            .then(() => history.replace('/spots/current'))
+    }
 
     if (spots.length == 0) return null;
 
@@ -46,7 +56,7 @@ function UserListingPage() {
                                     </div>
                                     <div className='listed-spot-edit-delete-button'>
                                         <button> Edit Listing </button>
-                                        <button> Delete Listing </button>
+                                        <button onClick={() => handleDelete(spot.id)}> Delete Listing </button>
                                     </div>
                                 </div>
                             </Link>
