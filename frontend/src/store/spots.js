@@ -5,6 +5,7 @@ const GET_ALL_SPOTS = 'spots/getAllSpots';
 const GET_ONE_SPOT = 'spots/getOneSpot';
 const ADD_ONE_SPOT = 'spots/addOneSpot';
 const ADD_SPOT_IMAGE = 'spots/addSpotImage';
+const EDIT_ONE_SPOT = 'spots/editOneSpot';
 
 
 //todo: define action creators
@@ -30,7 +31,7 @@ const addOneSpot = (payload) => {
     }
 }
 
-//add image to spot
+//action: add image to spot
 const addSpotImage = (spot, img) => {
     return {
         type: ADD_SPOT_IMAGE,
@@ -38,10 +39,21 @@ const addSpotImage = (spot, img) => {
     }
 }
 
+//action: edit one spot
+const editOneSpot = (spot) => {
+    return {
+        type: ADD_ONE_SPOT,
+        spot
+    }
+}
+
+
+
+
 //todo: thunks section
 // thunk: get all spots
 export const listAllSpots = () => async (dispatch) => {
-    const response = await fetch('/api/spots');
+    const response = await csrfFetch('/api/spots');
     if (response.ok) {
         const data = await response.json();
         console.log("store spots thunk spots data: ", data)
@@ -82,11 +94,11 @@ export const addSpot = (spot) => async dispatch => {
 
         if (response.ok) {
             const data = await response.json();
-            console.log("store spots thunk add one spot step1: ", data)
+            // console.log("store spots thunk add one spot step1: ", data)
             //data is obj list {address:.., lat: ..., ...}
             //do actioin addOneSpot to create newSpot which will generate data.id
             const newSpot = dispatch(addOneSpot(data));
-            console.log("store spots thunk add one spot step2: ", newSpot)
+            // console.log("store spots thunk add one spot step2: ", newSpot)
             const { url } = spot;
             const imageRes = await csrfFetch(`/api/spots/${data.id}/images`, {
                 method: 'POST',
@@ -111,6 +123,29 @@ export const addSpot = (spot) => async dispatch => {
     }
 }
 
+// thunk: edit one spot for current user
+export const editSpot = (spot, spotId) => async dispatch => {
+    try {
+
+        const response = await csrfFetch('/api/spots', {
+            method: 'PUT',
+            headers: { 'Content-Type': "application/json" },
+            body: JSON.stringify(spot)
+        })
+
+        if (response.ok) {
+            const data = await response.json();
+            console.log("store spots thunk edit one spot step1: ", data)
+            //data is obj list {address:.., lat: ..., ...}
+            //do actioin addOneSpot to create newSpot which will generate data.id
+            const editSpot = dispatch(editOneSpot(data));
+            console.log("store spots thunk edit one spot step2: ", editSpot)
+        }
+    } catch (err) {
+        console.log(err);
+        throw err;
+    }
+}
 
 // load inital spots and convert to object lsit
 // function normalizeArray(dataArray) {
