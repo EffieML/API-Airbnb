@@ -1,9 +1,10 @@
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react';
 import { useHistory } from "react-router";
 import { listUserSpots } from '../../store/spots';
 import AddNewSpotModal from '../AddNewSpotModal';
+import EditSpotModal from '../EditSpotModal';
 import * as spotsActions from "../../store/spots";
 import './UserListingPage.css';
 
@@ -21,12 +22,18 @@ function UserListingPage() {
 
     useEffect(() => {
         dispatch(listUserSpots()).then(() => setIsLoaded(true));
-    }, [dispatch, currUser.id]);
+    }, [dispatch]);
 
+
+    // if user is not logged in, need to redirect to main page
+    if (!currUser) return <Redirect to='/' />
+
+    //if user don't have post spots, showing empty message
+    if (spots.length == 0) return (<h2>No listings yet.</h2>);
 
     const handleDelete = async (spotId) => {
         await dispatch(spotsActions.deleteSpot(spotId))
-            .then(() => history.replace('/spots/current'))
+        // .then(() => history.push('/spots/current'))
     }
 
     if (spots.length == 0) return null;
@@ -41,25 +48,30 @@ function UserListingPage() {
                     </div>
                     <div className='user-all-listings'>
                         {spots.map(spot => (
-                            <Link key={spot.id} to={`/spots/${spot.id}`}>
-                                <div className='listed-spot'>
-                                    <div className='listed-spot-image'>
-                                        <img src={spot.previewImage} alt='Spot preview image' />
-                                    </div>
-                                    <div className='listed-spot-info'>
-                                        <div>
-                                            {`${spot.name}`}
+                            <>
+                                <Link key={spot.id} to={`/spots/${spot.id}`}>
+                                    <div className='listed-spot'>
+                                        <div className='listed-spot-image'>
+                                            <img src={spot.previewImage} alt='Spot preview image' />
                                         </div>
-                                        <div>
-                                            {`${spot.city}, ${spot.state}, ${spot.country}`}
+                                        <div className='listed-spot-info'>
+                                            <div>
+                                                {`${spot.name}`}
+                                            </div>
+                                            <div>
+                                                {`${spot.city}, ${spot.state}, ${spot.country}`}
+                                            </div>
                                         </div>
+
                                     </div>
-                                    <div className='listed-spot-edit-delete-button'>
-                                        <button> Edit Listing </button>
+                                </Link>
+                                <div className='listed-spot-edit-delete-button'>
+                                    <div>
+                                        <EditSpotModal spot={spot} spotId={spot.id} />
                                         <button onClick={() => handleDelete(spot.id)}> Delete Listing </button>
                                     </div>
                                 </div>
-                            </Link>
+                            </>
                         ))}
                     </div>
                 </div>

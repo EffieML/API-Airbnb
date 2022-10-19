@@ -1,30 +1,33 @@
 import React, { useState } from 'react'
 // import { Redirect } from 'react-router-dom';
-import { useHistory } from 'react-router-dom';
-import { useDispatch } from "react-redux";
+// import { useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
 import * as spotsActions from "../../store/spots";
 
 
-function AddNewSpotForm() {
-    const dispatch = useDispatch();
-    const history = useHistory();
+function EditSpotForm({ spot, spotId, setShowModal }) {
+    // console.log('EditSpotForm spot', spot);
+    // console.log('EditSpotForm spotId', spotId);
 
-    const [address, setAddress] = useState('');
-    const [city, setCity] = useState('');
-    const [state, setState] = useState('');
-    const [country, setCountry] = useState('');
-    const [lat, setLat] = useState('');
-    const [lng, setLng] = useState('');
-    const [name, setName] = useState("");
-    const [description, setDescription] = useState('');
-    const [price, setPrice] = useState('');
-    const [url, setUrl] = useState("");
+    const dispatch = useDispatch();
+    // const history = useHistory();
+
+    const [address, setAddress] = useState(spot ? spot.address : '');
+    const [city, setCity] = useState(spot ? spot.city : '');
+    const [state, setState] = useState(spot ? spot.state : '');
+    const [country, setCountry] = useState(spot ? spot.country : '');
+    const [lat, setLat] = useState(spot ? spot.lat : '');
+    const [lng, setLng] = useState(spot ? spot.lng : '');
+    const [name, setName] = useState(spot ? spot.name : '');
+    const [description, setDescription] = useState(spot ? spot.description : '');
+    const [price, setPrice] = useState(spot ? spot.price : '');
     const [errors, setErrors] = useState([]);
 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const newSpot = {
+        setErrors([]);
+        const updateSpot = {
             address,
             city,
             state,
@@ -33,26 +36,27 @@ function AddNewSpotForm() {
             lng,
             name,
             description,
-            price,
-            url
+            price
         }
 
-        const addedSpot = await dispatch(spotsActions.addSpot(newSpot))
+        // console.log("EditSpotForm updateSpot", updateSpot)
+        const editedSpot = await dispatch(spotsActions.editSpot(updateSpot, spotId))
             .catch(async (res) => {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors);
             });
-        // console.log("NewListForm added new spot,", addedSpot);
+        // console.log("NewListForm added new spot,", editedSpot);
 
-        if (addedSpot) {
+        if (editedSpot) {
             setErrors([]);
-            history.push(`/spots/${addedSpot.id}`)
+            setShowModal(false);
+            //do not use histroy.replace
         }
     };
 
     return (
         <div className="add-new-spot-form">
-            <p className='add-new-spot-title'>Create new listing</p>
+            <p className='add-new-spot-title'>Update your listing</p>
             <form onSubmit={handleSubmit}>
                 <p className='add-new-spot-welcome'>Open your door to hosting</p>
                 <ul>
@@ -158,21 +162,10 @@ function AddNewSpotForm() {
                         />
                     </label>
                 </div>
-                <div className="add-new-spot-elem">
-                    <label>
-                        Preview Image
-                        <input
-                            type="link"
-                            value={url}
-                            onChange={(e) => setUrl(e.target.value)}
-                            required
-                        />
-                    </label>
-                </div>
                 <button className="add-new-spot-button" type="submit">Submit</button>
             </form >
         </div >
     );
 }
 
-export default AddNewSpotForm;
+export default EditSpotForm;
