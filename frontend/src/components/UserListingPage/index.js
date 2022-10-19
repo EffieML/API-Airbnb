@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react';
 import { listUserSpots } from '../../store/spots';
+import AddNewSpotModal from '../AddNewSpotModal'
 import './UserListingPage.css';
 
 function UserListingPage() {
@@ -25,7 +26,9 @@ function UserListingPage() {
             {isloaded && (
                 <div>
                     <h1 className='user-listing-page-title'>Manage your listings </h1>
-                    <button> Create New Listing </button>
+                    <div>
+                        <AddNewSpotModal />
+                    </div>
                     <div className='user-all-listings'>
                         {spots.map(spot => (
                             <Link key={spot.id} to={`/spots/${spot.id}`}>
