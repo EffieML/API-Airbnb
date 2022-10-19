@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
 // import { Redirect } from 'react-router-dom';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import * as spotsActions from "../../store/spots";
 
 
 function EditSpotForm({ spot, spotId, setShowModal }) {
-    console.log('EditSpotForm spot', spot);
-    console.log('EditSpotForm spotId', spotId);
+    // console.log('EditSpotForm spot', spot);
+    // console.log('EditSpotForm spotId', spotId);
 
     const dispatch = useDispatch();
-    const history = useHistory();
+    // const history = useHistory();
 
     const [address, setAddress] = useState(spot ? spot.address : '');
     const [city, setCity] = useState(spot ? spot.city : '');
@@ -21,7 +21,6 @@ function EditSpotForm({ spot, spotId, setShowModal }) {
     const [name, setName] = useState(spot ? spot.name : '');
     const [description, setDescription] = useState(spot ? spot.description : '');
     const [price, setPrice] = useState(spot ? spot.price : '');
-    const [url, setUrl] = useState(spot ? spot.previewImage : '');
     const [errors, setErrors] = useState([]);
 
 
@@ -37,23 +36,21 @@ function EditSpotForm({ spot, spotId, setShowModal }) {
             lng,
             name,
             description,
-            price,
-            url
+            price
         }
 
-        console.log("EditSpotForm updateSpot", updateSpot)
+        // console.log("EditSpotForm updateSpot", updateSpot)
         const editedSpot = await dispatch(spotsActions.editSpot(updateSpot, spotId))
             .catch(async (res) => {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors);
             });
-        console.log("NewListForm added new spot,", editedSpot);
+        // console.log("NewListForm added new spot,", editedSpot);
 
         if (editedSpot) {
             setErrors([]);
             setShowModal(false);
-            console.log("redirect?")
-            history.replace(`/spots/${+spotId}`)
+            //do not use histroy.replace
         }
     };
 
@@ -161,17 +158,6 @@ function EditSpotForm({ spot, spotId, setShowModal }) {
                             type="float"
                             value={price}
                             onChange={(e) => setPrice(e.target.value)}
-                            required
-                        />
-                    </label>
-                </div>
-                <div className="add-new-spot-elem">
-                    <label>
-                        Preview Image
-                        <input
-                            type="link"
-                            value={url}
-                            onChange={(e) => setUrl(e.target.value)}
                             required
                         />
                     </label>

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react';
 import { listUserSpots } from '../../store/spots';
@@ -18,9 +18,17 @@ function UserListingPage() {
 
     useEffect(() => {
         dispatch(listUserSpots()).then(() => setIsLoaded(true));
-    }, [dispatch, currUser.id]);
+    }, [dispatch]);
 
-    if (spots.length == 0) return null;
+
+    // if user is not logged in, need to redirect to main page
+    if (!currUser) return <Redirect to='/' />
+
+    //if user don't have post spots, showing empty message
+    if (spots.length == 0) return (<h2>No listings yet.</h2>);
+
+
+
 
     return (
         <div className='user-listing-page'>

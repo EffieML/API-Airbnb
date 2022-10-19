@@ -47,16 +47,13 @@ const editOneSpot = (spot) => {
     }
 }
 
-
-
-
 //todo: thunks section
 // thunk: get all spots
 export const listAllSpots = () => async (dispatch) => {
     const response = await csrfFetch('/api/spots');
     if (response.ok) {
         const data = await response.json();
-        console.log("store spots thunk spots data: ", data)
+        // console.log("store spots thunk spots data: ", data)
         dispatch(getAllSpots(data.Spots));
         return data;
     }
@@ -111,7 +108,7 @@ export const addSpot = (spot) => async dispatch => {
 
             if (imageRes.ok) {
                 const imageData = await imageRes.json();
-                console.log("imgdata and spot data", data, imageData);
+                // console.log("imgdata and spot data", data, imageData);
                 dispatch(addSpotImage(data, imageData));
                 return data;
             }
@@ -125,8 +122,8 @@ export const addSpot = (spot) => async dispatch => {
 // thunk: edit one spot for current user
 export const editSpot = (spot, spotId) => async dispatch => {
     try {
-        console.log("spots spot", spot)
-        console.log("spots spotId", spotId)
+        // console.log("spots spot", spot)
+        // console.log("spots spotId", spotId)
         const response = await csrfFetch(`/api/spots/${spotId}`, {
             method: 'PUT',
             headers: { 'Content-Type': "application/json" },
@@ -135,11 +132,12 @@ export const editSpot = (spot, spotId) => async dispatch => {
 
         if (response.ok) {
             const data = await response.json();
-            console.log("store spots thunk edit one spot step1: ", data)
+            // console.log("store spots thunk edit one spot step1: ", data)
             //data is obj list {address:.., lat: ..., ...}
             //do actioin addOneSpot to create newSpot which will generate data.id
             dispatch(editOneSpot(data));
             // console.log("store spots thunk edit one spot step2: ", editSpot)
+            return data
         }
     } catch (err) {
         console.log(err);
@@ -157,14 +155,13 @@ export const editSpot = (spot, spotId) => async dispatch => {
 //     return obj
 // }
 
-
 //todo: reducer stuff
 const initialState = { allSpots: {}, singleSpot: {} };
 
 const spotsReducer = (state = initialState, action) => {
 
     let newState = {};
-    console.log('action:', action)
+    // console.log('action:', action)
     switch (action.type) {
         case GET_ALL_SPOTS:
             let allSpots = {};
@@ -199,22 +196,15 @@ const spotsReducer = (state = initialState, action) => {
             }
             // console.log("addspotimage reducer:", newState)
             //{allspots{}, singlespot{id,address, SpotImages{1:xxx, 2:xxx}}}
-            return newState
-
-        case EDIT_ONE_SPOT:
-            // newState = { ...state, allSpots: { ...state.allSpots }, singleSpot: { ...state.singleSpot } };
-            // const editedSpot = { ...action.spot };
-            // newState.allSpots[action.spot.id] = editedSpot;
-            // newState.singleSpot = editedSpot;
-            // // console.log("spots reducer add one spot newState: ", newState)
-            // return newState;
-            console.log("update payload:", action.spot)
-            newState = { ...state };
-            newState.allSpots = { ...state.allSpots, [action.spot.id]: action.spot }
-            newState.singleSpot = { ...state.singleSpot, ...action.spot }
-            console.log("spots newState:", newState)
             return newState;
 
+        case EDIT_ONE_SPOT:
+            // console.log("update payload:", action.spot)
+            newState = { ...state };
+            newState.allSpots = { ...state.allSpots, [action.spot.id]: { ...state.allSpots[action.spot.id], ...action.spot } }
+            newState.singleSpot = { ...state.singleSpot, ...action.spot }
+            // console.log("spots newState:", newState)
+            return newState;
 
         default:
             return state;
