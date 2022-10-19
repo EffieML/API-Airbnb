@@ -252,7 +252,8 @@ router.get('/current', requireAuth, async (req, res) => {
 
 
 //Get details for a spot from an id, Auth:false
-router.get('/:spotId', requireAuth, async (req, res) => {
+// router.get('/:spotId', requireAuth, async (req, res) => {
+router.get('/:spotId', async (req, res) => {
     let spotId = req.params.spotId;
     const spot = await Spot.findByPk(spotId, { raw: true, nest: true })
 
