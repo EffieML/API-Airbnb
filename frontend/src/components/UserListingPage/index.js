@@ -31,12 +31,9 @@ function UserListingPage() {
     //if user don't have post spots, showing empty message
     if (spots.length == 0) return (<h2>No listings yet.</h2>);
 
-
-
-
     const handleDelete = async (spotId) => {
         await dispatch(spotsActions.deleteSpot(spotId))
-            .then(() => history.replace('/spots/current'))
+        // .then(() => history.push('/spots/current'))
     }
 
     if (spots.length == 0) return null;
@@ -73,7 +70,6 @@ function UserListingPage() {
                                         <EditSpotModal spot={spot} spotId={spot.id} />
                                         <button onClick={() => handleDelete(spot.id)}> Delete Listing </button>
                                     </div>
-                                    <button> Delete Listing </button>
                                 </div>
                             </>
                         ))}

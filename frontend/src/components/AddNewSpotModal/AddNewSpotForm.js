@@ -46,7 +46,7 @@ function AddNewSpotForm() {
 
         if (addedSpot) {
             setErrors([]);
-            history.replace(`/spots/${addedSpot.id}`)
+            history.push(`/spots/${addedSpot.id}`)
         }
     };
 

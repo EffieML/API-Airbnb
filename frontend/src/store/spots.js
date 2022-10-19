@@ -236,6 +236,13 @@ const spotsReducer = (state = initialState, action) => {
             // console.log("spots newState:", newState)
             return newState;
 
+        case DELETE_ONE_SPOT:
+            newState = { allSpots: { ...state.allSpots }, singleSpot: { ...state.singleSpot } };
+            delete newState.allSpots[action.spotId];
+            // console.log('singleSpot and actionspot id: ', newState.singleSpot.id, action.spotId)
+            if (action.spotId == newState.singleSpot.id) { newState.singleSpot = {} }
+            return newState;
+
         default:
             return state;
     }
