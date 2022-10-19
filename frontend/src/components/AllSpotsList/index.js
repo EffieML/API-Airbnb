@@ -6,21 +6,22 @@ import './AllSpotsList.css';
 
 function AllSpotsList() {
     const dispatch = useDispatch();
-    const spotsObj = useSelector(state => state.spots)
-    // console.log("AllSpotsList spotsObj: ", spotsObj)
-    const spots = Object.values(spotsObj);
+    const spots = Object.values(useSelector(state => state.spots.allSpots))
     // console.log("AllSpotsList spots: ", spots)
 
     useEffect(() => {
         dispatch(listAllSpots());
     }, [dispatch]);
 
+    // if statement locate below useEffect
+    if (spots.length == 0) return null;
+
     return (
         <div className='all-spots-list'>
             {spots && (
                 spots.map(spot => (
                     <Link key={spot.id} to={`/spots/${spot.id}`}>
-                        <div key={spot.id} className='spot-card'>
+                        <div className='spot-card'>
                             <div >
                                 <img src={spot.previewImage} alt='Spot preview image' />
                             </div>

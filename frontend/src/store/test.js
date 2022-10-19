@@ -3,8 +3,10 @@ import { csrfFetch } from './csrf';
 //todo: define types
 const GET_ALL_SPOTS = 'spots/getAllSpots';
 const GET_ONE_SPOT = 'spots/getOneSpot';
-const ADD_ONE_SPOT = 'spots/addOneSpot';
-const ADD_SPOT_IMAGE = 'spots/addSpotImage';
+// const ADD_ONE_SPOT = 'spots/addOneSpot';
+// const ADD_SPOT_IMG = 'spots/addSpotImg';
+const CREATE_SPOT = 'spots/createSpot';
+
 
 
 //todo: define action creators
@@ -23,20 +25,30 @@ const getOneSpot = (spot) => {
     }
 }
 //action: add one spot
-const addOneSpot = (payload) => {
-    return {
-        type: ADD_ONE_SPOT,
-        payload
-    }
-}
+// const addOneSpot = (spot) => {
+//     return {
+//         type: ADD_ONE_SPOT,
+//         spot,
+//     }
+// }
 
-//add image to spot
-const addSpotImage = (spot, img) => {
+const createSpot = (payload) => {
     return {
-        type: ADD_SPOT_IMAGE,
-        payload: { spot, img }
-    }
-}
+        type: CREATE_SPOT,
+        payload,
+    };
+};
+//add image to spot
+// const addSpotImg = (spot, img) => {
+//     return {
+//         type: ADD_SPOT_IMG,
+//         payload: {
+//             spot,
+//             img
+//         }
+//     }
+// }
+
 
 //todo: thunks section
 // thunk: get all spots
@@ -71,45 +83,42 @@ export const listUserSpots = () => async (dispatch) => {
     }
 };
 // thunk: add one spot for current user
-export const addSpot = (spot) => async dispatch => {
-    try {
+// export const addSpot = (spot) => async (dispatch) => {
+//     // const { address, city, state, country, lat, lng, name, description, price } = spot;
+//     // console.log("address", address)
+//     const response = await csrfFetch('/api/spots', {
+//         method: 'POST',
+//         headers: { 'Content-Type': 'application/json' },
+//         body: JSON.stringify({
+//             spot
+//         })
+//     });
+//     if (response.ok) {
+//         const data = await response.json();
+//         console.log("store spots thunk add one spot step1: ", data)
+//         dispatch(addOneSpot(data));
+//
 
-        const response = await csrfFetch('/api/spots', {
-            method: 'POST',
-            headers: { 'Content-Type': "application/json" },
-            body: JSON.stringify(spot)
-        })
+//         // const spotImgRes = await csrfFetch(`/api/spots/${data.id}/images`, {
+//         //     method: 'POST',
+//         //     headers: { 'Content-Type': 'application/json' },
+//         //     body: JSON.stringify({
+//         //         spotId: data.id,
+//         //         url,
+//         //         preview: true,
+//         //     })
+//         // });
 
-        if (response.ok) {
-            const data = await response.json();
-            console.log("store spots thunk add one spot step1: ", data)
-            //data is obj list {address:.., lat: ..., ...}
-            //do actioin addOneSpot to create newSpot which will generate data.id
-            const newSpot = dispatch(addOneSpot(data));
-            console.log("store spots thunk add one spot step2: ", newSpot)
-            const { url } = spot;
-            const imageRes = await csrfFetch(`/api/spots/${data.id}/images`, {
-                method: 'POST',
-                body: JSON.stringify(
-                    {
-                        url,
-                        preview: true
-                    }
-                )
-            });
-            if (imageRes.ok) {
-                const imageData = await imageRes.json();
-                console.log("imgdata and spot data", data, imageData);
-                dispatch(addSpotImage(data, imageData));
-                return data;
-            }
+//         // if (spotImgRes.ok) {
+//         //     const spotImgData = await spotImgRes.json();
+//         //     console.log("store spots thunk add one spot step3 spot img: ", spotImgData)
+//         //     const newSpotImg = dispatch(addSpotImg(data, spotImgData));
+//         //     return response;
+//         // }
 
-        }
-    } catch (err) {
-        console.log(err);
-        throw err;
-    }
-}
+//         return data;
+//     }
+// };
 
 
 // load inital spots and convert to object lsit
@@ -146,25 +155,13 @@ const spotsReducer = (state = initialState, action) => {
             newState.singleSpot = singleSpot;
             return newState;
 
-        case ADD_ONE_SPOT:
-            newState = { ...state, allSpots: { ...state.allSpots }, singleSpot: {} };
-            const addSpot = { ...action.payload };
-            newState.allSpots[action.payload.id] = addSpot;
-            newState.singleSpot = addSpot;
-            // console.log("spots reducer add one spot newState: ", newState)
-            return newState;
-
-        case ADD_SPOT_IMAGE:
-            newState = {
-                ...state,
-                singleSpot: {
-                    ...action.payload.spot,
-                    SpotImages: [action.payload.img]
-                }
-            }
-            // console.log("addspotimage reducer:", newState)
-            //{allspots{}, singlespot{id,address, SpotImages{1:xxx, 2:xxx}}}
-            return newState
+        // case ADD_ONE_SPOT:
+        //     newState = { ...state, allSpots: { ...state.allSpots }, singleSpot: { ...state.singleSpot } };
+        //     let addSpot = { ...action.spot }
+        //     newState.allSpots[action.spot.id] = addSpot;
+        //     newState.singleSpot = addSpot;
+        //     console.log("spots add one spot newState", newState)
+        //     return newState;
 
 
         default:

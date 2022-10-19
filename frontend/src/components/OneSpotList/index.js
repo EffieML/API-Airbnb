@@ -8,7 +8,7 @@ function OneSpotList() {
     const dispatch = useDispatch();
     const { spotId } = useParams();
     // console.log("spot Id: ", spotId)
-    const spot = useSelector(state => state.spots)
+    const spot = useSelector(state => state.spots.singleSpot)
     // console.log("OneSpotList spotObj: ", spot)
     // console.log("spot name:", spot.name)
     const [isLoaded, setIsLoaded] = useState(false);
@@ -17,6 +17,8 @@ function OneSpotList() {
     useEffect(() => {
         dispatch(listOneSpot(spotId)).then(() => setIsLoaded(true));
     }, [dispatch, spotId]);
+
+    if (!spot) return null;
 
     return (
         <div className='one-spot-list'>
@@ -92,3 +94,19 @@ function OneSpotList() {
 }
 
 export default OneSpotList;
+
+
+
+// <div className='map'>
+// <div class="mapouter">
+//     <div class="gmap_canvas">
+//         <iframe width="600" height="500" id="gmap_canvas" src={`https://maps.google.com/maps?q=2880%20Broadway,%20New%20York&t=&z=13&ie=UTF8&iwloc=&output=embed`} frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+//         </iframe>
+//         <a href="https://fmovies-online.net">fmovies</a>
+//         {/* <style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}
+//         </style> */}
+//         <a href="https://www.embedgooglemap.net">copy google map</a>
+//         {/* <style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style> */}
+//     </div>
+// </div>
+// </div>
