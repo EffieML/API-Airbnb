@@ -125,6 +125,8 @@ export const addSpot = (spot) => async dispatch => {
 // thunk: edit one spot for current user
 export const editSpot = (spot, spotId) => async dispatch => {
     try {
+        console.log("spots spot", spot)
+        console.log("spots spotId", spotId)
         const response = await csrfFetch(`/api/spots/${spotId}`, {
             method: 'PUT',
             headers: { 'Content-Type': "application/json" },
@@ -136,8 +138,8 @@ export const editSpot = (spot, spotId) => async dispatch => {
             console.log("store spots thunk edit one spot step1: ", data)
             //data is obj list {address:.., lat: ..., ...}
             //do actioin addOneSpot to create newSpot which will generate data.id
-            const editSpot = dispatch(editOneSpot(data));
-            console.log("store spots thunk edit one spot step2: ", editSpot)
+            dispatch(editOneSpot(data));
+            // console.log("store spots thunk edit one spot step2: ", editSpot)
         }
     } catch (err) {
         console.log(err);
@@ -210,6 +212,7 @@ const spotsReducer = (state = initialState, action) => {
             newState = { ...state };
             newState.allSpots = { ...state.allSpots, [action.spot.id]: action.spot }
             newState.singleSpot = { ...state.singleSpot, ...action.spot }
+            console.log("spots newState:", newState)
             return newState;
 
 

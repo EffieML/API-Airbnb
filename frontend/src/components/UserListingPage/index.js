@@ -32,27 +32,30 @@ function UserListingPage() {
                     </div>
                     <div className='user-all-listings'>
                         {spots.map(spot => (
-                            <Link key={spot.id} to={`/spots/${spot.id}`}>
-                                <div className='listed-spot'>
-                                    <div className='listed-spot-image'>
-                                        <img src={spot.previewImage} alt='Spot preview image' />
-                                    </div>
-                                    <div className='listed-spot-info'>
-                                        <div>
-                                            {`${spot.name}`}
+                            <>
+                                <Link key={spot.id} to={`/spots/${spot.id}`}>
+                                    <div className='listed-spot'>
+                                        <div className='listed-spot-image'>
+                                            <img src={spot.previewImage} alt='Spot preview image' />
                                         </div>
-                                        <div>
-                                            {`${spot.city}, ${spot.state}, ${spot.country}`}
+                                        <div className='listed-spot-info'>
+                                            <div>
+                                                {`${spot.name}`}
+                                            </div>
+                                            <div>
+                                                {`${spot.city}, ${spot.state}, ${spot.country}`}
+                                            </div>
                                         </div>
+
                                     </div>
-                                    <div className='listed-spot-edit-delete-button'>
-                                        <div>
-                                            <EditSpotModal />
-                                        </div>
-                                        <button> Delete Listing </button>
+                                </Link>
+                                <div className='listed-spot-edit-delete-button'>
+                                    <div>
+                                        <EditSpotModal spot={spot} spotId={spot.id} />
                                     </div>
+                                    <button> Delete Listing </button>
                                 </div>
-                            </Link>
+                            </>
                         ))}
                     </div>
                 </div>

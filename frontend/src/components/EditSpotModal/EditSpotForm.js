@@ -5,13 +5,12 @@ import { useDispatch, useSelector } from "react-redux";
 import * as spotsActions from "../../store/spots";
 
 
-function EditSpotForm(spotId) {
+function EditSpotForm({ spot, spotId, setShowModal }) {
+    console.log('EditSpotForm spot', spot);
+    console.log('EditSpotForm spotId', spotId);
+
     const dispatch = useDispatch();
     const history = useHistory();
-
-    const allSpots = Object.values(useSelector(state => state.spots.allSpots));
-    console.log('editSpotForm spot', allSpots);
-    const spot = allSpots[spotId];
 
     const [address, setAddress] = useState(spot ? spot.address : '');
     const [city, setCity] = useState(spot ? spot.city : '');
@@ -22,12 +21,14 @@ function EditSpotForm(spotId) {
     const [name, setName] = useState(spot ? spot.name : '');
     const [description, setDescription] = useState(spot ? spot.description : '');
     const [price, setPrice] = useState(spot ? spot.price : '');
+    const [url, setUrl] = useState(spot ? spot.previewImage : '');
     const [errors, setErrors] = useState([]);
 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const newSpot = {
+        setErrors([]);
+        const updateSpot = {
             address,
             city,
             state,
@@ -37,24 +38,28 @@ function EditSpotForm(spotId) {
             name,
             description,
             price,
+            url
         }
 
-        const editedSpot = await dispatch(spotsActions.editSpot(newSpot))
+        console.log("EditSpotForm updateSpot", updateSpot)
+        const editedSpot = await dispatch(spotsActions.editSpot(updateSpot, spotId))
             .catch(async (res) => {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors);
             });
-        // console.log("NewListForm added new spot,", addedSpot);
+        console.log("NewListForm added new spot,", editedSpot);
 
         if (editedSpot) {
             setErrors([]);
-            // history.replace(`/spots/${editedSpot.id}`)
+            setShowModal(false);
+            console.log("redirect?")
+            history.replace(`/spots/${+spotId}`)
         }
     };
 
     return (
         <div className="add-new-spot-form">
-            <p className='add-new-spot-title'>Create new listing</p>
+            <p className='add-new-spot-title'>Update your listing</p>
             <form onSubmit={handleSubmit}>
                 <p className='add-new-spot-welcome'>Open your door to hosting</p>
                 <ul>
@@ -156,6 +161,17 @@ function EditSpotForm(spotId) {
                             type="float"
                             value={price}
                             onChange={(e) => setPrice(e.target.value)}
+                            required
+                        />
+                    </label>
+                </div>
+                <div className="add-new-spot-elem">
+                    <label>
+                        Preview Image
+                        <input
+                            type="link"
+                            value={url}
+                            onChange={(e) => setUrl(e.target.value)}
                             required
                         />
                     </label>
