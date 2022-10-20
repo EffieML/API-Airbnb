@@ -20,21 +20,29 @@ function ListSpotReviews({ spot }) {
     // if statement locate below useEffect
     if (reviews.length == 0) return null;
 
+    console.log("review user: ", reviews[0].User)
+    if (!reviews[0].User) return null;
+
     return (
         <div className='spot-reviews-section'>
-            {reviews && (
-                reviews.map(review => (
-                    <>
-                        <div>{review.User.firstName}</div>
-                        <div>
-                            {review.createdAt}
+            <>create review button</>
+            <>
+                {reviews && (
+                    reviews.map(review => (
+                        <div key={review.id}>
+                            <div>{review.User?.firstName ? review.User.firstName : "you just posted"}</div>
+                            <div>
+                                {review.createdAt}
+                            </div>
+                            <div>
+                                {review.review}
+                            </div>
                         </div>
-                        <div>
-                            {review.review}
-                        </div>
-                    </>
-                ))
-            )}
+                    ))
+                )}
+            </>
+
+
         </div>
 
     )

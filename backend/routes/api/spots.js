@@ -387,6 +387,7 @@ router.post('/:spotId/reviews', requireAuth, validateReview, async (req, res) =>
         return res.json({
             message: "User already has a review for this spot",
             statusCode: 403,
+            // errors: "User already has a review for this spot",
         })
     }
 
