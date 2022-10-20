@@ -43,11 +43,10 @@ function ProfileButton({ user }) {
                     <li>{user.username}</li>
                     <li>{user.email}</li>
                     <li>
-                        {/* <Link to={`/spots/${spot.??}`}> Manage Reviews</Link> */}
-                        <Link> Manage Reviews</Link>
+                        <Link to={'/spots/current'}> Manage Listings</Link>
                     </li>
                     <li>
-                        <Link to={'/spots/current'}> Manage Listings</Link>
+                        <Link to={'/reviews/current'}> Manage Reviews</Link>
                     </li>
                     <li>
                         <button onClick={logout}>

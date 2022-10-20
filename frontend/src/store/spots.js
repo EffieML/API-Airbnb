@@ -105,7 +105,7 @@ export const addSpot = (spot) => async dispatch => {
             // console.log("store spots thunk add one spot step1: ", data)
             //data is obj list {address:.., lat: ..., ...}
             //do actioin addOneSpot to create newSpot which will generate data.id
-            const newSpot = dispatch(addOneSpot(data));
+            dispatch(addOneSpot(data));
             // console.log("store spots thunk add one spot step2: ", newSpot)
             const { url } = spot;
             const imageRes = await csrfFetch(`/api/spots/${data.id}/images`, {
@@ -195,7 +195,7 @@ const spotsReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_ALL_SPOTS:
             let allSpots = {};
-            action.spots.map(spot => { allSpots[spot.id] = spot });
+            action.spots.forEach(spot => { allSpots[spot.id] = spot });
             newState = { ...state };
             newState.allSpots = allSpots;
             // console.log("newState", newState)

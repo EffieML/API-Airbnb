@@ -39,14 +39,57 @@ const deleteOneReviewAction = (reviewId) => {
 
 
 //todo: thunks section
-// thunk: get spots reviews
+// thunk: get spot's reviews
 export const listSpotReviewsThunk = (spotId) => async (dispatch) => {
     const response = await csrfFetch(`/api/spots/${spotId}/reviews`);
     if (response.ok) {
         const data = await response.json();
-        console.log("store reviews thunk spot review data: ", data)
+        // console.log("store reviews thunk spot review data: ", data)
         dispatch(getSpotReviewsAction(data.Reviews));
         return data;
+    }
+};
+
+// thunk: get user's reviews
+export const listUserReviewsThunk = () => async (dispatch) => {
+    const response = await csrfFetch(`/api/reviews/current`);
+    if (response.ok) {
+        const data = await response.json();
+        console.log("store reviews thunk user review data: ", data.Reviews)
+        dispatch(getUserReviewsAction(data.Reviews));
+        return data;
+    }
+};
+
+// thunk: add one review for current spot
+export const addReviewThunk = (spotId, review) => async dispatch => {
+    try {
+        const response = await csrfFetch(`/api/spots/${spotId}/reviews`, {
+            method: 'POST',
+            headers: { 'Content-Type': "application/json" },
+            body: JSON.stringify(review)
+        })
+
+        if (response.ok) {
+            const data = await response.json();
+            // console.log("store reviews thunk add one review step1: ", data)
+            dispatch(addOneReviewAction(data));
+            return data;
+        }
+    } catch (err) {
+        console.log(err);
+        throw err;
+    }
+}
+
+// thunk: delete a review reviews
+export const deleteReviewThunk = (reviewId) => async (dispatch) => {
+    const response = await csrfFetch(`/api/reviews/${reviewId}`, {
+        method: 'DELETE'
+    });
+    if (response.ok) {
+        dispatch(deleteOneReviewAction(reviewId));
+        return response;
     }
 };
 
@@ -66,7 +109,32 @@ const reviewsReducer = (state = initialState, action) => {
             newState = { ...state };
             newState.spot = spot;
             // newState = { ...spot };
-            console.log("newState", newState)
+            // console.log("spot reviews newState", newState)
+            return newState;
+
+        case GET_USER_REVIEWS:
+            let user = {};
+            action.payload.forEach(review => { user[review.id] = review });
+            newState = { ...state };
+            newState.user = user;
+            // newState = { ...spot };
+            // console.log("user reviews newState", newState)
+            return newState;
+
+        case ADD_ONE_REVIEW:
+            newState = { ...state, spot: { ...state.spot }, user: { ...state.user } };
+            const addReview = { ...action.payload };
+            newState.spot[action.payload.id] = addReview;
+            newState.user[action.payload.id] = addReview;
+            // console.log("spots reducer add one spot newState: ", newState)
+            return newState;
+
+        case DELETE_ONE_REVIEW:
+            newState = { spot: { ...state.spot }, user: { ...state.user } };
+            delete newState.spot[action.reviewId];
+            delete newState.user[action.reviewId];
+            // newState = { ...spot };
+            console.log("user reviews newState", newState)
             return newState;
 
         default:

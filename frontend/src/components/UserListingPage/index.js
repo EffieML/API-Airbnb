@@ -36,8 +36,6 @@ function UserListingPage() {
         // .then(() => history.push('/spots/current'))
     }
 
-    if (spots.length == 0) return null;
-
     return (
         <div className='user-listing-page'>
             {isloaded && (
