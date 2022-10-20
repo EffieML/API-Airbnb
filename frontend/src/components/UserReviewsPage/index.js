@@ -2,10 +2,9 @@ import { Link, Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react';
 import { useHistory } from "react-router";
-import { listUserSpots } from '../../store/spots';
-import AddNewSpotModal from '../AddNewSpotModal';
-import EditSpotModal from '../EditSpotModal';
+// import { listUserSpots } from '../../store/spots';
 import { listUserReviewsThunk } from '../../store/reviews';
+import { deleteReviewThunk } from '../../store/reviews';
 
 function UserReviewsPage() {
     const dispatch = useDispatch();
@@ -28,6 +27,14 @@ function UserReviewsPage() {
     // if statement locate below useEffect
     if (reviews.length == 0) return null;
 
+    //for delete
+    const handleDelete = async (reviewId) => {
+        if (window.confirm('Do you want to delete this review?')) {
+            await dispatch(deleteReviewThunk(reviewId))
+            // history.replace(`/reviews/current`)
+        }
+    }
+
     return (
         <div className='user-reviews-section'>
             <h1>{`Reviews by ${currUser.firstName}`} </h1>
@@ -42,7 +49,7 @@ function UserReviewsPage() {
                         <div>
                             {review?.review}
                         </div>
-                        <button>delete review</button>
+                        <button onClick={() => handleDelete(review.id)}>Delete Review</button>
                     </div>
 
                 ))
