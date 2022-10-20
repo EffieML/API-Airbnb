@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react';
 import { useParams, Route } from 'react-router-dom';
 import { listOneSpot } from '../../store/spots';
+import ListSpotReviews from '../ReviewsForSpot'
 import './OneSpotList.css';
 
 function OneSpotList() {
@@ -85,7 +86,9 @@ function OneSpotList() {
                             <span> · </span>
                             <span> {`${spot.numReviews} reviews`} </span>
                         </h2>
-                        <div>list all spots reviews</div>
+                        <div className='spot-reviews'>
+                            <ListSpotReviews spot={spot} />
+                        </div>
                     </div>
                 </>
             )}
