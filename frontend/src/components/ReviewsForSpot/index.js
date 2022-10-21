@@ -25,7 +25,6 @@ function ListSpotReviews({ spot }) {
 
     return (
         <div className='spot-reviews-section'>
-            <>create review button</>
             <>
                 {reviews && (
                     reviews.map(review => (
