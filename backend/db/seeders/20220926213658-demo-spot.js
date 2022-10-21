@@ -79,15 +79,15 @@ module.exports = {
       //7
       {
         ownerId: 5,
-        address: '27507 SE Eagle Fern Rd',
-        city: 'Eagle Creek',
+        address: '2260 Bilyeu Ave W',
+        city: 'Tillamook',
         state: 'Oregon',
         country: 'United States',
-        lat: 45.322316179819836,
-        lng: -122.28682564057648,
-        name: "WanderingWoods A-Frame Cabin",
-        description: "Enjoy the comforts of home in this cute and cozy A-Frame cabin,  which offers both privacy and convenience to nearby activities!  Located near The Resort  at the Mountain, you're only 20 miles to Timberline Lodge and all of Mt. Hood's splendor. The Upper and Lower Salmon River Trailheads are just up the road, and a multitude of other hiking opportunities nearby.",
-        price: 155,
+        lat: 45.427854081133745,
+        lng: -123.93758330120536,
+        name: "The Stormwatcher",
+        description: "The Stormwatcher is a brand new custom built Ocean view home with Breathtaking Views! Be one the first guests to stay in this immaculate, modern home with unbeatable, unobstructed views of the Pacific Ocean and the quaint village of Oceanside.",
+        price: 488,
       },
       //8
       {

@@ -42,11 +42,11 @@ module.exports = {
       },
       {
         reviewId: 10,
-        url: 'https://a0.muscache.com/im/pictures/miso/Hosting-46870587/original/bd4b6573-6682-4ef6-8ce2-1daeb20357c8.jpeg?im_w=1200',
+        url: 'https://a0.muscache.com/im/pictures/prohost-api/Hosting-35484446/original/b68894e7-f12f-43ba-af5a-4f3bfbd8cd3e.jpeg?im_w=1440',
       },
       {
         reviewId: 11,
-        url: 'https://a0.muscache.com/im/pictures/620d01b5-2c19-4c3e-a611-1aee3f65db21.jpg?im_w=720',
+        url: 'https://a0.muscache.com/im/pictures/prohost-api/Hosting-35484446/original/478a2864-8bc9-4d9f-911a-68fbaeb63aaa.jpeg?im_w=1440',
       },
       {
         reviewId: 12,
