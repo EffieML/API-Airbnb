@@ -40,8 +40,8 @@ function Navigation({ isLoaded }) {
         <nav className='nav-bar'>
             <div className='nav-home'>
                 <NavLink exact to="/">
-                    {/* <img src='https://www.urbanbrush.net/web/wp-content/uploads/edd/2020/11/urbanbrush-20201127001119423145.jpg' /> */}
-                    <div>Staybnb</div>
+                    <span><img src='https://drive.google.com/uc?export=view&id=1lTKnjy9TxFpkJRf4im-aVbqSwCcWiZi8' /></span>
+                    <span>Staybnb</span>
                 </NavLink>
             </div>
             <div className='Become a Host'>

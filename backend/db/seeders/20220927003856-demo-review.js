@@ -71,14 +71,14 @@ module.exports = {
         //id: 10
         spotId: 7,
         userId: 4,
-        review: 'Very beautiful A-Frame cabin, surrounded by majestic trees and ferns. We really enjoyed our short getaway to this relaxing cabin.',
+        review: 'It was a fabulous place for a multigenerational family week. We cooked every night and loved the kitchen. The view was the best ever. All in all a great stay.',
         stars: 5,
       },
       {
         //id: 11
         spotId: 7,
         userId: 2,
-        review: 'Cozy, cute and so relaxing!',
+        review: "Overall we enjoyed our stay. There were things we liked and things we didn't.",
         stars: 4,
       },
       {
