@@ -32,8 +32,11 @@ function AllSpotsList() {
                                 <div >
                                     <span>${spot.price} </span>night
                                 </div>
-                                <div>
-                                    rating?
+                                <div className='spot-title-info'>
+                                    <span>
+                                        <i className="fa-solid fa-star" />
+                                    </span>
+                                    <span>{spot.avgRating ? spot.avgRating.toFixed(2) : 'New'}</span>
                                 </div>
                             </div>
                         </div>
