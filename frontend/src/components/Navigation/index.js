@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
+import AddNewSpotModal from '../AddNewSpotModal';
 import './Navigation.css';
 
 function Navigation({ isLoaded }) {
@@ -42,6 +43,9 @@ function Navigation({ isLoaded }) {
                     {/* <img src='https://www.urbanbrush.net/web/wp-content/uploads/edd/2020/11/urbanbrush-20201127001119423145.jpg' /> */}
                     <div>Staybnb</div>
                 </NavLink>
+            </div>
+            <div className='Become a Host'>
+                <AddNewSpotModal />
             </div>
             <div className='nav-login-signup'>
                 <div>

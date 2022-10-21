@@ -2,6 +2,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react';
 import { useParams, Route } from 'react-router-dom';
 import { listOneSpot } from '../../store/spots';
+import ListSpotReviews from '../ReviewsForSpot';
+import AddNewReviewModal from '../AddNewReviewModal';
 import './OneSpotList.css';
 
 function OneSpotList() {
@@ -12,7 +14,7 @@ function OneSpotList() {
     // console.log("OneSpotList spotObj: ", spot)
     // console.log("spot name:", spot.name)
     const [isLoaded, setIsLoaded] = useState(false);
-
+    // const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
         dispatch(listOneSpot(spotId)).then(() => setIsLoaded(true));
@@ -77,15 +79,20 @@ function OneSpotList() {
                     </div>
 
                     <div className='spot-review-section'>
-                        <h2>
-                            <span>
-                                <i className="fa-solid fa-star" />
-                            </span>
-                            <span>{spot.avgStarRating ? spot.avgStarRating.toFixed(2) : 'New'}</span>
-                            <span> · </span>
-                            <span> {`${spot.numReviews} reviews`} </span>
-                        </h2>
-                        <div>list all spots reviews</div>
+                        <>
+                            <h2>
+                                <span>
+                                    <i className="fa-solid fa-star" />
+                                </span>
+                                <span>{spot.avgStarRating ? spot.avgStarRating.toFixed(2) : 'New'}</span>
+                                <span> · </span>
+                                <span> {`${spot.numReviews} reviews`} </span>
+                            </h2>
+                            <AddNewReviewModal spot={spot} />
+                        </>
+                        <div className='spot-reviews'>
+                            <ListSpotReviews spot={spot} />
+                        </div>
                     </div>
                 </>
             )}

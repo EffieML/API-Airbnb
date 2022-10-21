@@ -32,11 +32,11 @@ function UserListingPage() {
     if (spots.length == 0) return (<h2>No listings yet.</h2>);
 
     const handleDelete = async (spotId) => {
-        await dispatch(spotsActions.deleteSpot(spotId))
-        // .then(() => history.push('/spots/current'))
+        if (window.confirm('Do you want to delete this spot?')) {
+            await dispatch(spotsActions.deleteSpot(spotId))
+            // .then(() => history.push('/spots/current'))
+        }
     }
-
-    if (spots.length == 0) return null;
 
     return (
         <div className='user-listing-page'>
