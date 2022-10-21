@@ -5,41 +5,110 @@ module.exports = {
 
     await queryInterface.bulkInsert('Reviews', [
       {
-        spotId: 5,
-        userId: 1,
-        review: 'We enjoyed our time here. Comfy and clean!',
+        // id:1
+        spotId: 1,
+        userId: 2,
+        review: 'The views are amazing. The house is lovely and the hosts are very responsive. I would recommend this home to anyone and will definitely stay here again.',
+        stars: 5,
+      },
+      {
+        // id:2
+        spotId: 1,
+        userId: 3,
+        review: "Great place with an amazing view !!! Love location and all the accommodations. Definitely wished I could've stayed longer and can't wait to come back another time.",
+        stars: 5,
+      },
+      {
+        // id:3
+        spotId: 1,
+        userId: 4,
+        review: 'Great home with an amazing view and the communication with the host was unmatched.',
         stars: 4,
       },
       {
-        spotId: 5,
-        userId: 2,
-        review: 'The home is in a great part of San Francisco. Easy walking distance to many areas.',
+        // id:4
+        spotId: 2,
+        userId: 1,
+        review: "What a great place to stay. Very clean and nice. Bed was super comfortable. A very cozy place to lay your head.",
         stars: 5,
       },
       {
-        spotId: 4,
-        userId: 2,
-        review: 'Loved our stay at the treehouse, just as cute and cozy in person as in the pictures.',
-        stars: 5,
-      },
-      {
+        // id: 5
         spotId: 3,
         userId: 3,
-        review: 'Nice place. Well maintained, but, only an OK location.',
-        stars: 3,
+        review: "Great location, easy parking, close to everything!",
+        stars: 4,
       },
       {
-        spotId: 2,
-        userId: 4,
-        review: 'Very beautiful stay. Everything was as described. Loved every bit of our stay.',
+        // id: 6
+        spotId: 3,
+        userId: 5,
+        review: "The guest suite was very clean and in a fantastic location. it had everything we needed and Casey was a communicative and accommodating host. A great find!",
         stars: 5,
       },
       {
-        spotId: 1,
-        userId: 5,
-        review: 'Our stay was wonderful. Very relaxing! Loved the beach and the ocean! The birds were amazing!',
+        // id: 7
+        spotId: 4,
+        userId: 2,
+        review: 'My favorite treehouse stay so far! Elyse thought of everything to make this adventurous vacation complete!',
+        stars: 5,
+      },
+      {
+        //id:8
+        spotId: 5,
+        userId: 1,
+        review: 'Great stay!',
         stars: 4,
       },
+      {
+        //id: 9
+        spotId: 6,
+        userId: 3,
+        review: "Our visit to Crystal Beach & stay at Front Row Sea't was awesome.",
+        stars: 5,
+      },
+      {
+        //id: 10
+        spotId: 7,
+        userId: 4,
+        review: 'Very beautiful A-Frame cabin, surrounded by majestic trees and ferns. We really enjoyed our short getaway to this relaxing cabin.',
+        stars: 5,
+      },
+      {
+        //id: 11
+        spotId: 7,
+        userId: 2,
+        review: 'Cozy, cute and so relaxing!',
+        stars: 4,
+      },
+      {
+        //id: 12
+        spotId: 8,
+        userId: 1,
+        review: "This cabin was everything we needed for a perfect getaway. Cozy and quaint, beautiful front and back deck, equipped kitchen and comfy beds. Forest feel, quiet and relaxing, I didn't want to leave!",
+        stars: 5,
+      },
+      {
+        //id: 13
+        spotId: 9,
+        userId: 1,
+        review: "Highly recommend. Amazing area, tranquil and quiet. Fun experience in a tiny house. Loved falling sleep and waking up in the large window looking at the forest.",
+        stars: 5,
+      },
+      {
+        //id: 14
+        spotId: 9,
+        userId: 2,
+        review: "Beautiful stay",
+        stars: 4,
+      },
+      {
+        //id: 15
+        spotId: 10,
+        userId: 5,
+        review: "We had the best time at the llama farm!!!! So grateful for Bonnie!!!",
+        stars: 5,
+      }
     ], {})
   },
 
