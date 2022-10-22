@@ -30,8 +30,8 @@ function OneSpotList() {
                         <div className='spot-title-section' >
                             <h1 className='spot-title'>{spot.name}</h1>
                             <div className='spot-title-info'>
-                                <div>
-                                    <i className="fa-solid fa-star" />
+                                <div id='fafastar'>
+                                    < i className="fa-solid fa-star" />
                                 </div>
                                 <div className='spot-title-detail'>{spot.avgStarRating ? spot.avgStarRating.toFixed(2) : 'New'}</div>
                                 <div className='spot-title-detail'> · </div>
@@ -45,12 +45,12 @@ function OneSpotList() {
                                 <img src={spot.SpotImages[0].url} alt='Spot preview image' />
                             </div>
                             <div className='spot-image-middle'>
-                                {spot.SpotImages[1] && (<img src={spot.SpotImages[1].url} />)}
-                                {spot.SpotImages[2] && (<img src={spot.SpotImages[2].url} />)}
+                                {spot.SpotImages[1] && (<img id="spot-img-2" src={spot.SpotImages[1].url} />)}
+                                {spot.SpotImages[2] && (<img id="spot-img-3" src={spot.SpotImages[2].url} />)}
                             </div>
                             <div className='spot-image-right'>
-                                {spot.SpotImages[3] && (<img src={spot.SpotImages[3].url} />)}
-                                {spot.SpotImages[4] && (<img src={spot.SpotImages[4].url} />)}
+                                {spot.SpotImages[3] && (<img id="spot-img-4" src={spot.SpotImages[3].url} />)}
+                                {spot.SpotImages[4] && (<img id="spot-img-5" src={spot.SpotImages[4].url} />)}
                             </div>
                         </div>
                     </div>
@@ -58,22 +58,21 @@ function OneSpotList() {
                     <div className='spot-detail-and-booking-section'>
                         <div className='spot-detail-section-left'>
                             <h2 className='spot-owner-first-name'>{`Entire home hosted by ${spot.Owner.firstName}`}</h2>
-                            <span className='spot-description'>{spot.description}</span>
+                            <div className='spot-description'>{spot.description}</div>
                         </div>
                         <div className='spot-booking-section-right'>
                             <div className='spot-booking-top'>
                                 <div className='spot-booking-top-left'>
                                     <div className='booking-top-price'><span >{`$${spot.price} `}</span></div>
-
-                                    <span>  night</span>
+                                    <div className='booking-top-night'>  night</div>
                                 </div>
                                 <div className='spot-booking-top-right'>
-                                    <div>
+                                    <div id='fafastar'>
                                         <i className="fa-solid fa-star" />
                                     </div>
                                     <div>{spot.avgStarRating ? spot.avgStarRating.toFixed(2) : 'New'}</div>
-                                    <div> · </div>
-                                    <div> {`${spot.numReviews} reviews`} </div>
+                                    <div id='dot'> · </div>
+                                    <div className="booking-top-review"> {`${spot.numReviews} reviews`} </div>
                                 </div>
                             </div>
                         </div>
