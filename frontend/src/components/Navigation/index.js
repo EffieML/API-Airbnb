@@ -17,11 +17,15 @@ function Navigation({ isLoaded }) {
         );
     } else {
         sessionLinks = (
-            <>
-                <LoginFormModal />
-                <SignupFormModal />
+            <div>
+                <div className="nav-button">
+                    <LoginFormModal />
+                </div>
+                <div className="nav-button">
+                    <SignupFormModal />
+                </div>
                 {/* <NavLink to="/signup">Sign Up</NavLink> */}
-            </>
+            </div>
         );
     }
 
@@ -37,22 +41,24 @@ function Navigation({ isLoaded }) {
     // }
 
     return (
-        <nav className='nav-bar'>
-            <div className='nav-home'>
-                <NavLink exact to="/">
-                    <span><img src='https://drive.google.com/uc?export=view&id=1lTKnjy9TxFpkJRf4im-aVbqSwCcWiZi8' /></span>
-                    <span>Staybnb</span>
-                </NavLink>
-            </div>
-            <div className='Become a Host'>
-                <AddNewSpotModal />
-            </div>
-            <div className='nav-login-signup'>
-                <div>
-                    {isLoaded && sessionLinks}
+        <div className='nav-bar-container'>
+            <nav className='nav-bar'>
+                <div className='nav-home'>
+                    <NavLink exact to="/">
+                        <span><img className='nav-bar-logo' src='https://drive.google.com/uc?export=view&id=1lTKnjy9TxFpkJRf4im-aVbqSwCcWiZi8' /></span>
+                        <span>Staybnb</span>
+                    </NavLink>
                 </div>
-            </div>
-        </nav>
+                <div className='Become a Host'>
+                    <AddNewSpotModal />
+                </div>
+                <div className='nav-login-signup'>
+                    <div>
+                        {isLoaded && sessionLinks}
+                    </div>
+                </div>
+            </nav>
+        </div>
     );
 }
 
