@@ -24,17 +24,19 @@ function ListSpotReviews({ spot }) {
     if (!reviews[0].User) return null;
 
     return (
-        <div className='spot-reviews-section'>
+        <div className='spot-reviews-bottom-section'>
             <>
                 {reviews && (
                     reviews.map(review => (
-                        <div key={review.id}>
-                            <div>{review.User?.firstName ? review.User.firstName : "you just posted"}</div>
-                            <div>
-                                {review.createdAt}
-                            </div>
-                            <div>
-                                {review.review}
+                        <div className="each-spot-review">
+                            <div key={review.id} >
+                                <div className="each-spot-review-firstName">{review.User?.firstName ? review.User.firstName : "you just posted"}</div>
+                                <div className="each-spot-review-createTime">
+                                    {review.createdAt.slice(0, 10)}
+                                </div>
+                                <div className="each-spot-review-review">
+                                    {review.review}
+                                </div>
                             </div>
                         </div>
                     ))

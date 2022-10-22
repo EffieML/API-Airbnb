@@ -79,17 +79,19 @@ function OneSpotList() {
                     </div>
 
                     <div className='spot-review-section'>
-                        <>
-                            <h2>
-                                <span>
+                        <div className='spot-review-section-toprow'>
+                            <div className='spot-review-section-top-left'>
+                                <div id='fafastar'>
                                     <i className="fa-solid fa-star" />
-                                </span>
-                                <span>{spot.avgStarRating ? spot.avgStarRating.toFixed(2) : 'New'}</span>
-                                <span> · </span>
-                                <span> {`${spot.numReviews} reviews`} </span>
-                            </h2>
-                            <AddNewReviewModal spot={spot} />
-                        </>
+                                </div>
+                                <div>{spot.avgStarRating ? spot.avgStarRating.toFixed(2) : 'New'}</div>
+                                <div id='dot'> · </div>
+                                <div> {`${spot.numReviews} reviews`} </div>
+                            </div>
+                            <div className='spot-review-section-top-right' id='button-add-review'>
+                                <AddNewReviewModal spot={spot} />
+                            </div>
+                        </div>
                         <div className='spot-reviews'>
                             <ListSpotReviews spot={spot} />
                         </div>
