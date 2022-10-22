@@ -202,11 +202,11 @@
  /* ---------review section top row right--------  */
  .spot-review-section-top-right button {
 
-     margin-right: 4px;
+     margin-right: 20px;
      border: 0px solid rgb(0, 0, 0);
      /* background: transparent; */
-     height: 50px;
-     width: 220px;
+     height: 48px;
+     width: 200px;
      border-radius: 10px;
      font-size: 15px;
      font-weight: bold;

@@ -10,14 +10,14 @@ function AddNewSpotModal() {
     if (!currUser) { return null }
 
     return (
-        <>
+        <div className='user-spots-create-button'>
             <button onClick={() => setShowModal(true)}>Create New Listing</button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     < AddNewSpotForm />
                 </Modal>
             )}
-        </>
+        </div>
     );
 }
 
