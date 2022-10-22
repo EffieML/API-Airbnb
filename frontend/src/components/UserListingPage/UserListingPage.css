@@ -13,6 +13,7 @@
  /* title  */
  .user-listing-page-title {
      font-weight: bold;
+     margin-top: 40px;
      margin-bottom: 10px;
      font-size: 26px;
  }
@@ -21,7 +22,7 @@
  /* create new spot button  */
  .user-listing-page .user-spots-create-button button {
      border: 0px solid rgb(0, 0, 0);
-     height: 48px;
+     height: 36px;
      width: 200px;
      border-radius: 10px;
      font-size: 15px;
@@ -29,7 +30,7 @@
      color: white;
      background-color: rgb(255, 56, 92);
      cursor: pointer;
-     margin-top: 40px;
+     margin-top: 20px;
      margin-bottom: 20px;
  }
 
@@ -82,7 +83,7 @@
 
  .listed-spot-edit-delete-button button {
      border: 0px solid rgb(0, 0, 0);
-     height: 34px;
+     height: 36px;
      width: 140px;
      border-radius: 8px;
      font-size: 15px;
