@@ -36,8 +36,8 @@ function UserReviewsPage() {
     }
 
     return (
-        <div className='user-reviews-section'>
-            <h1>{`Reviews by ${currUser.firstName}`} </h1>
+        <div className='user-reviews-section-container'>
+            <h1 className='user-reviews-section-title'>{`Reviews by ${currUser.firstName}`} </h1>
             {reviews && (
                 reviews.map(review => (
                     <div key={review.id}>
