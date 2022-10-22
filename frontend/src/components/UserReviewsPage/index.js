@@ -44,7 +44,7 @@ function UserReviewsPage() {
                         <img src={review.Spot?.previewImage} />
                         <div>{`Review for ${review.Spot?.name}`}</div>
                         <div>
-                            {review?.createdAt}
+                            {review?.createdAt.slice(0, 10)}
                         </div>
                         <div>
                             {review?.review}
