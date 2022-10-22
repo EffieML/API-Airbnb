@@ -32,7 +32,7 @@ function AllSpotsList() {
                                             {`${spot.city}, ${spot.state}`}
                                         </div>
                                         <div className='spot-title-info'>
-                                            <span>
+                                            <span id='fafastar'>
                                                 <i className="fa-solid fa-star" />
                                             </span>
                                             <span>{spot.avgRating ? spot.avgRating.toFixed(2) : 'New'}</span>
