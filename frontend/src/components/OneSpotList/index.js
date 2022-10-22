@@ -23,21 +23,21 @@ function OneSpotList() {
     if (!spot) return null;
 
     return (
-        <div className='one-spot-list'>
+        <div className='one-spot-list-container'>
             {isLoaded && (
-                <>
+                <div className='one-spot-list'>
                     <div className='spot-title-and-image-section'>
                         <div className='spot-title-section' >
                             <h1 className='spot-title'>{spot.name}</h1>
                             <div className='spot-title-info'>
-                                <span>
+                                <div>
                                     <i className="fa-solid fa-star" />
-                                </span>
-                                <span>{spot.avgStarRating ? spot.avgStarRating.toFixed(2) : 'New'}</span>
-                                <span> · </span>
-                                <span> {`${spot.numReviews} reviews`} </span>
-                                <span> · </span>
-                                <span>{`${spot.city}, ${spot.state}, ${spot.country}`}</span>
+                                </div>
+                                <div className='spot-title-detail'>{spot.avgStarRating ? spot.avgStarRating.toFixed(2) : 'New'}</div>
+                                <div className='spot-title-detail'> · </div>
+                                <div className='spot-title-detail'> {`${spot.numReviews} reviews`} </div>
+                                <div className='spot-title-detail'> · </div>
+                                <div className='spot-title-detail'>{`${spot.city}, ${spot.state}, ${spot.country}`}</div>
                             </div>
                         </div>
                         <div className='spot-image-section'>
@@ -63,16 +63,17 @@ function OneSpotList() {
                         <div className='spot-booking-section-right'>
                             <div className='spot-booking-top'>
                                 <div className='spot-booking-top-left'>
-                                    <span>{`$${spot.price} `}</span>
+                                    <div className='booking-top-price'><span >{`$${spot.price} `}</span></div>
+
                                     <span>  night</span>
                                 </div>
                                 <div className='spot-booking-top-right'>
-                                    <span>
+                                    <div>
                                         <i className="fa-solid fa-star" />
-                                    </span>
-                                    <span>{spot.avgStarRating ? spot.avgStarRating.toFixed(2) : 'New'}</span>
-                                    <span> · </span>
-                                    <span> {`${spot.numReviews} reviews`} </span>
+                                    </div>
+                                    <div>{spot.avgStarRating ? spot.avgStarRating.toFixed(2) : 'New'}</div>
+                                    <div> · </div>
+                                    <div> {`${spot.numReviews} reviews`} </div>
                                 </div>
                             </div>
                         </div>
@@ -94,7 +95,7 @@ function OneSpotList() {
                             <ListSpotReviews spot={spot} />
                         </div>
                     </div>
-                </>
+                </div>
             )}
         </div>
     )
