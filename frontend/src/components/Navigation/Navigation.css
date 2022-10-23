@@ -5,27 +5,16 @@ body {
 .nav-bar-container {
     border-bottom: 1px solid rgb(210, 210, 210);
     color: #222222;
-
-}
-
-/* .nav-bar {
-    border-bottom: 1px solid rgb(210, 210, 210);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     position: sticky;
-    width: 100vw;
-    height: 80px;
-    padding: 0px, 80px;
-    margin: 80 200 80 200;
+    top: 0;
     z-index: 1;
-} */
+    background-color: white;
+}
 
 .nav-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* position: sticky; */
     height: 80px;
     padding-left: 80px;
     padding-right: 80px;
@@ -46,7 +35,6 @@ body {
     color: rgba(238, 3, 30);
     font-weight: bold;
     font-size: 22px;
-
 }
 
 .nav-bar-logo {
@@ -111,6 +99,9 @@ body {
     background-color: rgba(171, 164, 164, 0.1);
 }
 
+
+
+/* right side login drop down */
 .nav-login-signup {
     display: flex;
     justify-content: space-between;
@@ -125,7 +116,30 @@ body {
 
 .profile-buttons {
     display: flex;
-    margin: 20px;
+    align-items: center;
+    height: 40px;
+    width: 80px;
+    color: #717171;
+    border-radius: 22px;
+    border: 1px solid rgb(227, 227, 227);
+    outline: none;
+    background-color: white;
+    padding: 5px 5px 5px 16px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.profile-buttons:hover {
+    box-shadow: 2px 2px 3px rgb(221, 221, 221);
+}
+
+.nav-bar-drop-down-favicon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 17px;
+    margin-right: 13px;
+    border: none;
 }
 
 .nav-bar-drop-down {
@@ -160,6 +174,10 @@ body {
     padding-bottom: 15px;
     padding-left: 15px;
     padding-right: 40px;
+    text-decoration: none;
+    font-size: 14px;
+    color: #717171;
+    font-weight: bold;
 }
 
 /* .profile-dropdown-line {
@@ -178,7 +196,16 @@ body {
     padding-bottom: 8px;
     vertical-align: middle;
     text-decoration: none;
-    color: black;
+}
+
+.profile-dropdown-link-item a:link,
+.profile-dropdown-link-item a:visited,
+.profile-dropdown-link-item a:active {
+    text-decoration: none;
+    /* color: rgba(238, 3, 30); */
+    font-size: 14px;
+    color: #717171;
+
 }
 
 .profile-dropdown-link-item:hover {
@@ -186,16 +213,9 @@ body {
 }
 
 
-
-
-
-
-
-
-.profile-dropdown-logout-button button {
-    border-style: none;
-    background-color: transparent;
-    font-weight: 400;
-    padding-bottom: 0;
-    padding-left: 0px;
+.profile-dropdown-link-item .profile-dropdown-logout-button {
+    text-decoration: none;
+    font-size: 14px;
+    color: #717171;
+    cursor: pointer;
 }
