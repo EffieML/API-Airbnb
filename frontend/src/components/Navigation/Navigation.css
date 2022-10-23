@@ -43,14 +43,6 @@ body {
     padding-right: 4px;
 }
 
-/* .nav-bar-name {
-    color: rgb(255, 57, 92);
-    text-decoration: none;
-    color: rgba(238, 3, 30);
-    font-weight: bold;
-    font-size: 22px;
-} */
-
 /* right side login signup  */
 .nav-button-login-signup {
     display: flex;
@@ -59,9 +51,10 @@ body {
 }
 
 .nav-button button {
-    border: 0px solid rgb(0, 0, 0);
     height: 32px;
     width: 70px;
+    /* border: 0px solid rgb(0, 0, 0); */
+    border-style: none;
     border-radius: 22px;
     color: white;
     font-size: 14px;
@@ -92,14 +85,11 @@ body {
     cursor: pointer;
     margin-top: 20px;
     margin-bottom: 20px;
-    /* margin-right: 40px; */
 }
 
 .become-a-host .user-spots-create-button button:hover {
     background-color: rgba(171, 164, 164, 0.1);
 }
-
-
 
 /* right side login drop down */
 .nav-login-signup {
@@ -165,9 +155,7 @@ body {
 }
 
 .profile-dropdown {
-    /* padding-left: 20px;
-    padding-right: 40px; */
-    padding: 0;
+    padding: 5px;
 }
 
 .profile-dropdown-item {
@@ -190,19 +178,18 @@ body {
     font-weight: 400;
     border-style: none;
     width: 100%;
-    padding-top: 10px;
-    padding-left: 15px;
-    padding-right: 40px;
-    padding-bottom: 8px;
     vertical-align: middle;
     text-decoration: none;
+    padding-top: 8px;
+    padding-right: 40px;
+    padding-bottom: 8px;
+    padding-left: 15px;
 }
 
 .profile-dropdown-link-item a:link,
 .profile-dropdown-link-item a:visited,
 .profile-dropdown-link-item a:active {
     text-decoration: none;
-    /* color: rgba(238, 3, 30); */
     font-size: 14px;
     color: #717171;
 
@@ -211,7 +198,6 @@ body {
 .profile-dropdown-link-item:hover {
     background-color: rgba(121, 116, 116, 0.1);
 }
-
 
 .profile-dropdown-link-item .profile-dropdown-logout-button {
     text-decoration: none;
