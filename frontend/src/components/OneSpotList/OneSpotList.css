@@ -57,6 +57,11 @@
      overflow: hidden;
  }
 
+ .spot-image-section .spot-image-main-only img {
+     width: 1120px;
+     height: 560px;
+     object-fit: cover;
+ }
 
  .spot-image-section .spot-image-main-left img {
      width: 560px;

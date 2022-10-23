@@ -27,20 +27,18 @@ function AddNewReviewForm({ spot, setShowModal }) {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors);
 
+
                 if (res.status === 403) {
-                    // console.log("error 403:", errors)
                     setErrors(["User already has a review for this spot"])
                 }
                 if (res.status === 404) {
-                    // console.log("error 404:", errors)
                     setErrors(["Spot couldn't be found"]);
                 }
                 if (res.status === 400) {
-                    // console.log("error 400:", errors)
-                    setErrors(["Input is not valid"]);
+                    setErrors(["Stars must be an integer from 1 to 5"]);
                 }
+                // console.log("Ming review err: ", errors)
             });
-        // console.log("AddNewReviewForm added new review,", spot.id);
 
         if (addedReview) {
             setErrors([]);
@@ -50,15 +48,15 @@ function AddNewReviewForm({ spot, setShowModal }) {
     };
 
     return (
-        <div className="add-new-review-form">
-            <p className='add-new-review-title'>Create new review</p>
-            <p className='add-new-review-title'>for {spot.name}</p>
+        <div className="form">
+            <p className='form-title'>Create new review</p>
+            <p className='form-sub-title'>for {spot.name}</p>
             <form onSubmit={handleSubmit}>
-                <p className='add-new-review-welcome'>Thanks for sharing with us!</p>
-                <ul>
+                <p className='form-welcome'>Thanks for sharing with us!</p>
+                <ul className="form-errors">
                     {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                 </ul>
-                <div className="add-new-review-elem">
+                <div className="form-elem">
                     <label>
                         Rating
                         <input
@@ -70,7 +68,7 @@ function AddNewReviewForm({ spot, setShowModal }) {
                         />
                     </label>
                 </div>
-                <div className="add-new-review-elem">
+                <div className="form-elem">
                     <label>
                         Review
                         <input
@@ -81,8 +79,9 @@ function AddNewReviewForm({ spot, setShowModal }) {
                         />
                     </label>
                 </div>
-
-                <button className="add-new-review-button" type="submit">Submit</button>
+                <div className='form-button-container'>
+                    <button className="form-button" type="submit">Submit</button>
+                </div>
             </form >
         </div >
     );

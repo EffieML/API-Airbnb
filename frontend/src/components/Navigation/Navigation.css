@@ -73,7 +73,7 @@ body {
     align-items: center;
 }
 
-.become-a-host .user-spots-create-button button {
+.become-a-host button {
     border: 0px solid rgb(0, 0, 0);
     height: 42px;
     width: 130px;
@@ -87,7 +87,7 @@ body {
     margin-bottom: 20px;
 }
 
-.become-a-host .user-spots-create-button button:hover {
+.become-a-host button:hover {
     background-color: rgba(171, 164, 164, 0.1);
 }
 

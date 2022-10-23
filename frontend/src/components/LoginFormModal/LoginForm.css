@@ -16,13 +16,17 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     color: #222222;
+    /* top: -1;
+    z-index: 1; */
 }
 
 /* form title  */
 .form-title {
     font-weight: bold;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     padding-top: 24px;
     padding-bottom: 24px;
     border-bottom: 1px solid rgb(210, 210, 210);
@@ -48,7 +52,7 @@ body {
 
 /* form inpur element section  */
 .form-elem {
-    margin-top: 15px;
+    margin-top: 5px;
     margin-bottom: 5px;
 }
 
@@ -58,17 +62,21 @@ body {
 }
 
 .form-elem input[type="text"],
+.form-elem input[type="float"],
+.form-elem input[type="integer"],
+.form-elem input[type="link"],
 .form-elem input[type="password"] {
     margin-top: 5px;
     display: block;
     width: 520px;
-    height: 20px;
+    height: 14px;
     padding: 10px 20px;
     outline: none;
     border: 1px solid rgb(210, 210, 210);
     border-radius: 8px;
-    font-size: 18px;
+    font-size: 14px;
 }
+
 
 /* login demo user button  */
 .form-button-container {

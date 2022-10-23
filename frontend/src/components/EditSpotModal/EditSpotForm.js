@@ -55,14 +55,14 @@ function EditSpotForm({ spot, spotId, setShowModal }) {
     };
 
     return (
-        <div className="add-new-spot-form">
-            <p className='add-new-spot-title'>Update your listing</p>
+        <div className="form">
+            <p className='form-title'>Update your listing</p>
             <form onSubmit={handleSubmit}>
-                <p className='add-new-spot-welcome'>Open your door to hosting</p>
-                <ul>
+                <p className='form-welcome'>Open your door to hosting</p>
+                <ul className="form-errors">
                     {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                 </ul>
-                <div className="add-new-spot-elem">
+                <div className="form-elem">
                     <label>
                         Address
                         <input
@@ -74,7 +74,7 @@ function EditSpotForm({ spot, spotId, setShowModal }) {
                         />
                     </label>
                 </div>
-                <div className="add-new-spot-elem">
+                <div className="form-elem">
                     <label>
                         City
                         <input
@@ -85,7 +85,7 @@ function EditSpotForm({ spot, spotId, setShowModal }) {
                         />
                     </label>
                 </div>
-                <div className="add-new-spot-elem">
+                <div className="form-elem">
                     <label>
                         State
                         <input
@@ -96,7 +96,7 @@ function EditSpotForm({ spot, spotId, setShowModal }) {
                         />
                     </label>
                 </div>
-                <div className="add-new-spot-elem">
+                <div className="form-elem">
                     <label>
                         Country
                         <input
@@ -107,7 +107,7 @@ function EditSpotForm({ spot, spotId, setShowModal }) {
                         />
                     </label>
                 </div>
-                <div className="add-new-spot-elem">
+                <div className="form-elem">
                     <label>
                         Latitude
                         <input
@@ -118,7 +118,7 @@ function EditSpotForm({ spot, spotId, setShowModal }) {
                         />
                     </label>
                 </div>
-                <div className="add-new-spot-elem">
+                <div className="form-elem">
                     <label>
                         Longitude
                         <input
@@ -129,7 +129,7 @@ function EditSpotForm({ spot, spotId, setShowModal }) {
                         />
                     </label>
                 </div>
-                <div className="add-new-spot-elem">
+                <div className="form-elem">
                     <label>
                         Listing Title
                         <input
@@ -140,7 +140,7 @@ function EditSpotForm({ spot, spotId, setShowModal }) {
                         />
                     </label>
                 </div>
-                <div className="add-new-spot-elem">
+                <div className="form-elem">
                     <label>
                         Description
                         <input
@@ -151,7 +151,7 @@ function EditSpotForm({ spot, spotId, setShowModal }) {
                         />
                     </label>
                 </div>
-                <div className="add-new-spot-elem">
+                <div className="form-elem">
                     <label>
                         Price
                         <input
@@ -162,7 +162,9 @@ function EditSpotForm({ spot, spotId, setShowModal }) {
                         />
                     </label>
                 </div>
-                <button className="add-new-spot-button" type="submit">Submit</button>
+                <div className='form-button-container'>
+                    <button className="form-button" type="submit">Submit</button>
+                </div>
             </form >
         </div >
     );

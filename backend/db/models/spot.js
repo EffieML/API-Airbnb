@@ -74,11 +74,21 @@ module.exports = (sequelize, DataTypes) => {
     description: {
       type: DataTypes.TEXT,
       allowNull: false,
+      validate: {
+        len: [1, 10000]
+      }
     },
     price: {
       type: DataTypes.DECIMAL,
       allowNull: false,
-    },
+      validate: {
+        check(value) {
+          if (isNaN(value) || value <= 0) {
+            throw new Error("Price can not less than 0.")
+          }
+        }
+      }
+    }
   }, {
     sequelize,
     modelName: 'Spot',
