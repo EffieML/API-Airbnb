@@ -37,7 +37,7 @@ function LoginForm() {
             <p className='login-title'>Log in</p>
             <form onSubmit={handleSubmit}>
                 <p className='login-welcome'>Welcome to Staybnb</p>
-                <ul>
+                <ul className="login-errors">
                     {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                 </ul>
                 <div className='login-elem'>
@@ -62,11 +62,13 @@ function LoginForm() {
                         />
                     </label>
                 </div>
-                <div>
-                    <button className='login-button' type="submit">Log In</button>
-                </div>
-                <div>
-                    <button className='login-button' onClick={demoUser}>Demo User</button>
+                <div className='login-button-container'>
+                    <div >
+                        <button className='login-button' type="submit">Log In</button>
+                    </div>
+                    <div>
+                        <button className='login-button' onClick={demoUser}>Demo User</button>
+                    </div>
                 </div>
             </form>
         </div >

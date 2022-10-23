@@ -2,15 +2,78 @@ body {
     font-family: Roboto, sans-serif
 }
 
-.signupform {
-    width: 500px;
-    padding: 20px 30px;
+.loginform {
+    display: flex;
+    flex-direction: column;
+    width: 568px;
+    height: auto;
+    padding-left: 24px;
+    padding-right: 24px;
     background: white;
-    border: 1px solid black;
-    border-radius: 10px;
+    border-radius: 12px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #222222;
+}
+
+.login-title {
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgb(210, 210, 210);
+    font-size: 16px;
+    margin: 0;
+}
+
+.login-welcome {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.login-elem {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.login-elem label {
+    color: #717171;
+    font-size: 16px;
+}
+
+.login-elem input[type="text"],
+.login-elem input[type="password"] {
+    margin-top: 5px;
+    display: block;
+    width: 520px;
+    height: 20px;
+    padding: 10px 20px;
+    outline: none;
+    border: 1px solid rgb(210, 210, 210);
+    border-radius: 8px;
+    font-size: 18px;
+}
+
+/* login demo user button  */
+.login-button-container {
+    display: flex;
+    flex-direction: row;
 }
 
 .login-button {
-    background-color: #ff385c;
-    color: white
+    height: 32px;
+    width: 100px;
+    border-style: none;
+    border-radius: 22px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: rgb(255, 56, 92);
+    cursor: pointer;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-right: 10px;
 }
