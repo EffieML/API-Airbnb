@@ -21,12 +21,15 @@ function SignupForm() {
                 .catch(async (res) => {
                     const data = await res.json();
                     if (data && data.errors)
-                        setErrors(data.errors)
-                    // {
-                    //     let arr = [];
-                    //     arr.push(data.errors)
-                    //     setErrors(arr)
-                    // };
+                    // setErrors(data.errors)
+                    {
+                        let arr = [];
+                        let dataErr = Object.values(data.errors)
+                        // console.log("ming error: ", dataErr)
+                        dataErr.forEach((err) => { arr.push(err) })
+                        // console.log("ming arr: ", arr)
+                        setErrors(arr)
+                    };
 
                 });
         }

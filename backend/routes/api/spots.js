@@ -22,11 +22,11 @@ const validateSpot = [
         .withMessage('Country is required'),
     check('lat')
         .exists({ checkFalsy: true })
-        .isDecimal()
+        .isFloat({ min: -90.0, max: 90.0 })
         .withMessage('Latitude is not valid'),
     check('lng')
         .exists({ checkFalsy: true })
-        .isDecimal()
+        .isFloat({ min: -180.0, max: 180.0 })
         .withMessage('Longitude is not valid'),
     check('name')
         .exists({ checkFalsy: true })
@@ -38,7 +38,7 @@ const validateSpot = [
     check('price')
         .exists({ checkFalsy: true })
         .isDecimal()
-        .withMessage('Price per day is required'),
+        .withMessage('Price per day as integer is required'),
     handleValidationErrors
 ];
 
@@ -401,9 +401,10 @@ router.post('/:spotId/reviews', requireAuth, validateReview, async (req, res) =>
         return res.json({
             message: "Validation error",
             statusCode: 400,
-            errors: {
-                stars: "Stars must be an integer from 1 to 5",
-            }
+            // errors: "Stars must be an integer from 1 to 5"
+            // errors: {
+            //     stars: "Stars must be an integer from 1 to 5",
+            // }
         })
     }
 })
