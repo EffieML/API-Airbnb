@@ -2,7 +2,7 @@ body {
     font-family: Roboto, sans-serif
 }
 
-.loginform {
+.form {
     display: flex;
     flex-direction: column;
     width: 568px;
@@ -18,7 +18,8 @@ body {
     color: #222222;
 }
 
-.login-title {
+/* form title  */
+.form-title {
     font-weight: bold;
     display: flex;
     justify-content: center;
@@ -29,23 +30,35 @@ body {
     margin: 0;
 }
 
-.login-welcome {
+.form-welcome {
     font-size: 22px;
     font-weight: bold;
+    margin-bottom: 16px;
 }
 
-.login-elem {
+/* error messages  */
+.form-errors {
+    font-size: 16px;
+    color: #717171;
+}
+
+.form-errors #error {
+    padding-bottom: 4px;
+}
+
+/* form inpur element section  */
+.form-elem {
     margin-top: 15px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
-.login-elem label {
+.form-elem label {
     color: #717171;
     font-size: 16px;
 }
 
-.login-elem input[type="text"],
-.login-elem input[type="password"] {
+.form-elem input[type="text"],
+.form-elem input[type="password"] {
     margin-top: 5px;
     display: block;
     width: 520px;
@@ -58,12 +71,12 @@ body {
 }
 
 /* login demo user button  */
-.login-button-container {
+.form-button-container {
     display: flex;
     flex-direction: row;
 }
 
-.login-button {
+.form-button {
     height: 32px;
     width: 100px;
     border-style: none;
