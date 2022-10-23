@@ -17,7 +17,7 @@ function Navigation({ isLoaded }) {
         );
     } else {
         sessionLinks = (
-            <div>
+            <div className='nav-button-login-signup'>
                 <div className="nav-button">
                     <LoginFormModal />
                 </div>
@@ -43,18 +43,20 @@ function Navigation({ isLoaded }) {
     return (
         <div className='nav-bar-container'>
             <nav className='nav-bar'>
-                <div className='nav-home'>
+                <div className='nav-bar-left'>
                     <NavLink exact to="/">
-                        <span><img className='nav-bar-logo' src='https://drive.google.com/uc?export=view&id=1lTKnjy9TxFpkJRf4im-aVbqSwCcWiZi8' /></span>
-                        <span>Staybnb</span>
+                        <div><img className='nav-bar-logo' src='https://drive.google.com/uc?export=view&id=1lTKnjy9TxFpkJRf4im-aVbqSwCcWiZi8' /></div>
+                        <div className='nav-bar-name'>Staybnb</div>
                     </NavLink>
                 </div>
-                <div className='Become a Host'>
-                    <AddNewSpotModal />
-                </div>
-                <div className='nav-login-signup'>
-                    <div>
-                        {isLoaded && sessionLinks}
+                <div className='nav-bar-right'>
+                    <div className='become-a-host'>
+                        <AddNewSpotModal />
+                    </div>
+                    <div className='nav-login-signup'>
+                        <div>
+                            {isLoaded && sessionLinks}
+                        </div>
                     </div>
                 </div>
             </nav>
