@@ -59,6 +59,7 @@ function UserListingPage() {
                                         <div className='listed-spot-info-name'>
                                             {`${spot.name}`}
                                         </div>
+                                        <div className='listed-reviews-review'></div>
                                         <div className='listed-spot-info-location'>
                                             {`${spot.city}, ${spot.state}, ${spot.country}`}
                                         </div>
