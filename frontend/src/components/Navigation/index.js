@@ -44,13 +44,13 @@ function Navigation({ isLoaded }) {
                 </div>
                 <div className='nav-bar-right'>
                     <div className='become-a-host'>
-                        {/* <AddNewSpotModal /> */}
-                        <button onClick={() => setShowModal(true)}>Become a Host</button>
+                        <AddNewSpotModal />
+                        {/* <button onClick={() => setShowModal(true)}>Become a Host</button>
                         {showModal && (
                             <Modal onClose={() => setShowModal(false)}>
                                 < AddNewSpotForm setShowModal={setShowModal} />
                             </Modal>
-                        )}
+                        )} */}
                     </div>
                     <div className='nav-login-signup' >
                         <div>
