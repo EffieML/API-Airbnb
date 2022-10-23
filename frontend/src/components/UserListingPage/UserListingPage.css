@@ -67,6 +67,12 @@
      font-weight: bold;
  }
 
+ .listed-reviews-review {
+     font-size: 16px;
+     font-weight: normal;
+     margin-top: 10px;
+ }
+
  .listed-spot-info .listed-spot-info-time {
      font-size: 16px;
      color: #717171;

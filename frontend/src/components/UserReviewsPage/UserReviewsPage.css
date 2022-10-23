@@ -1,5 +1,5 @@
 /* whole section  */
-/* .user-reviews-section-container {
+/* .user-all-reviews-section {
     display: flex;
     flex-direction: column;
     max-width: 1120px;
@@ -7,11 +7,21 @@
     margin: auto;
     color: #222222;
     font-family: Roboto, sans-serif;
-} */
+}
 
 .user-reviews-section-title {
     font-weight: bold;
     margin-top: 40px;
     margin-bottom: 10px;
-    font-size: 26px;
+    font-size: 86px;
 }
+
+
+.user-reviews-each-review {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgb(210, 210, 210);
+} */
