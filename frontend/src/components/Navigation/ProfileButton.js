@@ -35,8 +35,8 @@ function ProfileButton({ user }) {
         <div className="nav-bar-drop-down">
             <button className="profile-buttons" onClick={openMenu}>
                 {/* <i className="fas fa-user-circle" /> */}
-                <i className="fa-solid fa-bars" />
-                <i className="fa-solid fa-user" />
+                <i className="fa-solid fa-bars nav-bar-drop-down-favicon" />
+                <i className="fa-solid fa-user nav-bar-drop-down-favicon" />
             </button>
             {showMenu && (
                 <div className="profile-dropdown-container">
@@ -47,7 +47,7 @@ function ProfileButton({ user }) {
                         <div className="profile-dropdown-item">
                             {user.email}
                         </div>
-                        <hr className="solid"></hr>
+                        <hr className="profile-dropdown-line"></hr>
                         <div className="profile-dropdown-link-item">
 
                             <Link to={'/spots/current'}> Manage Listings</Link>
@@ -60,10 +60,10 @@ function ProfileButton({ user }) {
                         </div>
                         <div className="profile-dropdown-link-item">
 
-                            <button className='profile-dropdown-logout-button' onClick={logout}>
+                            <div className='profile-dropdown-logout-button' onClick={logout}>
                                 {/* <Redirect to="/spots" /> */}
                                 Log Out
-                            </button>
+                            </div>
                         </div>
                     </ul>
                 </div>
