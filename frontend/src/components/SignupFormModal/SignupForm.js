@@ -20,21 +20,28 @@ function SignupForm() {
             return dispatch(sessionActions.signup({ firstName, lastName, email, username, password }))
                 .catch(async (res) => {
                     const data = await res.json();
-                    if (data && data.errors) setErrors(data.errors);
+                    if (data && data.errors)
+                        setErrors(data.errors)
+                    // {
+                    //     let arr = [];
+                    //     arr.push(data.errors)
+                    //     setErrors(arr)
+                    // };
+
                 });
         }
         return setErrors(['Confirm Password field must be the same as the Password field']);
     };
 
     return (
-        <div className="signupform">
-            <p className='login-title'>Sign up</p>
+        <div className="form">
+            <p className='form-title'>Sign up</p>
             <form onSubmit={handleSubmit}>
-                <p className='login-welcome'>Welcome to Staybnb</p>
-                <ul>
-                    {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                <p className='form-welcome'>Welcome to Staybnb</p>
+                <ul className="form-errors">
+                    {errors.map((error, idx) => <li key={idx} id='error'>{error}</li>)}
                 </ul>
-                <div className="signup-elem">
+                <div className="form-elem">
                     <label>
                         Email
                         <input
@@ -45,7 +52,7 @@ function SignupForm() {
                         />
                     </label>
                 </div>
-                <div className="signup-elem">
+                <div className="form-elem">
                     <label>
                         First Name
                         <input
@@ -56,7 +63,7 @@ function SignupForm() {
                         />
                     </label>
                 </div>
-                <div className="signup-elem">
+                <div className="form-elem">
                     <label>
                         Last Name
                         <input
@@ -67,7 +74,7 @@ function SignupForm() {
                         />
                     </label>
                 </div>
-                <div className="signup-elem">
+                <div className="form-elem">
                     <label>
                         Username
                         <input
@@ -78,7 +85,7 @@ function SignupForm() {
                         />
                     </label>
                 </div>
-                <div className="signup-elem">
+                <div className="form-elem">
                     <label>
                         Password
                         <input
@@ -89,7 +96,7 @@ function SignupForm() {
                         />
                     </label>
                 </div>
-                <div className="signup-elem">
+                <div className="form-elem">
                     <label>
                         Confirm Password
                         <input
@@ -100,10 +107,14 @@ function SignupForm() {
                         />
                     </label>
                 </div>
-                <button className="signup-button" type="submit">Sign Up</button>
+                <div className='form-button-container'>
+                    <button className="form-button" type="submit">Sign Up</button>
+                </div>
             </form >
         </div >
     );
 }
 
 export default SignupForm;
+
+// onClick={handleSubmit}
