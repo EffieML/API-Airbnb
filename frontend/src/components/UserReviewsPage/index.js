@@ -36,24 +36,36 @@ function UserReviewsPage() {
     }
 
     return (
-        <div className='user-reviews-section'>
-            <h1>{`Reviews by ${currUser.firstName}`} </h1>
-            {reviews && (
-                reviews.map(review => (
-                    <div key={review.id}>
-                        <img src={review.Spot?.previewImage} />
-                        <div>{`Review for ${review.Spot?.name}`}</div>
-                        <div>
-                            {review?.createdAt}
+        <div className='user-listing-page'>
+            <div>
+                <h1 className='user-listing-page-title'>{`Reviews by ${currUser.firstName}`} </h1>
+            </div>
+            <div className='user-all-listings'>
+                {reviews && (
+                    reviews.map(review => (
+                        <div key={review.id} className='user-each-listing'>
+                            <div className='listed-spot'>
+                                <div className='listed-spot-image'>
+                                    <img className='spot-image-size' src={review.Spot?.previewImage} />
+                                </div>
+                                <div className='listed-spot-info'>
+                                    <div className='listed-spot-info-name'>{`Review for ${review.Spot?.name}`}</div>
+                                    <div className='listed-spot-info-time'>
+                                        {review?.createdAt.slice(0, 10)}
+                                    </div>
+                                    <div className='listed-reviews-review'>
+                                        {review?.review}
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='listed-spot-edit-delete-button'>
+                                <button onClick={() => handleDelete(review.id)}>Delete Review</button>
+                            </div>
                         </div>
-                        <div>
-                            {review?.review}
-                        </div>
-                        <button onClick={() => handleDelete(review.id)}>Delete Review</button>
-                    </div>
 
-                ))
-            )}
+                    ))
+                )}
+            </div>
         </div>
     )
 

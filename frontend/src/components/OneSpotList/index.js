@@ -23,21 +23,21 @@ function OneSpotList() {
     if (!spot) return null;
 
     return (
-        <div className='one-spot-list'>
+        <div className='one-spot-list-container'>
             {isLoaded && (
-                <>
+                <div className='one-spot-list'>
                     <div className='spot-title-and-image-section'>
                         <div className='spot-title-section' >
                             <h1 className='spot-title'>{spot.name}</h1>
                             <div className='spot-title-info'>
-                                <span>
-                                    <i className="fa-solid fa-star" />
-                                </span>
-                                <span>{spot.avgStarRating ? spot.avgStarRating.toFixed(2) : 'New'}</span>
-                                <span> · </span>
-                                <span> {`${spot.numReviews} reviews`} </span>
-                                <span> · </span>
-                                <span>{`${spot.city}, ${spot.state}, ${spot.country}`}</span>
+                                <div id='fafastar'>
+                                    < i className="fa-solid fa-star" />
+                                </div>
+                                <div className='spot-title-detail'>{spot.avgStarRating ? spot.avgStarRating.toFixed(2) : 'New'}</div>
+                                <div className='spot-title-detail'> · </div>
+                                <div className='spot-title-detail'> {`${spot.numReviews} reviews`} </div>
+                                <div className='spot-title-detail'> · </div>
+                                <div className='spot-title-detail'>{`${spot.city}, ${spot.state}, ${spot.country}`}</div>
                             </div>
                         </div>
                         <div className='spot-image-section'>
@@ -45,12 +45,12 @@ function OneSpotList() {
                                 <img src={spot.SpotImages[0].url} alt='Spot preview image' />
                             </div>
                             <div className='spot-image-middle'>
-                                {spot.SpotImages[1] && (<img src={spot.SpotImages[1].url} />)}
-                                {spot.SpotImages[2] && (<img src={spot.SpotImages[2].url} />)}
+                                {spot.SpotImages[1] && (<img id="spot-img-2" src={spot.SpotImages[1].url} />)}
+                                {spot.SpotImages[2] && (<img id="spot-img-3" src={spot.SpotImages[2].url} />)}
                             </div>
                             <div className='spot-image-right'>
-                                {spot.SpotImages[3] && (<img src={spot.SpotImages[3].url} />)}
-                                {spot.SpotImages[4] && (<img src={spot.SpotImages[4].url} />)}
+                                {spot.SpotImages[3] && (<img id="spot-img-4" src={spot.SpotImages[3].url} />)}
+                                {spot.SpotImages[4] && (<img id="spot-img-5" src={spot.SpotImages[4].url} />)}
                             </div>
                         </div>
                     </div>
@@ -58,43 +58,45 @@ function OneSpotList() {
                     <div className='spot-detail-and-booking-section'>
                         <div className='spot-detail-section-left'>
                             <h2 className='spot-owner-first-name'>{`Entire home hosted by ${spot.Owner.firstName}`}</h2>
-                            <span className='spot-description'>{spot.description}</span>
+                            <div className='spot-description'>{spot.description}</div>
                         </div>
                         <div className='spot-booking-section-right'>
                             <div className='spot-booking-top'>
                                 <div className='spot-booking-top-left'>
-                                    <span>{`$${spot.price} `}</span>
-                                    <span>  night</span>
+                                    <div className='booking-top-price'><span >{`$${spot.price} `}</span></div>
+                                    <div className='booking-top-night'>  night</div>
                                 </div>
                                 <div className='spot-booking-top-right'>
-                                    <span>
+                                    <div id='fafastar'>
                                         <i className="fa-solid fa-star" />
-                                    </span>
-                                    <span>{spot.avgStarRating ? spot.avgStarRating.toFixed(2) : 'New'}</span>
-                                    <span> · </span>
-                                    <span> {`${spot.numReviews} reviews`} </span>
+                                    </div>
+                                    <div>{spot.avgStarRating ? spot.avgStarRating.toFixed(2) : 'New'}</div>
+                                    <div id='dot'> · </div>
+                                    <div className="booking-top-review"> {`${spot.numReviews} reviews`} </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div className='spot-review-section'>
-                        <>
-                            <h2>
-                                <span>
+                        <div className='spot-review-section-toprow'>
+                            <div className='spot-review-section-top-left'>
+                                <div id='fafastar'>
                                     <i className="fa-solid fa-star" />
-                                </span>
-                                <span>{spot.avgStarRating ? spot.avgStarRating.toFixed(2) : 'New'}</span>
-                                <span> · </span>
-                                <span> {`${spot.numReviews} reviews`} </span>
-                            </h2>
-                            <AddNewReviewModal spot={spot} />
-                        </>
+                                </div>
+                                <div>{spot.avgStarRating ? spot.avgStarRating.toFixed(2) : 'New'}</div>
+                                <div id='dot'> · </div>
+                                <div> {`${spot.numReviews} reviews`} </div>
+                            </div>
+                            <div className='spot-review-section-top-right' id='button-add-review'>
+                                <AddNewReviewModal spot={spot} />
+                            </div>
+                        </div>
                         <div className='spot-reviews'>
                             <ListSpotReviews spot={spot} />
                         </div>
                     </div>
-                </>
+                </div>
             )}
         </div>
     )

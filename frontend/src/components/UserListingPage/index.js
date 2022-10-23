@@ -43,35 +43,34 @@ function UserListingPage() {
             {isloaded && (
                 <div>
                     <h1 className='user-listing-page-title'>Manage your listings </h1>
-                    <div>
+                    <div className='user-spots-create-button'>
                         <AddNewSpotModal />
                     </div>
                     <div className='user-all-listings'>
                         {spots.map(spot => (
-                            <>
-                                <Link key={spot.id} to={`/spots/${spot.id}`}>
-                                    <div className='listed-spot'>
+                            <div key={spot.id} className='user-each-listing'>
+                                <div className='listed-spot'>
+                                    <Link to={`/spots/${spot.id}`}>
                                         <div className='listed-spot-image'>
-                                            <img src={spot.previewImage} alt='Spot preview image' />
+                                            <img className='spot-image-size' src={spot.previewImage} alt='Spot preview image' />
                                         </div>
-                                        <div className='listed-spot-info'>
-                                            <div>
-                                                {`${spot.name}`}
-                                            </div>
-                                            <div>
-                                                {`${spot.city}, ${spot.state}, ${spot.country}`}
-                                            </div>
+                                    </Link>
+                                    <div className='listed-spot-info'>
+                                        <div className='listed-spot-info-name'>
+                                            {`${spot.name}`}
                                         </div>
-
-                                    </div>
-                                </Link>
-                                <div className='listed-spot-edit-delete-button'>
-                                    <div>
-                                        <EditSpotModal spot={spot} spotId={spot.id} />
-                                        <button onClick={() => handleDelete(spot.id)}> Delete Listing </button>
+                                        <div className='listed-reviews-review'></div>
+                                        <div className='listed-spot-info-location'>
+                                            {`${spot.city}, ${spot.state}, ${spot.country}`}
+                                        </div>
+                                        <div className='listed-spot-info-time'>{`Last updated at: ${spot.createdAt.slice(0, 10)}`}</div>
                                     </div>
                                 </div>
-                            </>
+                                <div className='listed-spot-edit-delete-button'>
+                                    <EditSpotModal spot={spot} spotId={spot.id} />
+                                    <button onClick={() => handleDelete(spot.id)}> Delete Listing </button>
+                                </div>
+                            </div>
                         ))}
                     </div>
                 </div>

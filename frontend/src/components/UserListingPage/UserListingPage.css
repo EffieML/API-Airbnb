@@ -1,0 +1,103 @@
+ /* whole section */
+ .user-listing-page {
+     display: flex;
+     flex-direction: column;
+     max-width: 1120px;
+     justify-content: center;
+     margin: auto;
+     color: #222222;
+     font-family: Roboto, sans-serif;
+ }
+
+
+ /* title  */
+ .user-listing-page-title {
+     font-weight: bold;
+     margin-top: 40px;
+     margin-bottom: 10px;
+     font-size: 26px;
+ }
+
+
+ /* create new spot button  */
+ .user-listing-page .user-spots-create-button button {
+     border: 0px solid rgb(0, 0, 0);
+     height: 36px;
+     width: 200px;
+     border-radius: 10px;
+     font-size: 15px;
+     font-weight: bold;
+     color: white;
+     background-color: rgb(255, 56, 92);
+     cursor: pointer;
+     margin-top: 20px;
+     margin-bottom: 20px;
+ }
+
+
+ /* each spot section  */
+ .user-each-listing {
+     display: flex;
+     flex-direction: column;
+     margin-top: 20px;
+     margin-bottom: 40px;
+     padding-top: 20px;
+     border-top: 1px solid rgb(210, 210, 210);
+ }
+
+ .listed-spot {
+     display: flex;
+     flex-direction: row;
+ }
+
+ .listed-spot-info {
+     margin-left: 40px;
+
+ }
+
+ .listed-spot-info .listed-spot-info-name {
+     font-size: 22px;
+     font-weight: bold;
+     padding-top: 10px;
+     padding-bottom: 20px;
+ }
+
+ .listed-spot-info .listed-spot-info-location {
+     font-size: 16px;
+     font-weight: bold;
+ }
+
+ .listed-reviews-review {
+     font-size: 16px;
+     font-weight: normal;
+     margin-top: 10px;
+ }
+
+ .listed-spot-info .listed-spot-info-time {
+     font-size: 16px;
+     color: #717171;
+ }
+
+
+ /* edit delete buttons */
+ .listed-spot-edit-delete-button {
+     display: flex;
+     flex-direction: row;
+     width: 300px;
+     justify-content: space-around;
+ }
+
+ .listed-spot-edit-delete-button button {
+     border: 0px solid rgb(0, 0, 0);
+     height: 36px;
+     width: 140px;
+     border-radius: 8px;
+     font-size: 15px;
+     font-weight: bold;
+     color: white;
+     background-color: rgb(255, 56, 92);
+     cursor: pointer;
+     margin-top: 10px;
+     margin-bottom: 20px;
+
+ }

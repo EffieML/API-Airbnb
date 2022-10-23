@@ -17,32 +17,38 @@ function AllSpotsList() {
     if (spots.length == 0) return null;
 
     return (
-        <div className='all-spots-list'>
-            {spots && (
-                spots.map(spot => (
-                    <Link key={spot.id} to={`/spots/${spot.id}`}>
-                        <div className='spot-card'>
-                            <div >
-                                <img src={spot.previewImage} alt='Spot preview image' />
+        <div className='all-spots-container'>
+            <div className='all-spots-list'>
+                {spots && (
+                    spots.map(spot => (
+                        <Link key={spot.id} to={`/spots/${spot.id}`}>
+                            <div className='spot-card'>
+                                <div className='spot-image'>
+                                    <img className='spot-image-size' src={spot.previewImage} alt='Spot preview image' />
+                                </div>
+                                <div className='spot-info'>
+                                    <div className='spot-info-1'>
+                                        <div className='spot-info-city'>
+                                            {`${spot.city}, ${spot.state}`}
+                                        </div>
+                                        <div className='spot-title-info'>
+                                            <span id='fafastar'>
+                                                <i className="fa-solid fa-star" />
+                                            </span>
+                                            <span>{spot.avgRating ? spot.avgRating.toFixed(2) : 'New'}</span>
+                                        </div>
+                                    </div>
+
+                                    <div className='spot-info-2'>
+                                        <span>${spot.price} </span>night
+                                    </div>
+
+                                </div>
                             </div>
-                            <div className='spot-info'>
-                                <div>
-                                    {`${spot.city}, ${spot.state}`}
-                                </div>
-                                <div >
-                                    <span>${spot.price} </span>night
-                                </div>
-                                <div className='spot-title-info'>
-                                    <span>
-                                        <i className="fa-solid fa-star" />
-                                    </span>
-                                    <span>{spot.avgRating ? spot.avgRating.toFixed(2) : 'New'}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </Link>
-                ))
-            )}
+                        </Link>
+                    ))
+                )}
+            </div>
         </div>
     )
 }

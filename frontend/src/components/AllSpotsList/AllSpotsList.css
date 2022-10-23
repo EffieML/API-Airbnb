@@ -1,0 +1,83 @@
+.all-spots-container {
+    width: 100vw;
+    height: auto;
+    min-height: 88vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.all-spots-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+    max-width: 2000px;
+    padding: 10px 5px;
+    margin: 10px 5px;
+    font-family: Roboto, sans-serif
+}
+
+
+.spot-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 300px;
+    height: auto;
+    padding: 5px;
+    margin: 10px 5px 5px 5px;
+}
+
+.spot-card .spot-image {
+    width: 100%;
+    height: 65%;
+    display: flex;
+    justify-content: center;
+
+}
+
+.spot-image-size {
+    width: 300px;
+    height: 300px;
+    padding: 5px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.spot-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 38%;
+    padding: 5px;
+    margin: 5px;
+    text-decoration: none;
+}
+
+.spot-info-1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.all-spots-list .spot-info .spot-info-1 {
+    font-weight: bold;
+}
+
+.spot-title-info span {
+    font-weight: normal;
+}
+
+.spot-info-2 span {
+    font-weight: bold;
+}
+
+.all-spots-list a:link,
+.all-spots-list a:visited,
+.all-spots-list a:hover,
+.all-spots-list a:active {
+    text-decoration: none;
+    color: black;
+}
