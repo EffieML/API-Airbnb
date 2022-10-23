@@ -32,32 +32,43 @@ function ProfileButton({ user }) {
     };
 
     return (
-        <>
+        <div className="nav-bar-drop-down">
             <button className="profile-buttons" onClick={openMenu}>
                 {/* <i className="fas fa-user-circle" /> */}
                 <i className="fa-solid fa-bars" />
                 <i className="fa-solid fa-user" />
             </button>
             {showMenu && (
-                <ul className="profile-dropdown">
-                    <li>{user.username}</li>
-                    <li>{user.email}</li>
-                    <li>
-                        <Link to={'/spots/current'}> Manage Listings</Link>
-                    </li>
-                    <li>
-                        <Link to={'/reviews/current'}> Manage Reviews</Link>
-                    </li>
-                    <li>
-                        <button onClick={logout}>
-                            {/* <Redirect to="/spots" /> */}
-                            Log Out
-                        </button>
+                <div className="profile-dropdown-container">
+                    <ul className="profile-dropdown">
+                        <div className="profile-dropdown-item">
+                            {user.username}
+                        </div>
+                        <div className="profile-dropdown-item">
+                            {user.email}
+                        </div>
+                        <hr className="solid"></hr>
+                        <div className="profile-dropdown-link-item">
 
-                    </li>
-                </ul>
+                            <Link to={'/spots/current'}> Manage Listings</Link>
+
+                        </div>
+                        <div className="profile-dropdown-link-item">
+
+                            <Link to={'/reviews/current'}> Manage Reviews</Link>
+
+                        </div>
+                        <div className="profile-dropdown-link-item">
+
+                            <button className='profile-dropdown-logout-button' onClick={logout}>
+                                {/* <Redirect to="/spots" /> */}
+                                Log Out
+                            </button>
+                        </div>
+                    </ul>
+                </div>
             )}
-        </>
+        </div>
     );
 }
 
