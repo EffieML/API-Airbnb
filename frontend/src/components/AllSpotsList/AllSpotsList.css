@@ -1,5 +1,4 @@
 .all-spots-container {
-    width: 100vw;
     height: auto;
     min-height: 88vh;
     display: flex;
@@ -8,15 +7,18 @@
     align-items: center;
 }
 
+
 .all-spots-list {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
-    /* justify-content: center; */
+    flex-direction: row;
+    justify-content: center;
+    width: auto;
     max-width: 2000px;
     padding: 10px 5px;
     margin: 10px 5px;
-    font-family: Roboto, sans-serif
+    font-family: Roboto, sans-serif;
+    color: #222222;
 }
 
 
@@ -79,5 +81,5 @@
 .all-spots-list a:hover,
 .all-spots-list a:active {
     text-decoration: none;
-    color: black;
+    color: #222222;
 }
