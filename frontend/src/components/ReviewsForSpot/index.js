@@ -28,8 +28,8 @@ function ListSpotReviews({ spot }) {
             <>
                 {reviews && (
                     reviews.map(review => (
-                        <div className="each-spot-review">
-                            <div key={review.id} >
+                        <div key={review.id} className="each-spot-review">
+                            <div  >
                                 <div className="each-spot-review-firstName">{review.User?.firstName ? review.User.firstName : "you just posted"}</div>
                                 <div className="each-spot-review-createTime">
                                     {review.createdAt.slice(0, 10)}
