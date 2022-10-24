@@ -3,7 +3,8 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from "react-redux";
 import { addReviewThunk, listSpotReviewsThunk } from "../../store/reviews";
-import { listOneSpot } from "../../store/spots"
+import { listOneSpot } from "../../store/spots";
+import '../LoginFormModal/LoginForm.css';
 
 function AddNewReviewForm({ spot, setShowModal, reviewId }) {
     console.log("AddNewReviewForm:", spot)
