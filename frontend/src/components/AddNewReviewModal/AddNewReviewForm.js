@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 // import { Redirect } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from "react-redux";
-import { addReviewThunk } from "../../store/reviews"
+import { addReviewThunk, listSpotReviewsThunk } from "../../store/reviews";
+import { listOneSpot } from "../../store/spots"
 
 function AddNewReviewForm({ spot, setShowModal }) {
     console.log("AddNewReviewForm:", spot)
@@ -23,6 +24,8 @@ function AddNewReviewForm({ spot, setShowModal }) {
         }
 
         const addedReview = await dispatch(addReviewThunk(spot.id, newReview))
+            .then(() => dispatch(listOneSpot(spot.id)))
+            .then(() => dispatch(listSpotReviewsThunk(spot.id)))
             .catch(async (res) => {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors);
