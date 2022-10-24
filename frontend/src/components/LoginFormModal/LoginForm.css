@@ -1,0 +1,100 @@
+body {
+    font-family: Roboto, sans-serif
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 568px;
+    height: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+    background: white;
+    border-radius: 12px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #222222;
+    /* top: -1;
+    z-index: 1; */
+}
+
+/* form title  */
+.form-title {
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgb(210, 210, 210);
+    font-size: 16px;
+    margin: 0;
+}
+
+.form-welcome {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+/* error messages  */
+.form-errors {
+    font-size: 16px;
+    color: #717171;
+}
+
+.form-errors #error {
+    padding-bottom: 4px;
+}
+
+/* form inpur element section  */
+.form-elem {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.form-elem label {
+    color: #717171;
+    font-size: 16px;
+}
+
+.form-elem input[type="text"],
+.form-elem input[type="float"],
+.form-elem input[type="integer"],
+.form-elem input[type="link"],
+.form-elem input[type="password"] {
+    margin-top: 5px;
+    display: block;
+    width: 520px;
+    height: 14px;
+    padding: 10px 20px;
+    outline: none;
+    border: 1px solid rgb(210, 210, 210);
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+
+/* login demo user button  */
+.form-button-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.form-button {
+    height: 32px;
+    width: 100px;
+    border-style: none;
+    border-radius: 22px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: rgb(255, 56, 92);
+    cursor: pointer;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-right: 10px;
+}
