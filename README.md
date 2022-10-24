@@ -14,10 +14,11 @@ React, Redux, JavaScript, NodeJS, Express, Sequelize, HTML, CSS, Heroku
 ### Home Page: 
 Staybnb home page for showing all the spots
 ![image](frontend/public/img/Home-Page.PNG)
+Home-Page.PNG
 
 ### Login form: 
 Staybnb home page login form
-![image](frontend/public/css/login.PNG)
+
 
 ### Signup form: 
 Staybnb home page new user signup form
