@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch } from "react-redux";
 import { addReviewThunk } from "../../store/reviews"
 
-function AddNewReviewForm({ spot, setShowModal }) {
+function AddNewReviewForm({ spot, setShowModal, reviewId }) {
     console.log("AddNewReviewForm:", spot)
     const dispatch = useDispatch();
     const history = useHistory();
