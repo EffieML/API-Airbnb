@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from "react-redux";
 import * as spotsActions from "../../store/spots";
+import '../LoginFormModal/LoginForm.css';
 
 
 function AddNewSpotForm({ setShowModal }) {

@@ -5,6 +5,7 @@ import { useHistory } from "react-router";
 // import { listUserSpots } from '../../store/spots';
 import { listUserReviewsThunk } from '../../store/reviews';
 import { deleteReviewThunk } from '../../store/reviews';
+import '../UserListingPage/UserListingPage.css';
 
 function UserReviewsPage() {
     const dispatch = useDispatch();
