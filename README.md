@@ -14,11 +14,12 @@ React, Redux, JavaScript, NodeJS, Express, Sequelize, HTML, CSS, Heroku
 ### Home Page: 
 Staybnb home page for showing all the spots
 ![image](frontend/public/img/Home-Page.PNG)
-Home-Page.PNG
+<img width="820" alt="Home Page" src="https://github.com/EffieML/API-Airbnb/blob/main/frontend/public/img/Home-Page.PNG">
+
 
 ### Login form: 
 Staybnb home page login form
-
+<img width="820" alt="Login form" src="https://github.com/EffieML/API-Airbnb/blob/main/frontend/public/img/login.PNG">
 
 ### Signup form: 
 Staybnb home page new user signup form
