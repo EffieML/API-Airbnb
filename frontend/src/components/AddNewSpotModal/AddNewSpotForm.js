@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import * as spotsActions from "../../store/spots";
 
 
-function AddNewSpotForm() {
+function AddNewSpotForm({ setShowModal }) {
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -36,7 +36,7 @@ function AddNewSpotForm() {
             price,
             url
         }
-
+        // console.log("ming newSpot: ", newSpot);
         const addedSpot = await dispatch(spotsActions.addSpot(newSpot))
             .catch(async (res) => {
                 const data = await res.json();
@@ -46,19 +46,20 @@ function AddNewSpotForm() {
 
         if (addedSpot) {
             setErrors([]);
+            setShowModal(false);
             history.push(`/spots/${addedSpot.id}`)
         }
     };
 
     return (
-        <div className="add-new-spot-form">
-            <p className='add-new-spot-title'>Create new listing</p>
+        <div className="form">
+            <p className='form-title'>Create new listing</p>
             <form onSubmit={handleSubmit}>
-                <p className='add-new-spot-welcome'>Open your door to hosting</p>
-                <ul>
+                <p className='form-welcome'>Open your door to hosting</p>
+                <ul className="form-errors">
                     {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                 </ul>
-                <div className="add-new-spot-elem">
+                <div className="form-elem">
                     <label>
                         Address
                         <input
@@ -70,7 +71,7 @@ function AddNewSpotForm() {
                         />
                     </label>
                 </div>
-                <div className="add-new-spot-elem">
+                <div className="form-elem">
                     <label>
                         City
                         <input
@@ -81,7 +82,7 @@ function AddNewSpotForm() {
                         />
                     </label>
                 </div>
-                <div className="add-new-spot-elem">
+                <div className="form-elem">
                     <label>
                         State
                         <input
@@ -92,7 +93,7 @@ function AddNewSpotForm() {
                         />
                     </label>
                 </div>
-                <div className="add-new-spot-elem">
+                <div className="form-elem">
                     <label>
                         Country
                         <input
@@ -103,7 +104,7 @@ function AddNewSpotForm() {
                         />
                     </label>
                 </div>
-                <div className="add-new-spot-elem">
+                <div className="form-elem">
                     <label>
                         Latitude
                         <input
@@ -114,7 +115,7 @@ function AddNewSpotForm() {
                         />
                     </label>
                 </div>
-                <div className="add-new-spot-elem">
+                <div className="form-elem">
                     <label>
                         Longitude
                         <input
@@ -125,7 +126,7 @@ function AddNewSpotForm() {
                         />
                     </label>
                 </div>
-                <div className="add-new-spot-elem">
+                <div className="form-elem">
                     <label>
                         Listing Title
                         <input
@@ -136,7 +137,7 @@ function AddNewSpotForm() {
                         />
                     </label>
                 </div>
-                <div className="add-new-spot-elem">
+                <div className="form-elem">
                     <label>
                         Description
                         <input
@@ -147,7 +148,7 @@ function AddNewSpotForm() {
                         />
                     </label>
                 </div>
-                <div className="add-new-spot-elem">
+                <div className="form-elem">
                     <label>
                         Price
                         <input
@@ -158,7 +159,7 @@ function AddNewSpotForm() {
                         />
                     </label>
                 </div>
-                <div className="add-new-spot-elem">
+                <div className="form-elem">
                     <label>
                         Preview Image
                         <input
@@ -169,7 +170,9 @@ function AddNewSpotForm() {
                         />
                     </label>
                 </div>
-                <button className="add-new-spot-button" type="submit">Submit</button>
+                <div className='form-button-container'>
+                    <button className="form-button" type="submit">Submit</button>
+                </div>
             </form >
         </div >
     );

@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { Modal } from '../../context/Modal';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
-import AddNewSpotModal from '../AddNewSpotModal';
+import AddNewSpotModal from '../AddNewSpotModal/index.js';
+import AddNewSpotForm from '../AddNewSpotModal/AddNewSpotForm';
 import './Navigation.css';
 
 function Navigation({ isLoaded }) {
+    const [showModal, setShowModal] = useState(false);
     const sessionUser = useSelector(state => state.session.user);
 
     let sessionLinks;
@@ -17,7 +20,7 @@ function Navigation({ isLoaded }) {
         );
     } else {
         sessionLinks = (
-            <div>
+            <div className='nav-button-login-signup'>
                 <div className="nav-button">
                     <LoginFormModal />
                 </div>
@@ -30,31 +33,29 @@ function Navigation({ isLoaded }) {
     }
 
 
-    //     return (
-    //         <ul>
-    //             <li>
-    //                 <NavLink exact to="/">Home</NavLink>
-    //                 {isLoaded && sessionLinks}
-    //             </li>
-    //         </ul>
-    //     );
-    // }
-
     return (
         <div className='nav-bar-container'>
             <nav className='nav-bar'>
-                <div className='nav-home'>
+                <div className='nav-bar-left'>
                     <NavLink exact to="/">
-                        <span><img className='nav-bar-logo' src='https://drive.google.com/uc?export=view&id=1lTKnjy9TxFpkJRf4im-aVbqSwCcWiZi8' /></span>
-                        <span>Staybnb</span>
+                        <div><img className='nav-bar-logo' src='https://drive.google.com/uc?export=view&id=1lTKnjy9TxFpkJRf4im-aVbqSwCcWiZi8' /></div>
+                        <div className='nav-bar-name'>Staybnb</div>
                     </NavLink>
                 </div>
-                <div className='Become a Host'>
-                    <AddNewSpotModal />
-                </div>
-                <div className='nav-login-signup'>
-                    <div>
-                        {isLoaded && sessionLinks}
+                <div className='nav-bar-right'>
+                    <div className='become-a-host'>
+                        <AddNewSpotModal />
+                        {/* <button onClick={() => setShowModal(true)}>Become a Host</button>
+                        {showModal && (
+                            <Modal onClose={() => setShowModal(false)}>
+                                < AddNewSpotForm setShowModal={setShowModal} />
+                            </Modal>
+                        )} */}
+                    </div>
+                    <div className='nav-login-signup' >
+                        <div>
+                            {isLoaded && sessionLinks}
+                        </div>
                     </div>
                 </div>
             </nav>

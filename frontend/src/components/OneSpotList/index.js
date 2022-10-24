@@ -41,6 +41,9 @@ function OneSpotList() {
                             </div>
                         </div>
                         <div className='spot-image-section'>
+                            <div className='spot-image-main-only'>
+                                {!spot.SpotImages[1] && <img src={spot.SpotImages[0].url} alt='Spot preview image' />}
+                            </div>
                             <div className='spot-image-main-left'>
                                 <img src={spot.SpotImages[0].url} alt='Spot preview image' />
                             </div>

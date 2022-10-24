@@ -12,12 +12,21 @@ function LoginForm() {
     const handleSubmit = (e) => {
         e.preventDefault();
         setErrors([]);
-        return dispatch(sessionActions.login({ credential, password })).catch(
-            async (res) => {
+        return dispatch(sessionActions.login({ credential, password }))
+            .catch(async (res) => {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors);
-            }
-        );
+
+                if (res.status === 401) {
+                    // console.log("error 401:", errors)
+                    setErrors(["The provided credentials were invalid."])
+                }
+                // {
+                //     let arr = [];
+                //     arr.push(data.errors)
+                //     setErrors(arr)
+                // }
+            });
     };
 
     const demoUser = (e) => {
@@ -33,14 +42,14 @@ function LoginForm() {
 
 
     return (
-        <div className='loginform'>
-            <p className='login-title'>Log in</p>
+        <div className='form'>
+            <p className='form-title'>Log in</p>
             <form onSubmit={handleSubmit}>
-                <p className='login-welcome'>Welcome to Staybnb</p>
-                <ul>
-                    {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                <p className='form-welcome'>Welcome to Staybnb</p>
+                <ul className="form-errors">
+                    {errors.map((error, idx) => <li key={idx} id='error' >{error}</li>)}
                 </ul>
-                <div className='login-elem'>
+                <div className='form-elem'>
                     <label>
                         Username or Email
                         <input
@@ -51,7 +60,7 @@ function LoginForm() {
                         />
                     </label>
                 </div>
-                <div className='login-elem'>
+                <div className='form-elem'>
                     <label>
                         Password
                         <input
@@ -62,11 +71,13 @@ function LoginForm() {
                         />
                     </label>
                 </div>
-                <div>
-                    <button className='login-button' type="submit">Log In</button>
-                </div>
-                <div>
-                    <button className='login-button' onClick={demoUser}>Demo User</button>
+                <div className='form-button-container'>
+                    <div >
+                        <button className='form-button' type="submit">Log In</button>
+                    </div>
+                    <div>
+                        <button className='form-button' onClick={demoUser}>Demo User</button>
+                    </div>
                 </div>
             </form>
         </div >
