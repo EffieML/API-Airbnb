@@ -2,14 +2,9 @@
 
 Staybnb is a clone of Airbnb, which is a vacation rental website that allows people to rent out their homes and gives travelers the opportunity to find and book the perfect non-hotel vacation accommodation in any city. 
 
-**[Click to visit Staybnb Live Site](https://airbnb-ming.herokuapp.com/)**
+## [Staybnb live link](https://airbnb-ming.herokuapp.com/)
 
-## Project Wiki
-
- - [API Documentation](https://github.com/EffieML/API-Airbnb/wiki/API-Documentation)
- - [Database Schema](https://github.com/EffieML/API-Airbnb/wiki/Database-Schema)
- - [Features](https://github.com/EffieML/API-Airbnb/wiki/Feature-List)
- - [Redux Store Shape](https://github.com/EffieML/API-Airbnb/wiki/Redux-Store-Shape)
+## [Project Wiki](https://github.com/EffieML/API-Airbnb/wiki)
 
 ## Tech Stack
 React, Redux, JavaScript, NodeJS, Express, Sequelize, HTML, CSS, Heroku 
@@ -17,4 +12,33 @@ React, Redux, JavaScript, NodeJS, Express, Sequelize, HTML, CSS, Heroku
 ## Features:
 
 ### Home Page: 
-![image](frontend/public/css/Home-Page.PNG)
+Staybnb home page for showing all the spots
+<img alt="Home Page" src="https://github.com/EffieML/API-Airbnb/blob/main/frontend/public/img/Home-Page.PNG">
+
+
+### Login form: 
+Staybnb home page login form
+<img alt="Login form" src="https://github.com/EffieML/API-Airbnb/blob/main/frontend/public/img/login.PNG">
+
+### Signup form: 
+Staybnb home page new user signup form
+<img alt="Signup form" src="https://github.com/EffieML/API-Airbnb/blob/main/frontend/public/img/signup.PNG">
+
+### Spot detail page: 
+Staybnb home page for showing one spot
+<img alt="Signup form" src="https://github.com/EffieML/API-Airbnb/blob/main/frontend/public/img/one-spot.PNG">
+
+### User's all listing page: 
+<img alt="Signup form" src="https://github.com/EffieML/API-Airbnb/blob/main/frontend/public/img/manage-listing.PNG">
+
+### Create a new listing form: 
+<img alt="Signup form" src="https://github.com/EffieML/API-Airbnb/blob/main/frontend/public/img/create-a-spot.PNG">
+
+### User's all review page: 
+<img alt="Signup form" src="https://github.com/EffieML/API-Airbnb/blob/main/frontend/public/img/manage-review.PNG">
+
+### create a new review form: 
+<img alt="Signup form" src="https://github.com/EffieML/API-Airbnb/blob/main/frontend/public/img/create-a-review.PNG">
+
+Ongoing features: 
+Bookings (CRUD)
