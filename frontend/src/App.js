@@ -48,8 +48,6 @@ function App() {
           <Route exact path="/">
             <AllSpotsList />
           </Route>
-
-          //all other routes shown as not found
           <Route>
             <h1>Page Not Found</h1>
           </Route>
