@@ -1,17 +1,17 @@
 .spot-reviews-bottom-section {
     display: flex;
     flex-direction: row;
-    width: 1120px;
+    width: 1136px;
     flex-wrap: wrap;
 }
 
 .each-spot-review {
     display: flex;
     flex-direction: column;
-    width: 520px;
-    padding-top: 8px;
-    margin-bottom: 50px;
-    margin-right: 40px;
+    width: 457px;
+    padding: 0 8px;
+    margin-bottom: 40px;
+    margin-right: 95px;
     /* border-top: 1px solid rgb(210, 210, 210); */
 }
 

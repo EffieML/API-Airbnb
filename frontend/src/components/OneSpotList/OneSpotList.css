@@ -6,6 +6,7 @@
      justify-content: center;
      margin: auto;
      color: #222222;
+     word-wrap: break-word;
      font-family: 'Nunito Sans', 'Circular', 'Apple System', 'BlinkMacSystemFont', 'Roboto', 'Helvetica Neue', sans-serif;
  }
 
@@ -108,6 +109,64 @@
      padding: 24px 24px 24px 0px;
      margin-right: 50px;
 
+ }
+
+ .spot-info-3secs {
+     padding: 32px 0px;
+     border-top: 1px solid rgb(210, 210, 210);
+ }
+
+ .spot-info-1sec {
+     display: flex;
+     flex-direction: row;
+     justify-content: flex-start;
+     margin-bottom: 24px;
+ }
+
+ .spot-info-1sec2 {
+     display: flex;
+     flex-direction: row;
+     justify-content: flex-start;
+ }
+
+ .spot-info-1sec img {
+     width: 26px;
+     height: 26px;
+     padding-top: 2px;
+ }
+
+ .spot-info-1sec2 img {
+     width: 26px;
+     height: 26px;
+     padding-top: 2px;
+ }
+
+ .spot-info-1sec-right {
+     padding-left: 16px;
+ }
+
+ .spot-info-1sec-right1 {
+     font-weight: bold;
+     margin-bottom: 4px;
+ }
+
+ .spot-info-1sec-right2 {
+     font-size: 14px;
+     color: #717171
+ }
+
+ .aircover-sec {
+     padding: 32px 0;
+     border-top: 1px solid rgb(210, 210, 210);
+ }
+
+ .aircover-sec img {
+     height: 26px;
+     margin-bottom: 16px;
+ }
+
+ .aircover-sec-note {
+     font-size: 16px;
  }
 
  .spot-description {

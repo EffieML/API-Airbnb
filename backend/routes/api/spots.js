@@ -412,9 +412,9 @@ router.post('/:spotId/reviews', requireAuth, validateReview, async (req, res) =>
 
 //Get all reviews by a spot's id, Auth:false
 router.get('/:spotId/reviews', async (req, res) => {
-    let userId = req.user.id;
+    // let userId = req.user.id;
     let spotId = parseInt(req.params.spotId);
-
+    // console.log('backend spotId------------', spotId)
     const spot = await Spot.findByPk(spotId)
     if (!spot) {
         res.status(404);
