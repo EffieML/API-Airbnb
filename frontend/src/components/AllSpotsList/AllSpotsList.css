@@ -8,15 +8,12 @@
 
 
 .all-spots-list {
-    /* display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center; */
     width: auto;
     max-width: 2400px;
     padding: 10px 5px;
     margin: 10px 5px;
-    font-family: Roboto, sans-serif;
+    /* font-family: 'Montserrat', 'Nunito Sans', 'Circular', 'Apple System', 'BlinkMacSystemFont', 'Roboto', 'Helvetica Neue', sans-serif; */
+    font-family: 'Nunito Sans', 'Circular', 'Apple System', 'BlinkMacSystemFont', 'Roboto', 'Helvetica Neue', sans-serif;
     color: #222222;
     display: grid;
     grid-template-columns: repeat(6, 1fr);

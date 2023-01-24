@@ -1,5 +1,5 @@
 body {
-    font-family: Roboto, sans-serif
+    font-family: 'Nunito Sans', 'Circular', 'Apple System', 'BlinkMacSystemFont', 'Roboto', 'Helvetica Neue', sans-serif;
 }
 
 .nav-bar-container {
@@ -23,9 +23,9 @@ body {
 
 /* left side  */
 .nav-bar-left a {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+
+    font-family: 'Nunito Sans', 'Circular', 'Apple System', 'BlinkMacSystemFont', 'Roboto', 'Helvetica Neue', sans-serif;
+    font-weight: bolder;
 }
 
 .nav-bar-left a:link,
@@ -37,10 +37,18 @@ body {
     font-size: 22px;
 }
 
+.nav-bar-left-inner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
 .nav-bar-logo {
     max-height: 50px;
     max-width: 50px;
     padding-right: 4px;
+    margin-top: 6px;
 }
 
 /* right side login signup  */

@@ -6,6 +6,7 @@
      justify-content: center;
      margin: auto;
      color: #222222;
+     font-family: 'Nunito Sans', 'Circular', 'Apple System', 'BlinkMacSystemFont', 'Roboto', 'Helvetica Neue', sans-serif;
  }
 
  .one-spot-list {
@@ -15,7 +16,7 @@
      max-width: 1120px;
      padding: 10px 5px;
      margin: 10px 5px;
-     font-family: Roboto, sans-serif
+
  }
 
  .one-spot-list h1 {

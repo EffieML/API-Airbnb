@@ -38,8 +38,10 @@ function Navigation({ isLoaded }) {
             <nav className='nav-bar'>
                 <div className='nav-bar-left'>
                     <NavLink exact to="/">
-                        <div><img className='nav-bar-logo' src='https://drive.google.com/uc?export=view&id=1lTKnjy9TxFpkJRf4im-aVbqSwCcWiZi8' /></div>
-                        <div className='nav-bar-name'>Staybnb</div>
+                        <div className='nav-bar-left-inner'>
+                            <div><img className='nav-bar-logo' src='https://drive.google.com/uc?export=view&id=1lTKnjy9TxFpkJRf4im-aVbqSwCcWiZi8' /></div>
+                            <div className='nav-bar-name'>Staybnb</div>
+                        </div>
                     </NavLink>
                 </div>
                 <div className='nav-bar-right'>
@@ -58,8 +60,8 @@ function Navigation({ isLoaded }) {
                         </div>
                     </div>
                 </div>
-            </nav>
-        </div>
+            </nav >
+        </div >
     );
 }
 
