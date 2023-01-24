@@ -61,6 +61,19 @@ function OneSpotList() {
                     <div className='spot-detail-and-booking-section'>
                         <div className='spot-detail-section-left'>
                             <h2 className='spot-owner-first-name'>{`Entire home hosted by ${spot.Owner.firstName}`}</h2>
+                            <div className='spot-info-3secs'>
+                                <div className='spot-info-1sec'>
+                                    <img />
+                                    <div className='spot-info-1sec-right'>
+                                        <div className='spot-info-1sec-right1'>
+                                            {`${spot.Owner.firstName} is a Superhost`}
+                                        </div>
+                                        <div className='spot-info-1sec-right2'>
+                                            Superhosts are experienced, highly rated hosts who are committed to providing great stays for guests.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div className='spot-description'>{spot.description}</div>
                         </div>
                         <div className='spot-booking-section-right'>
