@@ -4,6 +4,10 @@ import { useParams, Route } from 'react-router-dom';
 import { listOneSpot } from '../../store/spots';
 import ListSpotReviews from '../ReviewsForSpot';
 import AddNewReviewModal from '../AddNewReviewModal';
+import superhost from '../../img/superhost.PNG';
+import locationdrop from '../../img/locationdrop.PNG';
+import keylogo from '../../img/keylogo.PNG';
+import aircover from '../../img/aircover.PNG';
 import './OneSpotList.css';
 
 function OneSpotList() {
@@ -63,7 +67,7 @@ function OneSpotList() {
                             <h2 className='spot-owner-first-name'>{`Entire home hosted by ${spot.Owner.firstName}`}</h2>
                             <div className='spot-info-3secs'>
                                 <div className='spot-info-1sec'>
-                                    <img />
+                                    <img src={superhost} />
                                     <div className='spot-info-1sec-right'>
                                         <div className='spot-info-1sec-right1'>
                                             {`${spot.Owner.firstName} is a Superhost`}
@@ -73,6 +77,24 @@ function OneSpotList() {
                                         </div>
                                     </div>
                                 </div>
+                                <div className='spot-info-1sec'>
+                                    <img src={locationdrop} />
+                                    <div className='spot-info-1sec-right'>
+                                        <div className='spot-info-1sec-right1'>Great location</div>
+                                        <div className='spot-info-1sec-right2'>100% of recent guests gave the location a 5-star rating.</div>
+                                    </div>
+                                </div>
+                                <div className='spot-info-1sec2'>
+                                    <img src={keylogo} />
+                                    <div className='spot-info-1sec-right'>
+                                        <div className='spot-info-1sec-right1'>Great check-in experience</div>
+                                        <div className='spot-info-1sec-right2'>100% of recent guests gave the check-in process a 5-star rating.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='aircover-sec'>
+                                <img src={aircover} />
+                                <div className='aircover-sec-note'>Every booking includes free protection from Host cancellations, listing inaccuracies, and other issues like trouble checking in.</div>
                             </div>
                             <div className='spot-description'>{spot.description}</div>
                         </div>
@@ -109,7 +131,7 @@ function OneSpotList() {
                             </div>
                         </div>
                         <div className='spot-reviews'>
-                            <ListSpotReviews spot={spot} />
+                            <ListSpotReviews spot={spot} spotId={spot.id} />
                         </div>
                     </div>
                 </div>
