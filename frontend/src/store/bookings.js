@@ -52,7 +52,7 @@ const deleteOneBookingAction = (id) => {
 
 //todo: thunks section -------------------------------------------------------
 // thunk: create spot booking
-export const createSpotBookingThunk = (booking) => async (dispatch) => {
+export const createSpotBookingThunk = (spotId, booking) => async (dispatch) => {
     try {
         const response = await csrfFetch(`/api/spots/${spotId}/bookings`, {
             method: 'POST',
@@ -71,10 +71,11 @@ export const createSpotBookingThunk = (booking) => async (dispatch) => {
 }
 
 // thunk: get spot all bookings
-export const getSpotAllBookingsThunk = () => async (dispatch) => {
+export const getSpotAllBookingsThunk = (spotId) => async (dispatch) => {
     const response = await fetch(`/api/spots/${spotId}/bookings`);
     if (response.ok) {
         const data = await response.json();
+        console.log('thunk bookings', data)
         dispatch(getSpotAllBookingsAction(data.Bookings));
         return data;
     }
@@ -131,5 +132,45 @@ export const deleteOneBookingThunk = (bookingId) => async dispatch => {
 const initialState = { allBookings: {}, singleBooking: {} };
 
 const bookingsReducer = (state = initialState, action) => {
+    let newState = {};
+    let allBookings
+    switch (action.type) {
+        case CREATE_SPOT_BOOKING:
+            newState = { ...state, allBookings: { ...state.allBookings }, singleBooking: {} };
+            const addBooking = { ...action.payload };
+            newState.allBookings[action.payload.id] = addBooking;
+            newState.singleBooking = addBooking;
+            return newState;
 
+        case GET_SPOT_ALL_BOOKINGS:
+            allBookings = {};
+            action.bookings.forEach(booking => { allBookings[booking.id] = booking });
+            newState = { ...state };
+            newState.allBookings = allBookings;
+            return newState;
+
+        case GET_USER_ALL_BOOKINGS:
+            allBookings = {};
+            action.bookings.forEach(booking => { allBookings[booking.id] = booking });
+            newState = { ...state };
+            newState.allBookings = allBookings;
+            return newState;
+
+        case EDIT_USER_BOOKING:
+            newState = { ...state };
+            newState.allBookings = { ...state.allBookings, [action.booking.id]: { ...state.allBookings[action.booking.id], ...action.booking } }
+            newState.singleBooking = { ...state.singleBooking, ...action.booking }
+            return newState;
+
+        case DELETE_ONE_BOOKING:
+            newState = { allBookings: { ...state.allBookings }, singleBooking: { ...state.singleBooking } };
+            delete newState.allBookings[action.bookingId];
+            // console.log('singleSpot and actionspot id: ', newState.singleSpot.id, action.spotId)
+            if (action.bookingId == newState.singleBooking.id) { newState.singleBooking = {} }
+            return newState;
+        default:
+            return state;
+    }
 }
+
+export default bookingsReducer;

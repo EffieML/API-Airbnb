@@ -1,7 +1,8 @@
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { useEffect, useState } from 'react';
 import { useParams, Route } from 'react-router-dom';
 import { listOneSpot } from '../../store/spots';
+import ShowCalendar from './Calendar'
 import ListSpotReviews from '../ReviewsForSpot';
 import AddNewReviewModal from '../AddNewReviewModal';
 import superhost from '../../img/superhost.PNG';
@@ -97,6 +98,7 @@ function OneSpotList() {
                                 <div className='aircover-sec-note'>Every booking includes free protection from Host cancellations, listing inaccuracies, and other issues like trouble checking in.</div>
                             </div>
                             <div className='spot-description'>{spot.description}</div>
+                            <ShowCalendar spotId={spotId} />
                         </div>
                         <div className='spot-booking-section-right'>
                             <div className='spot-booking-top'>
