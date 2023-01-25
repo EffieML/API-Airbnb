@@ -139,7 +139,6 @@ router.put('/:bookingId', requireAuth, async (req, res) => {
             statusCode: 403,
         })
     }
-
 })
 
 
