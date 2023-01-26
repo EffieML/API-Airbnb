@@ -35,20 +35,20 @@ function ShowCalendar({ spotId }) {
     // console.log('disabledDates arr', disabledDates)
     return (
         <>
-            <div className="reservation-calendar-container">
-                <div className="reservation-calendar">
-                    <Calendar className="check-Calendar"
+            <div className="onespot-calendar-container">
+                <div className="onespot-calendar">
+                    <Calendar className="onespot-calendar1"
                         minDate={new Date()}
                         disabledDates={bookedDates}
-                        color='#ff385c'
+                        color='#222222'
                     />
                 </div>
-                <div className="reservation-calendar">
-                    <Calendar className="check-Calendar"
+                <div className="onespot-calendar">
+                    <Calendar className="onespot-calendar2"
                         minDate={new Date()}
                         shownDate={nextMonth}
                         disabledDates={bookedDates}
-                        color='#ff385c'
+                        color='#222222'
                     />
                 </div>
             </div>

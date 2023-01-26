@@ -98,7 +98,11 @@ function OneSpotList() {
                                 <div className='aircover-sec-note'>Every booking includes free protection from Host cancellations, listing inaccuracies, and other issues like trouble checking in.</div>
                             </div>
                             <div className='spot-description'>{spot.description}</div>
-                            <ShowCalendar spotId={spotId} />
+                            <div className='spot-calendar-container'>
+                                <h2 className='spot-calendar'>Check Availability</h2>
+                                <ShowCalendar spotId={spotId} />
+                            </div>
+
                         </div>
                         <div className='spot-booking-section-right'>
                             <div className='spot-booking-top'>
