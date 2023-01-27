@@ -8,6 +8,7 @@ import Navigation from "./components/Navigation";
 import AllSpotsList from "./components/AllSpotsList";
 import OneSpotList from "./components/OneSpotList";
 import UserListingPage from "./components/UserListingPage";
+import UserBookingsPage from "./components/Booking/UserBookingsPage";
 import UserReviewsPage from "./components/UserReviewsPage";
 
 function App() {
@@ -32,7 +33,9 @@ function App() {
           <Route exact path="/reviews/current">
             <UserReviewsPage />
           </Route>
-
+          <Route exact path="/bookings/current">
+            <UserBookingsPage />
+          </Route>
           <Route exact path="/spots/current">
             <UserListingPage />
           </Route>

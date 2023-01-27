@@ -4,6 +4,7 @@ import { useParams, Route } from 'react-router-dom';
 import { listOneSpot } from '../../store/spots';
 import ShowCalendar from './Calendar'
 import ListSpotReviews from '../ReviewsForSpot';
+import CreateSpotBooking from '../Booking/CreateSpotBooking';
 import AddNewReviewModal from '../AddNewReviewModal';
 import superhost from '../../img/superhost.PNG';
 import locationdrop from '../../img/locationdrop.PNG';
@@ -119,6 +120,7 @@ function OneSpotList() {
                                     <div className="booking-top-review"> {`${spot.numReviews} reviews`} </div>
                                 </div>
                             </div>
+                            <CreateSpotBooking spot={spot} />
                         </div>
                     </div>
 
