@@ -179,7 +179,7 @@
 
  .spot-calendar-container {
      border-top: 1px solid rgb(210, 210, 210);
-     padding: 48px 0;
+     padding: 48px 0 0;
  }
 
  .spot-calendar {
@@ -196,6 +196,8 @@
      border-radius: 12px;
      border: 1px solid rgb(221, 221, 221);
      box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
+     position: sticky;
+     top: 128px;
  }
 
  .spot-booking-top {
@@ -260,6 +262,7 @@
      color: #222222;
      border-top: 1px solid rgb(210, 210, 210);
      padding-top: 48px;
+     margin-top: 48px;
  }
 
 
