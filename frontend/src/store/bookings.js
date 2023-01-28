@@ -52,20 +52,22 @@ const deleteOneBookingAction = (id) => {
 
 //todo: thunks section -------------------------------------------------------
 // thunk: create spot booking
-export const createSpotBookingThunk = (spotId, booking) => async (dispatch) => {
+export const createSpotBookingThunk = (newBooking) => async (dispatch) => {
     try {
+        const { spotId, startDate, endDate } = newBooking
+        // console.log('backend spotId-------------------', spotId)
         const response = await csrfFetch(`/api/spots/${spotId}/bookings`, {
             method: 'POST',
-            headers: { 'Content-Type': "application/json" },
-            body: JSON.stringify(booking),
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ startDate, endDate }),
         })
         if (response.ok) {
-            const data = await response.json();
-            await dispatch(createSpotBookingAction(data));
-            return data;
+            const booking = await response.json();
+            await dispatch(createSpotBookingAction(booking));
+            return booking;
         }
     } catch (err) {
-        console.log(err);
+        // console.log('thunk err========================', err);
         throw err;
     }
 }
@@ -75,7 +77,7 @@ export const getSpotAllBookingsThunk = (spotId) => async (dispatch) => {
     const response = await fetch(`/api/spots/${spotId}/bookings`);
     if (response.ok) {
         const data = await response.json();
-        console.log('thunk bookings', data)
+        // console.log('thunk bookings--------------', data)
         dispatch(getSpotAllBookingsAction(data.Bookings));
         return data;
     }
@@ -137,8 +139,8 @@ const bookingsReducer = (state = initialState, action) => {
     switch (action.type) {
         case CREATE_SPOT_BOOKING:
             newState = { ...state, allBookings: { ...state.allBookings }, singleBooking: {} };
-            const addBooking = { ...action.payload };
-            newState.allBookings[action.payload.id] = addBooking;
+            const addBooking = { ...action.booking };
+            newState.allBookings[action.booking.id] = addBooking;
             newState.singleBooking = addBooking;
             return newState;
 

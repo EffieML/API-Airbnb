@@ -4,6 +4,7 @@ import { useParams, Route } from 'react-router-dom';
 import { listOneSpot } from '../../store/spots';
 import ShowCalendar from './Calendar'
 import ListSpotReviews from '../ReviewsForSpot';
+import CreateSpotBooking from '../Booking/CreateSpotBooking';
 import AddNewReviewModal from '../AddNewReviewModal';
 import superhost from '../../img/superhost.PNG';
 import locationdrop from '../../img/locationdrop.PNG';
@@ -98,7 +99,11 @@ function OneSpotList() {
                                 <div className='aircover-sec-note'>Every booking includes free protection from Host cancellations, listing inaccuracies, and other issues like trouble checking in.</div>
                             </div>
                             <div className='spot-description'>{spot.description}</div>
-                            <ShowCalendar spotId={spotId} />
+                            <div className='spot-calendar-container'>
+                                <h2 className='spot-calendar'>Check Availability</h2>
+                                <ShowCalendar spotId={spotId} />
+                            </div>
+
                         </div>
                         <div className='spot-booking-section-right'>
                             <div className='spot-booking-top'>
@@ -115,6 +120,7 @@ function OneSpotList() {
                                     <div className="booking-top-review"> {`${spot.numReviews} reviews`} </div>
                                 </div>
                             </div>
+                            <CreateSpotBooking spot={spot} />
                         </div>
                     </div>
 
@@ -143,19 +149,3 @@ function OneSpotList() {
 }
 
 export default OneSpotList;
-
-
-
-// <div className='map'>
-// <div class="mapouter">
-//     <div class="gmap_canvas">
-//         <iframe width="600" height="500" id="gmap_canvas" src={`https://maps.google.com/maps?q=2880%20Broadway,%20New%20York&t=&z=13&ie=UTF8&iwloc=&output=embed`} frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
-//         </iframe>
-//         <a href="https://fmovies-online.net">fmovies</a>
-//         {/* <style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}
-//         </style> */}
-//         <a href="https://www.embedgooglemap.net">copy google map</a>
-//         {/* <style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style> */}
-//     </div>
-// </div>
-// </div>

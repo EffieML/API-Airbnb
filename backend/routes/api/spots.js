@@ -446,10 +446,11 @@ router.get('/:spotId/reviews', async (req, res) => {
 //Auth:true, spot must not belong to current user
 router.post('/:spotId/bookings', requireAuth, validateBooking, async (req, res) => {
     const { startDate, endDate } = req.body;
+    // console.log('startDate, endDate !!!!!!!!!!!!!!!!!!!!!!!', startDate, endDate)
 
     let userId = req.user.id;
-    let spotId = parseInt(req.params.spotId);
-
+    let spotId = req.params.spotId;
+    // console.log('spotId !!!!!!!!!!!!!!!!!!', spotId)
     //check spot exist
     const spot = await Spot.findByPk(spotId)
     if (!spot) {
@@ -512,7 +513,7 @@ router.post('/:spotId/bookings', requireAuth, validateBooking, async (req, res) 
     }
 
     const newBooking = await Booking.create({ spotId, userId, startDate: new Date(startDate), endDate: new Date(endDate) })
-
+    // console.log('error!!!!!!!!!!!!!!!!!!!!!!!!!!', res.json())
     return res.json(newBooking);
 })
 
@@ -547,7 +548,7 @@ router.get('/:spotId/bookings', requireAuth, async (req, res) => {
     } else {
         const Bookings = await Booking.findAll({
             where: { spotId },
-            attributes: ['spotId', 'startDate', 'endDate']
+            attributes: ['id', 'spotId', 'startDate', 'endDate']
         })
         return res.json({ Bookings });
     }

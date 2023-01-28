@@ -160,8 +160,8 @@ export const editSpot = (spot, spotId) => async dispatch => {
 
 // thunk: delete one spot for current user
 export const deleteSpot = (spotId) => async dispatch => {
-    console.log("spots thunk delete spot spotId : ", spotId);
-    console.log(typeof spotId);
+    // console.log("spots thunk delete spot spotId : ", spotId);
+    // console.log(typeof spotId);
     try {
         const response = await csrfFetch(`/api/spots/${spotId}`, {
             method: 'DELETE',

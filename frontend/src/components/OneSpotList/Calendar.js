@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Calendar } from 'react-date-range';
 import { getSpotAllBookingsThunk } from "../../store/bookings";
 import { bookingDays } from '../../utils/bookingDays';
+// import { getDaysArray } from "../../utils/functions";
 import './Calendar.css';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
@@ -25,24 +26,29 @@ function ShowCalendar({ spotId }) {
     for (let booking of spotBookingsArr) {
         bookedDates = bookedDates.concat(bookingDays(booking.startDate, booking.endDate));
     }
+    // console.log('bookedDates1 arr', bookedDates)
 
-
+    // let disabledDates = []
+    // for (let booking of spotBookingsArr) {
+    //     disabledDates = disabledDates.concat(getDaysArray(booking.startDate, booking.endDate));
+    // }
+    // console.log('disabledDates arr', disabledDates)
     return (
         <>
-            <div className="reservation-calendar-container">
-                <div className="reservation-calendar">
-                    <Calendar className="check-Calendar"
+            <div className="onespot-calendar-container">
+                <div className="onespot-calendar">
+                    <Calendar className="onespot-calendar1"
                         minDate={new Date()}
                         disabledDates={bookedDates}
-                        color='#ff385c'
+                        color='#222222'
                     />
                 </div>
-                <div className="reservation-calendar">
-                    <Calendar className="check-Calendar"
+                <div className="onespot-calendar">
+                    <Calendar className="onespot-calendar2"
                         minDate={new Date()}
                         shownDate={nextMonth}
                         disabledDates={bookedDates}
-                        color='#ff385c'
+                        color='#222222'
                     />
                 </div>
             </div>
