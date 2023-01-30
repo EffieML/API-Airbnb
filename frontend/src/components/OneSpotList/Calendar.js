@@ -16,7 +16,9 @@ function ShowCalendar({ spotId }) {
     const spotBookingsArr = Object.values(spotBookings)
     // console.log('allbookings arr', spotBookingsArr)
     const nextMonth = new Date();
+    nextMonth.setDate(1);
     nextMonth.setMonth(nextMonth.getMonth() + 1);
+    // console.log("nextMonth--------", nextMonth)
 
     useEffect(() => {
         dispatch(getSpotAllBookingsThunk(spotId)).then(() => setIsLoaded(true));

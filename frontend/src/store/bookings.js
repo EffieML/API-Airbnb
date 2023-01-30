@@ -169,10 +169,12 @@ const bookingsReducer = (state = initialState, action) => {
             return newState;
 
         case DELETE_ONE_BOOKING:
-            newState = { allBookings: { ...state.allBookings }, singleBooking: { ...state.singleBooking } };
-            delete newState.allBookings[action.bookingId];
-            // console.log('singleSpot and actionspot id: ', newState.singleSpot.id, action.spotId)
-            if (action.bookingId == newState.singleBooking.id) { newState.singleBooking = {} }
+            newState = { allBookings: { ...state.allBookings }, singleBooking: { ...state.singleBooking }, userBookings: { ...state.userBookings } };
+            // console.log('user booking delete id-----------', action.id)
+            delete newState.allBookings[action.id];
+            delete newState.userBookings[action.id];
+            if (action.id == newState.singleBooking.id) { newState.singleBooking = {} }
+            // console.log("user bookings newState3", newState)
             return newState;
 
         default:
