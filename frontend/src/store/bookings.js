@@ -1,21 +1,16 @@
 import { csrfFetch } from './csrf';
 
 //todo: define types ----------------------------------------------------------
-const CREATE_SPOT_BOOKING = 'bookings/createSpotBooking';
+
 const GET_SPOT_ALL_BOOKINGS = 'bookings/getSpotAllBookings';
 const GET_USER_ALL_BOOKINGS = 'bookings/getUserAllBookings';
+const CREATE_SPOT_BOOKING = 'bookings/createSpotBooking';
 const EDIT_USER_BOOKING = 'bookings/editUserBooking';
 const DELETE_ONE_BOOKING = 'bookings/deleteOneBooking';
 
 
 //todo: define action creators ------------------------------------------------
-//action: create spot booking
-const createSpotBookingAction = (booking) => {
-    return {
-        type: CREATE_SPOT_BOOKING,
-        booking,
-    }
-}
+
 
 //action: get spot all bookings
 const getSpotAllBookingsAction = (bookings) => {
@@ -30,6 +25,14 @@ const getUserAllBookingsAction = (bookings) => {
     return {
         type: GET_USER_ALL_BOOKINGS,
         bookings,
+    }
+}
+
+//action: create spot booking
+const createSpotBookingAction = (booking) => {
+    return {
+        type: CREATE_SPOT_BOOKING,
+        booking,
     }
 }
 
@@ -51,6 +54,28 @@ const deleteOneBookingAction = (id) => {
 
 
 //todo: thunks section -------------------------------------------------------
+// thunk: get spot all bookings
+export const getSpotAllBookingsThunk = (spotId) => async (dispatch) => {
+    const response = await fetch(`/api/spots/${spotId}/bookings`);
+    if (response.ok) {
+        const data = await response.json();
+        // console.log('thunk bookings--------------', data)
+        dispatch(getSpotAllBookingsAction(data.Bookings));
+        return data;
+    }
+};
+
+// thunk: get user all bookings
+export const getUserAllBookingsThunk = () => async (dispatch) => {
+    const response = await csrfFetch(`/api/bookings/current`);
+    if (response.ok) {
+        const data = await response.json();
+        // console.log('thunk bookings--------------', data)
+        dispatch(getUserAllBookingsAction(data.Bookings));
+        return data;
+    }
+};
+
 // thunk: create spot booking
 export const createSpotBookingThunk = (newBooking) => async (dispatch) => {
     try {
@@ -71,27 +96,6 @@ export const createSpotBookingThunk = (newBooking) => async (dispatch) => {
         throw err;
     }
 }
-
-// thunk: get spot all bookings
-export const getSpotAllBookingsThunk = (spotId) => async (dispatch) => {
-    const response = await fetch(`/api/spots/${spotId}/bookings`);
-    if (response.ok) {
-        const data = await response.json();
-        // console.log('thunk bookings--------------', data)
-        dispatch(getSpotAllBookingsAction(data.Bookings));
-        return data;
-    }
-};
-
-// thunk: get user all bookings
-export const getUserAllBookingsThunk = () => async (dispatch) => {
-    const response = await csrfFetch(`/api/bookings/current`);
-    if (response.ok) {
-        const data = await response.json();
-        dispatch(getUserAllBookingsAction(data.Bookings));
-        return data;
-    }
-};
 
 // thunk: edit one booking for current user
 export const editUserBookingThunk = (booking, bookingId) => async dispatch => {
@@ -131,31 +135,31 @@ export const deleteOneBookingThunk = (bookingId) => async dispatch => {
 
 
 //todo: reducer stuff
-const initialState = { allBookings: {}, singleBooking: {} };
+const initialState = { allBookings: {}, singleBooking: {}, userBookings: {} };
 
 const bookingsReducer = (state = initialState, action) => {
+    // console.log('Booking reducer action:', action); // added console log here
     let newState = {};
-    let allBookings
     switch (action.type) {
-        case CREATE_SPOT_BOOKING:
-            newState = { ...state, allBookings: { ...state.allBookings }, singleBooking: {} };
-            const addBooking = { ...action.booking };
-            newState.allBookings[action.booking.id] = addBooking;
-            newState.singleBooking = addBooking;
-            return newState;
-
         case GET_SPOT_ALL_BOOKINGS:
-            allBookings = {};
+            let allBookings = {};
             action.bookings.forEach(booking => { allBookings[booking.id] = booking });
             newState = { ...state };
             newState.allBookings = allBookings;
             return newState;
 
         case GET_USER_ALL_BOOKINGS:
-            allBookings = {};
-            action.bookings.forEach(booking => { allBookings[booking.id] = booking });
+            let userBookings = {};
+            action.bookings.forEach(booking => { userBookings[booking.id] = booking });
             newState = { ...state };
-            newState.allBookings = allBookings;
+            newState.userBookings = userBookings;
+            return newState;
+
+        case CREATE_SPOT_BOOKING:
+            newState = { ...state, allBookings: { ...state.allBookings }, singleBooking: {} };
+            const addBooking = { ...action.booking };
+            newState.allBookings[action.booking.id] = addBooking;
+            newState.singleBooking = addBooking;
             return newState;
 
         case EDIT_USER_BOOKING:
@@ -170,6 +174,7 @@ const bookingsReducer = (state = initialState, action) => {
             // console.log('singleSpot and actionspot id: ', newState.singleSpot.id, action.spotId)
             if (action.bookingId == newState.singleBooking.id) { newState.singleBooking = {} }
             return newState;
+
         default:
             return state;
     }
