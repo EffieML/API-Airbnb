@@ -48,7 +48,7 @@ function CreateSpotBooking({ spot }) {
                 );
             if (addedBooking) {
                 setErrors([]);
-                // history.push(`/bookings/current`)
+                history.push(`/bookings/current`)
             }
         } else {
             setShowLoginModal(true);

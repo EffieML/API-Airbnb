@@ -134,7 +134,7 @@ const reviewsReducer = (state = initialState, action) => {
             delete newState.spot[action.reviewId];
             delete newState.user[action.reviewId];
             // newState = { ...spot };
-            console.log("user reviews newState", newState)
+            // console.log("user reviews newState", newState)
             return newState;
 
         default:
