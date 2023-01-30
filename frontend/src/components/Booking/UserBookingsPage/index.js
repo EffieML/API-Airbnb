@@ -5,6 +5,7 @@ import { useHistory } from "react-router";
 import { getUserAllBookingsThunk } from '../../../store/bookings.js';
 import { deleteOneBookingThunk } from '../../../store/bookings.js';
 import './UserBookingsPage.css';
+import '../../UserListingPage/UserListingPage.css'
 
 function UserBookingsPage() {
     const dispatch = useDispatch();
@@ -50,17 +51,17 @@ function UserBookingsPage() {
                                         </div>
                                     </Link>
                                     <div className='listed-spot-info'>
-                                        <div className='listed-spot-info-name'>
+                                        <div className='user-bookings-info-location'>
                                             {`${booking.Spot.city}, ${booking.Spot.state}`}
                                         </div>
-                                        <div className='listed-reviews-review'></div>
                                         <div className='listed-spot-info-location'>
                                             {`${booking.Spot.name}`}
                                         </div>
-                                        <div className='listed-spot-info-time'>{`${booking.startDate.slice(0, 10)} - ${booking.endDate.slice(0, 10)}`}</div>
+                                        <div className='listed-spot-info-time'>{`${booking.startDate.slice(0, 10)} to ${booking.endDate.slice(0, 10)}`}</div>
+                                        <div>{`Address: ${booking.Spot.address}, ${booking.Spot.city}, ${booking.Spot.state}`}</div>
                                     </div>
                                 </div>
-                                <div className='listed-spot-edit-delete-button'>
+                                <div className='user-bookings-delete-button'>
                                     {new Date() < new Date(booking.startDate) && (
                                         <button onClick={(e) => handleDelete(booking.id)}> Cancel Reservation </button>
                                     )}
