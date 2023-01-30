@@ -50,17 +50,21 @@ function ProfileButton({ user }) {
                         </div>
                         <hr className="profile-dropdown-line"></hr>
                         <div className="profile-dropdown-link-item">
-
-                            <Link to={'/spots/current'}> Manage Listings</Link>
-
+                            <Link to={'/bookings/current'}>
+                                <div className="profile-dropdown-link-item-inner">Trips</div>
+                            </Link>
                         </div>
                         <div className="profile-dropdown-link-item">
-
-                            <Link to={'/reviews/current'}> Manage Reviews</Link>
-
+                            <Link to={'/spots/current'}>
+                                <div className="profile-dropdown-link-item-inner">Manage Listings</div>
+                            </Link>
                         </div>
                         <div className="profile-dropdown-link-item">
-
+                            <Link to={'/reviews/current'}>
+                                <div className="profile-dropdown-link-item-inner">Manage Reviews</div>
+                            </Link>
+                        </div>
+                        <div className="profile-dropdown-link-item">
                             <div className='profile-dropdown-logout-button' onClick={logout}>
                                 {/* <Redirect to="/spots" /> */}
                                 Log Out
