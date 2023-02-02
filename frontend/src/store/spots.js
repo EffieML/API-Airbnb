@@ -7,6 +7,7 @@ const ADD_ONE_SPOT = 'spots/addOneSpot';
 const ADD_SPOT_IMAGE = 'spots/addSpotImage';
 const EDIT_ONE_SPOT = 'spots/editOneSpot';
 const DELETE_ONE_SPOT = 'spots/deleteOneSpot';
+const SEARCH_SPOTS = 'spots/searchSpots';
 
 
 
@@ -54,6 +55,14 @@ const deleteOneSpot = (spotId) => {
     return {
         type: DELETE_ONE_SPOT,
         spotId
+    }
+}
+
+//action: search spots
+const searchSpotsAction = (spots) => {
+    return {
+        type: SEARCH_SPOTS,
+        spots
     }
 }
 
@@ -185,8 +194,20 @@ export const deleteSpot = (spotId) => async dispatch => {
 //     return obj
 // }
 
+// thunk: search spots
+export const searchSpotsThunk = (keyword) => async (dispatch) => {
+    const response = await fetch(`/api/spots/search/${keyword}`);
+    if (response.ok) {
+        const data = await response.json();
+        console.log("store spots thunk spots data: ", data)
+        dispatch(searchSpotsAction(data.Spots));
+        return data;
+    }
+};
+
+
 //todo: reducer stuff
-const initialState = { allSpots: {}, singleSpot: {} };
+const initialState = { allSpots: {}, singleSpot: {}, searchSpots: {} };
 
 const spotsReducer = (state = initialState, action) => {
 
@@ -241,6 +262,14 @@ const spotsReducer = (state = initialState, action) => {
             delete newState.allSpots[action.spotId];
             // console.log('singleSpot and actionspot id: ', newState.singleSpot.id, action.spotId)
             if (action.spotId == newState.singleSpot.id) { newState.singleSpot = {} }
+            return newState;
+
+        case SEARCH_SPOTS:
+            let searchSpots = {}
+            action.spots.forEach(spot => { searchSpots[spot.id] = spot });
+            newState = { ...state };
+            newState.searchSpots = searchSpots;
+            // console.log("newState", newState)
             return newState;
 
         default:

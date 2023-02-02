@@ -7,6 +7,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import AllSpotsList from "./components/AllSpotsList";
 import OneSpotList from "./components/OneSpotList";
+import SpotsBySearch from "./components/SpotsBySearch";
 import UserListingPage from "./components/UserListingPage";
 import UserBookingsPage from "./components/Booking/UserBookingsPage";
 import UserReviewsPage from "./components/UserReviewsPage";
@@ -39,7 +40,9 @@ function App() {
           <Route exact path="/spots/current">
             <UserListingPage />
           </Route>
-
+          <Route exact path="/spots/search/:keyword">
+            <SpotsBySearch />
+          </Route>
           <Route path="/spots/:spotId">
             <OneSpotList />
           </Route>
