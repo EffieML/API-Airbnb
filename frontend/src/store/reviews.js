@@ -41,7 +41,7 @@ const deleteOneReviewAction = (reviewId) => {
 //todo: thunks section
 // thunk: get spot's reviews
 export const listSpotReviewsThunk = (spotId) => async (dispatch) => {
-    const response = await csrfFetch(`/api/spots/${spotId}/reviews`);
+    const response = await fetch(`/api/spots/${spotId}/reviews`);
     if (response.ok) {
         const data = await response.json();
         // console.log("store reviews thunk spot review data: ", data)
@@ -55,7 +55,7 @@ export const listUserReviewsThunk = () => async (dispatch) => {
     const response = await csrfFetch(`/api/reviews/current`);
     if (response.ok) {
         const data = await response.json();
-        console.log("store reviews thunk user review data: ", data.Reviews)
+        // console.log("store reviews thunk user review data: ", data.Reviews)
         dispatch(getUserReviewsAction(data.Reviews));
         return data;
     }
@@ -134,7 +134,7 @@ const reviewsReducer = (state = initialState, action) => {
             delete newState.spot[action.reviewId];
             delete newState.user[action.reviewId];
             // newState = { ...spot };
-            console.log("user reviews newState", newState)
+            // console.log("user reviews newState", newState)
             return newState;
 
         default:

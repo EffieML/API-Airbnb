@@ -1,0 +1,20 @@
+.one-spot-map-title {
+    padding: 48px 0 24px;
+    color: #222222;
+    font-size: 22px;
+    font-weight: bold;
+    border-top: 1px solid rgb(210, 210, 210);
+}
+
+.one-spot-map-loc-container {
+    display: flex;
+    flex-direction: row;
+    color: #222222;
+    font-size: 16px;
+    padding-top: 24px;
+}
+
+.one-spot-map-loc {
+    font-weight: bold;
+    padding-right: 8px;
+}

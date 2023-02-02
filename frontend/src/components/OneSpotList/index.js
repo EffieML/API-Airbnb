@@ -1,9 +1,16 @@
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { useEffect, useState } from 'react';
 import { useParams, Route } from 'react-router-dom';
 import { listOneSpot } from '../../store/spots';
+import ShowCalendar from './Calendar'
 import ListSpotReviews from '../ReviewsForSpot';
+import CreateSpotBooking from '../Booking/CreateSpotBooking';
 import AddNewReviewModal from '../AddNewReviewModal';
+import OneSpotMapContainer from '../Maps/OneSpotMap';
+import superhost from '../../img/superhost.PNG';
+import locationdrop from '../../img/locationdrop.PNG';
+import keylogo from '../../img/keylogo.PNG';
+import aircover from '../../img/aircover.PNG';
 import './OneSpotList.css';
 
 function OneSpotList() {
@@ -61,7 +68,43 @@ function OneSpotList() {
                     <div className='spot-detail-and-booking-section'>
                         <div className='spot-detail-section-left'>
                             <h2 className='spot-owner-first-name'>{`Entire home hosted by ${spot.Owner.firstName}`}</h2>
+                            <div className='spot-info-3secs'>
+                                <div className='spot-info-1sec'>
+                                    <img src={superhost} />
+                                    <div className='spot-info-1sec-right'>
+                                        <div className='spot-info-1sec-right1'>
+                                            {`${spot.Owner.firstName} is a Superhost`}
+                                        </div>
+                                        <div className='spot-info-1sec-right2'>
+                                            Superhosts are experienced, highly rated hosts who are committed to providing great stays for guests.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='spot-info-1sec'>
+                                    <img src={locationdrop} />
+                                    <div className='spot-info-1sec-right'>
+                                        <div className='spot-info-1sec-right1'>Great location</div>
+                                        <div className='spot-info-1sec-right2'>100% of recent guests gave the location a 5-star rating.</div>
+                                    </div>
+                                </div>
+                                <div className='spot-info-1sec2'>
+                                    <img src={keylogo} />
+                                    <div className='spot-info-1sec-right'>
+                                        <div className='spot-info-1sec-right1'>Great check-in experience</div>
+                                        <div className='spot-info-1sec-right2'>100% of recent guests gave the check-in process a 5-star rating.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='aircover-sec'>
+                                <img src={aircover} />
+                                <div className='aircover-sec-note'>Every booking includes free protection from Host cancellations, listing inaccuracies, and other issues like trouble checking in.</div>
+                            </div>
                             <div className='spot-description'>{spot.description}</div>
+                            <div className='spot-calendar-container'>
+                                <h2 className='spot-calendar'>Check Availability</h2>
+                                <ShowCalendar spotId={spotId} />
+                            </div>
+
                         </div>
                         <div className='spot-booking-section-right'>
                             <div className='spot-booking-top'>
@@ -78,6 +121,7 @@ function OneSpotList() {
                                     <div className="booking-top-review"> {`${spot.numReviews} reviews`} </div>
                                 </div>
                             </div>
+                            <CreateSpotBooking spot={spot} />
                         </div>
                     </div>
 
@@ -96,8 +140,11 @@ function OneSpotList() {
                             </div>
                         </div>
                         <div className='spot-reviews'>
-                            <ListSpotReviews spot={spot} />
+                            <ListSpotReviews spot={spot} spotId={spot.id} />
                         </div>
+                        {/* <div className='spot-one-map'>
+                            <OneSpotMapContainer spot={spot} />
+                        </div> */}
                     </div>
                 </div>
             )}
@@ -106,19 +153,3 @@ function OneSpotList() {
 }
 
 export default OneSpotList;
-
-
-
-// <div className='map'>
-// <div class="mapouter">
-//     <div class="gmap_canvas">
-//         <iframe width="600" height="500" id="gmap_canvas" src={`https://maps.google.com/maps?q=2880%20Broadway,%20New%20York&t=&z=13&ie=UTF8&iwloc=&output=embed`} frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
-//         </iframe>
-//         <a href="https://fmovies-online.net">fmovies</a>
-//         {/* <style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}
-//         </style> */}
-//         <a href="https://www.embedgooglemap.net">copy google map</a>
-//         {/* <style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style> */}
-//     </div>
-// </div>
-// </div>
