@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react';
+import moment from 'moment';
 import { listSpotReviewsThunk } from '../../store/reviews';
 import './ReviewsForSpot.css';
 
@@ -31,7 +32,7 @@ function ListSpotReviews({ spot, spotId }) {
                             <div  >
                                 <div className="each-spot-review-firstName">{review.User?.firstName ? review.User.firstName : "you just posted"}</div>
                                 <div className="each-spot-review-createTime">
-                                    {review.createdAt.slice(0, 10)}
+                                    {moment(review.createdAt).format('MMMM YYYY')}
                                 </div>
                                 <div className="each-spot-review-review">
                                     {review.review}
