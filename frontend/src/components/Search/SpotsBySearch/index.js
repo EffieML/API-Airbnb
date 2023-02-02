@@ -1,7 +1,7 @@
 import { NavLink, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import React, { useEffect, useState } from 'react';
-import { searchSpotsThunk } from '../../store/spots';
+import { searchSpotsThunk } from '../../../store/spots';
 import './SpotsBySearch.css'
 
 

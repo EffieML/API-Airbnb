@@ -199,7 +199,7 @@ export const searchSpotsThunk = (keyword) => async (dispatch) => {
     const response = await fetch(`/api/spots/search/${keyword}`);
     if (response.ok) {
         const data = await response.json();
-        console.log("store spots thunk spots data: ", data)
+        // console.log("store spots thunk spots data: ", data)
         dispatch(searchSpotsAction(data.Spots));
         return data;
     }
