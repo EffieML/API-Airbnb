@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react';
 import { listAllSpots } from '../../store/spots';
@@ -21,7 +21,7 @@ function AllSpotsList() {
             <div className='all-spots-list'>
                 {spots && (
                     spots.map(spot => (
-                        <Link key={spot.id} to={`/spots/${spot.id}`}>
+                        <NavLink key={spot.id} to={`/spots/${spot.id}`}>
                             <div className='spot-card'>
                                 <div className='spot-image'>
                                     <img className='spot-image-size' src={spot.previewImage} alt='Spot preview image' />
@@ -45,7 +45,7 @@ function AllSpotsList() {
 
                                 </div>
                             </div>
-                        </Link>
+                        </NavLink>
                     ))
                 )}
             </div>
