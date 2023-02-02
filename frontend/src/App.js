@@ -7,7 +7,9 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import AllSpotsList from "./components/AllSpotsList";
 import OneSpotList from "./components/OneSpotList";
+import SpotsBySearch from "./components/SpotsBySearch";
 import UserListingPage from "./components/UserListingPage";
+import UserBookingsPage from "./components/Booking/UserBookingsPage";
 import UserReviewsPage from "./components/UserReviewsPage";
 
 function App() {
@@ -32,11 +34,15 @@ function App() {
           <Route exact path="/reviews/current">
             <UserReviewsPage />
           </Route>
-
+          <Route exact path="/bookings/current">
+            <UserBookingsPage />
+          </Route>
           <Route exact path="/spots/current">
             <UserListingPage />
           </Route>
-
+          <Route exact path="/spots/search/:keyword">
+            <SpotsBySearch />
+          </Route>
           <Route path="/spots/:spotId">
             <OneSpotList />
           </Route>
@@ -48,8 +54,6 @@ function App() {
           <Route exact path="/">
             <AllSpotsList />
           </Route>
-
-          //all other routes shown as not found
           <Route>
             <h1>Page Not Found</h1>
           </Route>

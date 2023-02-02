@@ -1,26 +1,26 @@
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react';
+import moment from 'moment';
 import { listSpotReviewsThunk } from '../../store/reviews';
 import './ReviewsForSpot.css';
 
 
-function ListSpotReviews({ spot }) {
+function ListSpotReviews({ spot, spotId }) {
     const dispatch = useDispatch();
-    const reviewsObj = useSelector(state => state.reviews.spot)
-    console.log("reviews for spot  reviewsObj: ", reviewsObj)
+    const reviewsObj = useSelector(state => state?.reviews?.spot)
+    // console.log("reviews for spot  reviewsObj: ", reviewsObj)
     const reviews = Object.values(reviewsObj)
-    console.log("reviews for spot  reviews: ", reviews)
-
+    // console.log("reviews for spot  reviews: ", reviews)
 
     useEffect(() => {
-        dispatch(listSpotReviewsThunk(+spot.id));
+        dispatch(listSpotReviewsThunk(spotId));
     }, [dispatch]);
 
     // if statement locate below useEffect
-    if (reviews.length == 0) return null;
+    if (reviews.length === 0) return null;
 
-    console.log("review user: ", reviews[0].User)
+    // console.log("review user: ", reviews[0].User)
     if (!reviews[0].User) return null;
 
     return (
@@ -32,7 +32,7 @@ function ListSpotReviews({ spot }) {
                             <div  >
                                 <div className="each-spot-review-firstName">{review.User?.firstName ? review.User.firstName : "you just posted"}</div>
                                 <div className="each-spot-review-createTime">
-                                    {review.createdAt.slice(0, 10)}
+                                    {moment(review.createdAt).format('MMMM YYYY')}
                                 </div>
                                 <div className="each-spot-review-review">
                                     {review.review}

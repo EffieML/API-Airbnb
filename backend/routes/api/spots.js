@@ -4,7 +4,7 @@ const { User, Spot, Booking, Review, ReviewImage, SpotImage, sequelize } = requi
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 const router = express.Router();
-const { Op } = require('sequelize');
+const { Sequelize, Op } = require('sequelize');
 
 //set up validation
 const validateSpot = [
@@ -412,9 +412,9 @@ router.post('/:spotId/reviews', requireAuth, validateReview, async (req, res) =>
 
 //Get all reviews by a spot's id, Auth:false
 router.get('/:spotId/reviews', async (req, res) => {
-    let userId = req.user.id;
+    // let userId = req.user.id;
     let spotId = parseInt(req.params.spotId);
-
+    // console.log('backend spotId------------', spotId)
     const spot = await Spot.findByPk(spotId)
     if (!spot) {
         res.status(404);
@@ -446,10 +446,11 @@ router.get('/:spotId/reviews', async (req, res) => {
 //Auth:true, spot must not belong to current user
 router.post('/:spotId/bookings', requireAuth, validateBooking, async (req, res) => {
     const { startDate, endDate } = req.body;
+    // console.log('startDate, endDate !!!!!!!!!!!!!!!!!!!!!!!', startDate, endDate)
 
     let userId = req.user.id;
-    let spotId = parseInt(req.params.spotId);
-
+    let spotId = req.params.spotId;
+    // console.log('spotId !!!!!!!!!!!!!!!!!!', spotId)
     //check spot exist
     const spot = await Spot.findByPk(spotId)
     if (!spot) {
@@ -512,7 +513,7 @@ router.post('/:spotId/bookings', requireAuth, validateBooking, async (req, res) 
     }
 
     const newBooking = await Booking.create({ spotId, userId, startDate: new Date(startDate), endDate: new Date(endDate) })
-
+    // console.log('error!!!!!!!!!!!!!!!!!!!!!!!!!!', res.json())
     return res.json(newBooking);
 })
 
@@ -547,11 +548,78 @@ router.get('/:spotId/bookings', requireAuth, async (req, res) => {
     } else {
         const Bookings = await Booking.findAll({
             where: { spotId },
-            attributes: ['spotId', 'startDate', 'endDate']
+            attributes: ['id', 'spotId', 'startDate', 'endDate']
         })
         return res.json({ Bookings });
     }
 })
 
+
+//Get all spots by search term, Auth:false
+router.get('/search/:keyword', async (req, res) => {
+    const keyword = req.params.keyword.toLowerCase();
+    console.log("backend API search keyword ----------", keyword)
+    // const keyword = req.params.keyword;
+    const Spots = await Spot.findAll({
+        where: {
+            [Op.or]: [
+                // { name: { [Op.like]: `%${keyword}%` } },
+                {
+                    name: Sequelize.where(
+                        Sequelize.fn("LOWER", Sequelize.col("name")),
+                        { [Op.like]: `%${keyword}%` }
+                    )
+                },
+                {
+                    city: Sequelize.where(
+                        Sequelize.fn("LOWER", Sequelize.col("city")),
+                        { [Op.like]: `%${keyword}%` }
+                    )
+                },
+                {
+                    state: Sequelize.where(
+                        Sequelize.fn("LOWER", Sequelize.col("state")),
+                        { [Op.like]: `%${keyword}%` }
+                    )
+                }
+                // { name: { [Op.like]: `%${keyword}%` } },
+                // { city: { [Op.like]: `%${keyword}%` } },
+                // { state: { [Op.like]: `%${keyword}%` } }
+            ]
+        },
+        raw: true,
+        nest: true,
+    });
+
+    for (let i = 0; i < Spots.length; i++) {
+        //add average rating to spot
+        const avgR = await avgRate(Spots[i].id);
+        const avgRvalue = avgR[0].avgRating === null ? 0 : avgR[0].avgRating;
+        const avgRvalFixed = Number(avgRvalue).toFixed(1);
+
+        Spots[i].avgRating = parseFloat(avgRvalFixed);
+
+        //add image preview to spot
+        const prevImgUrl = await SpotImage.findOne({
+            raw: true,
+            nest: true,
+            where: {
+                spotId: Spots[i].id,
+                preview: true,
+            },
+        })
+
+        if (prevImgUrl) {
+            Spots[i].previewImage = prevImgUrl.url
+        } else {
+            Spots[i].previewImage = null
+        }
+    }
+
+    return res.json({
+        Spots
+    })
+
+})
 
 module.exports = router;

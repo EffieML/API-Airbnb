@@ -5,8 +5,8 @@ import EditSpotForm from './EditSpotForm';
 
 function EditSpotModal({ spot, spotId }) {
     const [showModal, setShowModal] = useState(false);
-    console.log('edit spot form details', spot)
-    console.log(' edit spotId form details', spotId)
+    // console.log('edit spot form details', spot)
+    // console.log(' edit spotId form details', spotId)
 
     const currUser = useSelector(state => state.session.user)
     if (!currUser) { return null }

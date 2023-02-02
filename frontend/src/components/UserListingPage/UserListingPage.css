@@ -6,7 +6,7 @@
      justify-content: center;
      margin: auto;
      color: #222222;
-     font-family: Roboto, sans-serif;
+     font-family: 'Nunito Sans', 'Circular', 'Apple System', 'BlinkMacSystemFont', 'Roboto', 'Helvetica Neue', sans-serif;
  }
 
 
@@ -59,7 +59,7 @@
      font-size: 22px;
      font-weight: bold;
      padding-top: 10px;
-     padding-bottom: 20px;
+     /* padding-bottom: 10px; */
  }
 
  .listed-spot-info .listed-spot-info-location {
@@ -70,12 +70,13 @@
  .listed-reviews-review {
      font-size: 16px;
      font-weight: normal;
-     margin-top: 10px;
+     /* margin-top: 10px; */
  }
 
  .listed-spot-info .listed-spot-info-time {
      font-size: 16px;
      color: #717171;
+     padding-top: 20px;
  }
 
 
@@ -99,5 +100,4 @@
      cursor: pointer;
      margin-top: 10px;
      margin-bottom: 20px;
-
  }

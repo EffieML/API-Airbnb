@@ -1,7 +1,8 @@
-import { Link, Redirect } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react';
 import { useHistory } from "react-router";
+import moment from 'moment';
 // import { listUserSpots } from '../../store/spots';
 import { listUserReviewsThunk } from '../../store/reviews';
 import { deleteReviewThunk } from '../../store/reviews';
@@ -47,12 +48,16 @@ function UserReviewsPage() {
                         <div key={review.id} className='user-each-listing'>
                             <div className='listed-spot'>
                                 <div className='listed-spot-image'>
-                                    <img className='spot-image-size' src={review.Spot?.previewImage} />
+                                    <NavLink to={`/spots/${review.spotId}`}>
+                                        <img className='spot-image-size' src={review.Spot?.previewImage} />
+                                    </NavLink>
                                 </div>
                                 <div className='listed-spot-info'>
                                     <div className='listed-spot-info-name'>{`Review for ${review.Spot?.name}`}</div>
                                     <div className='listed-spot-info-time'>
-                                        {review?.createdAt.slice(0, 10)}
+                                        {/* {review?.createdAt.slice(0, 10)} this is displayed UTC time */}
+                                        {/* {new Date(review.createdAt).toLocaleString()} */}
+                                        {moment(review.createdAt).format('MMMM DD, YYYY')}
                                     </div>
                                     <div className='listed-reviews-review'>
                                         {review?.review}
@@ -67,7 +72,7 @@ function UserReviewsPage() {
                     ))
                 )}
             </div>
-        </div>
+        </div >
     )
 
 }

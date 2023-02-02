@@ -1,4 +1,6 @@
 /* TODO Add site wide styles */
 body {
-    font-family: Roboto, sans-serif
+    /* font-family: Roboto, sans-serif */
+    font-family: 'Nunito Sans', 'Circular', 'Apple System', 'BlinkMacSystemFont', 'Roboto', 'Helvetica Neue', sans-serif;
+    margin: 0;
 }
