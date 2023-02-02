@@ -6,6 +6,7 @@ import ShowCalendar from './Calendar'
 import ListSpotReviews from '../ReviewsForSpot';
 import CreateSpotBooking from '../Booking/CreateSpotBooking';
 import AddNewReviewModal from '../AddNewReviewModal';
+import OneSpotMapContainer from '../Maps/OneSpotMap';
 import superhost from '../../img/superhost.PNG';
 import locationdrop from '../../img/locationdrop.PNG';
 import keylogo from '../../img/keylogo.PNG';
@@ -141,6 +142,9 @@ function OneSpotList() {
                         <div className='spot-reviews'>
                             <ListSpotReviews spot={spot} spotId={spot.id} />
                         </div>
+                        {/* <div className='spot-one-map'>
+                            <OneSpotMapContainer spot={spot} />
+                        </div> */}
                     </div>
                 </div>
             )}

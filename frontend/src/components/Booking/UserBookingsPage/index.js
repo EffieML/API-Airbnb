@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useHistory } from "react-router";
 import { getUserAllBookingsThunk } from '../../../store/bookings.js';
 import { deleteOneBookingThunk } from '../../../store/bookings.js';
+import AddNewReviewModal from '../../AddNewReviewModal/index.js';
 import './UserBookingsPage.css';
 import '../../UserListingPage/UserListingPage.css'
 
@@ -64,6 +65,11 @@ function UserBookingsPage() {
                                 <div className='user-bookings-delete-button'>
                                     {new Date() < new Date(booking.startDate) && (
                                         <button onClick={(e) => handleDelete(booking.id)}> Cancel Reservation </button>
+                                    )}
+                                    {new Date() > new Date(booking.endDate) && (
+                                        <div className='spot-review-section-top-right' id='button-add-review'>
+                                            <AddNewReviewModal spot={booking.Spot} />
+                                        </div>
                                     )}
                                 </div>
                             </div>
