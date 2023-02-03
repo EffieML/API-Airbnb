@@ -19,7 +19,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     color: #222222;
-    /* top: -1; */
+    top: 90px;
     z-index: 100;
 }
 

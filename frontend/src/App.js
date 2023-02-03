@@ -5,12 +5,14 @@ import { Route, Switch } from "react-router-dom";
 // import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
+import Footer from './components/Footer';
 import AllSpotsList from "./components/AllSpotsList";
 import OneSpotList from "./components/OneSpotList";
 import SpotsBySearch from "./components/Search/SpotsBySearch";
 import UserListingPage from "./components/UserListingPage";
 import UserBookingsPage from "./components/Booking/UserBookingsPage";
 import UserReviewsPage from "./components/UserReviewsPage";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -60,6 +62,7 @@ function App() {
 
         </Switch>
       )}
+      <Footer />
     </>
   );
 }
