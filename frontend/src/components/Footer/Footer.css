@@ -5,12 +5,14 @@
     /* min-width: 800px; */
     font-family: 'Nunito Sans', 'Circular', 'Apple System', 'BlinkMacSystemFont', 'Roboto', 'Helvetica Neue', sans-serif;
     background-color: #f7f7f7;
-    height: 80px;
     padding-left: 80px;
     padding-right: 80px;
     justify-content: center;
     align-items: center;
     color: #222222;
+    position: relative;
+    bottom: 0;
+    height: 80px;
 }
 
 .footer-container-inner {
