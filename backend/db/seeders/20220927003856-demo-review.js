@@ -4,6 +4,7 @@ module.exports = {
   async up(queryInterface, Sequelize) {
 
     await queryInterface.bulkInsert('Reviews', [
+      // spot 1 ------------------------------------------
       {
         // id:1
         spotId: 1,
@@ -25,6 +26,7 @@ module.exports = {
         review: 'Great home with an amazing view and the communication with the host was unmatched.',
         stars: 4,
       },
+      // spot 2 ------------------------------------------
       {
         // id:4
         spotId: 2,
@@ -32,6 +34,7 @@ module.exports = {
         review: "What a great place to stay. Very clean and nice. Bed was super comfortable. A very cozy place to lay your head.",
         stars: 5,
       },
+      // spot 3 ------------------------------------------
       {
         // id: 5
         spotId: 3,
@@ -46,6 +49,7 @@ module.exports = {
         review: "The guest suite was very clean and in a fantastic location. it had everything we needed and Casey was a communicative and accommodating host. A great find!",
         stars: 5,
       },
+      // spot 4 ------------------------------------------
       {
         // id: 7
         spotId: 4,
@@ -53,6 +57,7 @@ module.exports = {
         review: 'My favorite treehouse stay so far! Elyse thought of everything to make this adventurous vacation complete!',
         stars: 5,
       },
+      // spot 5 ------------------------------------------
       {
         //id:8
         spotId: 5,
@@ -60,6 +65,7 @@ module.exports = {
         review: 'Great stay!',
         stars: 4,
       },
+      // spot 6 ------------------------------------------
       {
         //id: 9
         spotId: 6,
@@ -67,6 +73,7 @@ module.exports = {
         review: "Our visit to Crystal Beach & stay at Front Row Sea't was awesome.",
         stars: 5,
       },
+      // spot 7 ------------------------------------------
       {
         //id: 10
         spotId: 7,
@@ -81,6 +88,7 @@ module.exports = {
         review: "Overall we enjoyed our stay. There were things we liked and things we didn't.",
         stars: 4,
       },
+      // spot 8 ------------------------------------------
       {
         //id: 12
         spotId: 8,
@@ -88,6 +96,7 @@ module.exports = {
         review: "This cabin was everything we needed for a perfect getaway. Cozy and quaint, beautiful front and back deck, equipped kitchen and comfy beds. Forest feel, quiet and relaxing, I didn't want to leave!",
         stars: 5,
       },
+      // spot 9 ------------------------------------------
       {
         //id: 13
         spotId: 9,
@@ -102,6 +111,7 @@ module.exports = {
         review: "Beautiful stay",
         stars: 4,
       },
+      // spot 10 ------------------------------------------
       {
         //id: 15
         spotId: 10,
