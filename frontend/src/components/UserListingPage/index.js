@@ -41,7 +41,7 @@ function UserListingPage() {
     return (
         <div className='user-listing-page'>
             {isloaded && (
-                <div>
+                <div className='user-listing-page-inner'>
                     <h1 className='user-listing-page-title'>Manage your listings </h1>
                     <div className='user-spots-create-button'>
                         <AddNewSpotModal />

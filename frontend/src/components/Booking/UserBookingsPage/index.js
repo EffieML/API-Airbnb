@@ -40,7 +40,7 @@ function UserBookingsPage() {
     return (
         <div className='user-listing-page'>
             {isloaded && (
-                <div>
+                <div className='user-listing-page-inner'>
                     <h1 className='user-listing-page-title'>Trips </h1>
                     <div className='user-all-listings'>
                         {bookings.map(booking => (
