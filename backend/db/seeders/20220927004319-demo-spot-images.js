@@ -604,31 +604,6 @@ module.exports = {
         url: 'https://mingprojectawsbucket.s3.amazonaws.com/staybnbseed/spot_imgs/24/5.webp',
         preview: false,
       },
-      {
-        spotId: 25,
-        url: 'https://mingprojectawsbucket.s3.amazonaws.com/staybnbseed/spot_imgs/25/1.webp',
-        preview: true,
-      },
-      {
-        spotId: 25,
-        url: 'https://mingprojectawsbucket.s3.amazonaws.com/staybnbseed/spot_imgs/25/2.webp',
-        preview: false,
-      },
-      {
-        spotId: 25,
-        url: 'https://mingprojectawsbucket.s3.amazonaws.com/staybnbseed/spot_imgs/25/3.webp',
-        preview: false,
-      },
-      {
-        spotId: 25,
-        url: 'https://mingprojectawsbucket.s3.amazonaws.com/staybnbseed/spot_imgs/25/4.webp',
-        preview: false,
-      },
-      {
-        spotId: 25,
-        url: 'https://mingprojectawsbucket.s3.amazonaws.com/staybnbseed/spot_imgs/25/5.webp',
-        preview: false,
-      },
     ], {})
   },
 
