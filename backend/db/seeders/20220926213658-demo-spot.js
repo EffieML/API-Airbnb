@@ -255,7 +255,7 @@ module.exports = {
         lat: 35.76807551608452,
         lng: -83.61786046448212,
         name: "The Green Man Hobbit-Inspired Tiny House",
-        description: "The Green Man tiny house (#5) sits on the Mountain Shire property located just minutes from top attractions in Pigeon Forge, Gatlinburg and the National Park. Enjoy 200 sq. ft. plus loft of living space nestled at the wood's edge that includes fast internet, a loft with queen-sized bed, living room with sofa-bed and Roku TV, kitchenette and bathroom with shower. Outdoor amenities include a chiminea, lounge chairs, and picnic table.",
+        description: "The Green Man tiny house sits on the Mountain Shire property located just minutes from top attractions in Pigeon Forge, Gatlinburg and the National Park. Enjoy 200 sq. ft. plus loft of living space nestled at the wood's edge that includes fast internet, a loft with queen-sized bed, living room with sofa-bed and Roku TV, kitchenette and bathroom with shower.",
         price: 116,
       },
       //21
