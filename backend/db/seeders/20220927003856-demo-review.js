@@ -118,7 +118,161 @@ module.exports = {
         userId: 5,
         review: "We had the best time at the llama farm!!!! So grateful for Bonnie!!!",
         stars: 5,
-      }
+      },
+      // spot 11 ------------------------------------------
+      {
+        //id: 16
+        spotId: 11,
+        userId: 3,
+        review: "Loved the stay and look forward to staying here again in the future . It was so peaceful !",
+        stars: 5,
+      },
+      {
+        //id: 17
+        spotId: 11,
+        userId: 4,
+        review: "Friendly, clean, and great location!",
+        stars: 4,
+      },
+      // spot 12 ------------------------------------------
+      {
+        //id: 18
+        spotId: 12,
+        userId: 5,
+        review: "This place is amazing. If you are going to stay in Austin this is the perfect place!",
+        stars: 5,
+      },
+      // spot 13 ------------------------------------------
+      {
+        //id: 19
+        spotId: 13,
+        userId: 7,
+        review: "This houseboat was beautifully kept and the extra amenities were the cherry on top! Highly recommend.",
+        stars: 4,
+      },
+      // spot 14 ------------------------------------------
+      {
+        //id: 20
+        spotId: 14,
+        userId: 1,
+        review: "Great place for large gatherings and celebrations. Clean and comfortable.",
+        stars: 5,
+      },
+      {
+        //id: 21
+        spotId: 14,
+        userId: 5,
+        review: "Our stay at 12 Armadillos was wonderful. The themed rooms were darling, the decor and exterior of the home were so charming.",
+        stars: 5,
+      },
+      // spot 15 ------------------------------------------
+      {
+        //id: 22
+        spotId: 15,
+        userId: 4,
+        review: "Great little getaway!",
+        stars: 4,
+      },
+      // spot 16 ------------------------------------------
+      {
+        //id: 23
+        spotId: 16,
+        userId: 6,
+        review: "The views are amazing. It does get cold at night so pack extra sleeping bags.",
+        stars: 4,
+      },
+      {
+        //id: 24
+        spotId: 16,
+        userId: 3,
+        review: "Incredible stay! The tipi was very spacious and comfortable.",
+        stars: 5,
+      },
+      // spot 17 ------------------------------------------
+      {
+        //id: 25
+        spotId: 17,
+        userId: 1,
+        review: "Thank you!",
+        stars: 4,
+      },
+      {
+        //id: 26
+        spotId: 17,
+        userId: 5,
+        review: "I love it , was amazing art every where just awesome . Staying again !",
+        stars: 5,
+      },
+      // spot 18 ------------------------------------------
+      {
+        //id: 27
+        spotId: 18,
+        userId: 7,
+        review: "Get place to get away and relax.",
+        stars: 4,
+      },
+      // spot 19 ------------------------------------------
+      {
+        //id: 28
+        spotId: 19,
+        userId: 6,
+        review: "That Little Cabin was everything you see and MORE! Spacious, comfortable, clean, well appointed, and easy to find, this cabin will definitely be on repeat for our family.",
+        stars: 5,
+      },
+      {
+        //id: 29
+        spotId: 19,
+        userId: 2,
+        review: "Beautiful cabin, every detail thought through. Absolutely stunning!",
+        stars: 5,
+      },
+      // spot 20 ------------------------------------------
+      {
+        //id: 30
+        spotId: 20,
+        userId: 3,
+        review: "We had a great getaway weekend. Place was charming and loved all the little Hobbit-y touches!",
+        stars: 5,
+      },
+      // spot 21 ------------------------------------------
+      {
+        //id: 31
+        spotId: 21,
+        userId: 2,
+        review: "Great, cute little place. Love the theme!",
+        stars: 4,
+      },
+      {
+        //id: 32
+        spotId: 21,
+        userId: 5,
+        review: "Beautiful stay with wonderful hosts.",
+        stars: 5,
+      },
+      // spot 22 ------------------------------------------
+      {
+        //id: 33
+        spotId: 22,
+        userId: 7,
+        review: "Everything is just perfect! Just like the pictures.",
+        stars: 5,
+      },
+      // spot 23 ------------------------------------------
+      {
+        //id: 34
+        spotId: 23,
+        userId: 4,
+        review: "Cool experience to stay in rail cart apt.",
+        stars: 4,
+      },
+      // spot 24 ------------------------------------------
+      {
+        //id: 35
+        spotId: 24,
+        userId: 7,
+        review: "Magical & memorable! This was such a fun and unique experience for my family.",
+        stars: 5,
+      },
     ], {})
   },
 
