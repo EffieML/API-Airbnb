@@ -5,6 +5,8 @@ import { useHistory } from "react-router";
 import { listUserSpots } from '../../store/spots';
 import AddNewSpotModal from '../AddNewSpotModal';
 import EditSpotModal from '../EditSpotModal';
+import SpotImgs from './SpotImgs';
+import AddImgModal from './AddImgModal';
 import * as spotsActions from "../../store/spots";
 import './UserListingPage.css';
 
@@ -13,7 +15,7 @@ function UserListingPage() {
     const history = useHistory();
 
     const spots = Object.values(useSelector(state => state.spots.allSpots))
-    // console.log("UserListingpage spots: ", spots)
+    console.log("UserListingpage spots: ", spots)
     //spots is an array obj lists
     const currUser = useSelector(state => state.session.user)
     // console.log('UserListingpage currUserid: ', currUser.id)
@@ -52,7 +54,12 @@ function UserListingPage() {
                                 <div className='listed-spot'>
                                     <Link to={`/spots/${spot.id}`}>
                                         <div className='listed-spot-image'>
-                                            <img className='spot-image-size' src={spot.previewImage} alt='Spot preview image' />
+                                            {spot.previewImage &&
+                                                <img className='spot-image-size' src={spot.previewImage} onError={e => e.target.src = 'https://mingprojectawsbucket.s3.amazonaws.com/staybnbseed/imagesNotAvailable.png'} />
+                                            }
+                                            {spot.SpotImages &&
+                                                <img className='spot-image-size' src={spot.SpotImages[0].url} onError={e => e.target.src = 'https://mingprojectawsbucket.s3.amazonaws.com/staybnbseed/imagesNotAvailable.png'} />
+                                            }
                                         </div>
                                     </Link>
                                     <div className='listed-spot-info'>
@@ -63,6 +70,8 @@ function UserListingPage() {
                                             {`${spot.city}, ${spot.state}, ${spot.country}`}
                                         </div>
                                         <div className='listed-spot-info-time'>{`Last updated at: ${spot.createdAt.slice(0, 10)}`}</div>
+                                        <AddImgModal spot={spot} spotId={spot.id} type='spot' />
+                                        <SpotImgs spotId={spot.id} />
                                     </div>
                                 </div>
                                 <div className='listed-spot-edit-delete-button'>
