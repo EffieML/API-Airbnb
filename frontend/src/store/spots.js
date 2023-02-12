@@ -224,9 +224,12 @@ const spotsReducer = (state = initialState, action) => {
 
         case GET_ONE_SPOT:
             newState = { ...state };
-            let singleSpot = { ...action.spot }
+            // let singleSpot = { ...action.spot }
+            // newState.singleSpot = singleSpot;
+            let oneSpot = { ...action.spot }
+            newState.singleSpot = oneSpot;
+            newState.allSpots[action.spot.id] = oneSpot;
             // console.log("action spot", action.spot)  single object
-            newState.singleSpot = singleSpot;
             return newState;
 
         case ADD_ONE_SPOT:
