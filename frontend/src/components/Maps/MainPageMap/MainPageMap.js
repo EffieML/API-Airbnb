@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from "react-router-dom";
 import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
-// import housepin from '../../../img/house_droppin.PNG'
-// import mlogopin from '../../../img/Mlogo_red.jpg'
-import './OneSpotMap.css';
+import './MainPageMap.css';
 
 const containerStyle = {
     width: '1120px',
@@ -13,7 +11,7 @@ const containerStyle = {
 
 
 
-const OneSpotMap = ({ apiKey, spot }) => {
+const MainPageMap = ({ apiKey, spot }) => {
 
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
@@ -52,7 +50,6 @@ const OneSpotMap = ({ apiKey, spot }) => {
                         <div className='one-spot-map-loc'>{`${spot.city}, ${spot.state}, ${spot.country}`} </div>
                         <div className='one-spot-map-loc2'>{`(exact location provided after booking)`} </div>
                     </div>
-
                 </div>
 
             )}
@@ -60,4 +57,4 @@ const OneSpotMap = ({ apiKey, spot }) => {
     );
 };
 
-export default React.memo(OneSpotMap);
+export default React.memo(MainPageMap);

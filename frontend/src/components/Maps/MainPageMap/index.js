@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getKey } from '../../../store/maps';
-import OneSpotMap from './OneSpotMap';
+import MainPageMap from './MainPageMap';
 
 
-const OneSpotMapContainer = ({ spot }) => {
+const MainPageMapContainer = ({ spot }) => {
     const key = useSelector((state) => state.maps.key);
     // console.log('OneSpotMap component key-------------', key)
     const dispatch = useDispatch();
@@ -20,8 +20,8 @@ const OneSpotMapContainer = ({ spot }) => {
     }
 
     return (
-        <OneSpotMap apiKey={key} spot={spot} />
+        <MainPageMap apiKey={key} spot={spot} />
     );
 };
 
-export default OneSpotMapContainer;
+export default MainPageMapContainer;
