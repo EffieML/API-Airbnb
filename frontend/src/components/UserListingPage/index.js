@@ -54,7 +54,7 @@ function UserListingPage() {
                                 <div className='listed-spot'>
                                     <Link to={`/spots/${spot.id}`}>
                                         <div className='listed-spot-image'>
-                                            <img className='spot-image-size' src={spot.previewImage} alt='Spot preview image' />
+                                            <img className='spot-image-size' src={spot.previewImage} onError={e => e.target.src = 'https://mingprojectawsbucket.s3.amazonaws.com/staybnbseed/imagesNotAvailable.png'} />
                                         </div>
                                     </Link>
                                     <div className='listed-spot-info'>

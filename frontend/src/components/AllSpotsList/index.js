@@ -24,7 +24,7 @@ function AllSpotsList() {
                         <NavLink key={spot.id} to={`/spots/${spot.id}`}>
                             <div className='spot-card'>
                                 <div className='spot-image'>
-                                    <img className='spot-image-size' src={spot.previewImage} alt='Spot preview image' />
+                                    <img className='spot-image-size' src={spot.previewImage} onError={e => e.target.src = 'https://mingprojectawsbucket.s3.amazonaws.com/staybnbseed/imagesNotAvailable.png'} />
                                 </div>
                                 <div className='spot-info'>
                                     <div className='spot-info-1'>
