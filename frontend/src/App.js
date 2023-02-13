@@ -7,6 +7,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import Footer from './components/Footer';
 import AllSpotsList from "./components/AllSpotsList";
+import MainPageMapContainer from "./components/Maps/MainPageMap";
 import OneSpotList from "./components/OneSpotList";
 import SpotsBySearch from "./components/Search/SpotsBySearch";
 import UserListingPage from "./components/UserListingPage";
@@ -48,11 +49,12 @@ function App() {
           <Route path="/spots/:spotId">
             <OneSpotList />
           </Route>
-
+          <Route exact path="/spotsmap">
+            <MainPageMapContainer />
+          </Route>
           <Route exact path="/spots">
             <AllSpotsList />
           </Route>
-
           <Route exact path="/">
             <AllSpotsList />
           </Route>

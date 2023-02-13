@@ -8,6 +8,7 @@
      color: #222222;
      font-family: 'Nunito Sans', 'Circular', 'Apple System', 'BlinkMacSystemFont', 'Roboto', 'Helvetica Neue', sans-serif;
      min-height: calc(100vh - 160px);
+     margin-bottom: 70px;
  }
 
  .user-listing-page-inner {

@@ -4,6 +4,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    margin-bottom: 70px;
 }
 
 
@@ -109,4 +110,36 @@
 .all-spots-list a:active {
     text-decoration: none;
     color: #222222;
+}
+
+
+.all-spots-map-container {
+    text-decoration: none;
+    width: 94px;
+    height: 18px;
+    padding: 14px 16px;
+    background-color: #222222;
+    border: 1px solid #222222;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: row;
+    color: #ffffff;
+    font-size: 14.5px;
+    font-weight: bold;
+    justify-content: space-between;
+    align-items: center;
+    transform: scale(1);
+    transition: transform 0.2s;
+    position: fixed;
+    bottom: 100px;
+}
+
+.all-spots-map-container:hover {
+    transform: scale(1.03);
+}
+
+.all-spots-map-container img {
+    width: 20px;
+    height: 16px;
+    margin-top: 1px;
 }
