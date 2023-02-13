@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import Reach, { useEffect } from 'react';
 import { listAllSpots } from '../../store/spots';
+import mapbutton from '../../img/mapbutton.PNG';
 import './AllSpotsList.css';
 
 function AllSpotsList() {
@@ -49,6 +50,10 @@ function AllSpotsList() {
                     ))
                 )}
             </div>
+            <NavLink to={'/spotsmap'} className='all-spots-map-container'>
+                <div>Show map</div>
+                <img src={mapbutton} />
+            </NavLink>
         </div>
     )
 }

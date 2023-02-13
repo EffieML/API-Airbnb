@@ -142,9 +142,9 @@ function OneSpotList() {
                         <div className='spot-reviews'>
                             <ListSpotReviews spot={spot} spotId={spot.id} />
                         </div>
-                        {/* <div className='spot-one-map'>
+                        <div className='spot-one-map'>
                             <OneSpotMapContainer spot={spot} />
-                        </div> */}
+                        </div>
                     </div>
                 </div>
             )}

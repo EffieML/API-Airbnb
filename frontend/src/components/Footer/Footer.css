@@ -1,8 +1,6 @@
 .footer-container {
     display: flex;
     flex-direction: column;
-    /* width: 100vw; */
-    /* min-width: 800px; */
     font-family: 'Nunito Sans', 'Circular', 'Apple System', 'BlinkMacSystemFont', 'Roboto', 'Helvetica Neue', sans-serif;
     background-color: #f7f7f7;
     padding-left: 80px;
@@ -11,8 +9,9 @@
     align-items: center;
     color: #222222;
     position: relative;
+    position: fixed;
     bottom: 0;
-    height: 80px;
+    height: 70px;
 }
 
 .footer-container-inner {
