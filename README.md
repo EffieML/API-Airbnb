@@ -7,9 +7,6 @@ The purpose of this website is strictly for academic or research-related activit
 
 ## [Project Wiki](https://github.com/EffieML/API-Airbnb/wiki)
 
-## Tech Stack
-React, Redux, JavaScript, NodeJS, Express, Sequelize, HTML, CSS, Heroku 
-
 ## Languages, Frameworks, Platforms and Libraries
 ### Languages
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
