@@ -9,12 +9,11 @@ Staybnb is a clone of Airbnb, which is a vacation rental website that allows peo
 ## Tech Stack
 React, Redux, JavaScript, NodeJS, Express, Sequelize, HTML, CSS, Heroku 
 
-## Features:
+## Major Features:
 
 ### Home Page: 
 Staybnb home page for showing all the spots
-<img alt="Home Page" src="https://github.com/EffieML/API-Airbnb/blob/main/frontend/public/img/Home-Page.PNG">
-
+<img width="1572" alt="homepage1" src="https://user-images.githubusercontent.com/103289506/219094523-467af67f-4f1e-426e-b32b-da0d8f07195d.png">
 
 ### Login form: 
 Staybnb home page login form
