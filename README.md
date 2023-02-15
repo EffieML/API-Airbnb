@@ -17,6 +17,14 @@ Staybnb home page for showing all the spots viewing as list
 Staybnb home page for showing all the spots viewing as map
 ![homepagemap](https://user-images.githubusercontent.com/103289506/219094846-406bf528-eb22-4af9-ac58-0856f0f5405e.jpeg)
 
+### Spot detail page: 
+Staybnb page for showing one spot
+![onspot](https://user-images.githubusercontent.com/103289506/219099417-b2c0a1d8-f5d9-4323-a51c-e468cf56d536.jpeg)
+
+### Spots Search page: 
+Staybnb page for showing search results
+<img width="1571" alt="searchmap" src="https://user-images.githubusercontent.com/103289506/219102415-e388894e-19aa-49de-8565-5a7ecff2a40c.PNG">
+
 ### Login form: 
 Staybnb home page login form
 <img width="1570" alt="login" src="https://user-images.githubusercontent.com/103289506/219094959-d3dd7518-0c39-4c1d-8e89-7b045f5a5076.PNG">
@@ -25,22 +33,20 @@ Staybnb home page login form
 Staybnb home page new user signup form
 <img width="1570" alt="signup" src="https://user-images.githubusercontent.com/103289506/219095010-00702e74-e82e-4771-9086-5bfa2002c77c.PNG">
 
-### Spot detail page: 
-Staybnb page for showing one spot
-![onespot](https://user-images.githubusercontent.com/103289506/219095196-2d05ad96-9f91-4786-8ece-fd00fd558753.jpeg)
-
+### User's trips summary page: 
+<img width="1571" alt="trips" src="https://user-images.githubusercontent.com/103289506/219101882-0b7fa991-35f5-4294-8566-295dbdc618bb.PNG">
 
 ### User's all listing page: 
-<img alt="Signup form" src="https://github.com/EffieML/API-Airbnb/blob/main/frontend/public/img/manage-listing.PNG">
+<img width="1572" alt="userlisting" src="https://user-images.githubusercontent.com/103289506/219101773-60ee71da-e95a-4c3c-b4e4-c04876911e96.PNG">
 
 ### Create a new listing form: 
-<img alt="Signup form" src="https://github.com/EffieML/API-Airbnb/blob/main/frontend/public/img/create-a-spot.PNG">
+<img width="1571" alt="addListing" src="https://user-images.githubusercontent.com/103289506/219101932-3db33ebf-3f07-4480-9a93-c963d01ae6bf.PNG">
 
 ### User's all review page: 
-<img alt="Signup form" src="https://github.com/EffieML/API-Airbnb/blob/main/frontend/public/img/manage-review.PNG">
+<img width="1571" alt="userreview" src="https://user-images.githubusercontent.com/103289506/219101990-bcf3a4d8-b33a-4ee3-bfd8-1cdf88eee2ed.PNG">
 
 ### create a new review form: 
-<img alt="Signup form" src="https://github.com/EffieML/API-Airbnb/blob/main/frontend/public/img/create-a-review.PNG">
+<img width="1569" alt="addReview" src="https://user-images.githubusercontent.com/103289506/219102076-ed349dd8-484d-40e9-8773-14cb2cd8feeb.PNG">
 
 Ongoing features: 
 Bookings (CRUD)
