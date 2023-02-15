@@ -1,0 +1,50 @@
+.user-listing-images-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 8px;
+}
+
+.user-listing-image-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.user-listing-image-container img {
+    width: 100px;
+    height: 100px;
+    padding: 4px;
+    border-radius: 14px;
+    object-fit: cover;
+}
+
+.user-listing-images-container:hover button {
+    visibility: visible;
+
+}
+
+.user-listing-images-container button {
+    visibility: hidden;
+    background-color: white;
+    border: none;
+    height: 30px;
+    width: 30px;
+    position: relative;
+    padding: 0px;
+    border-radius: 50%;
+    margin-left: -20px;
+    background-color: #f5f3f3;
+}
+
+.spot-img-delete button:active {
+    border: 1.5px solid #ff385c;
+    background-color: #f5f3f3;
+    box-shadow: 2px 2px 3px #ff385c;
+}
+
+.spot-img-delete img {
+    height: 20px;
+    width: 15px;
+    border-radius: 0px;
+    padding: 0px;
+}

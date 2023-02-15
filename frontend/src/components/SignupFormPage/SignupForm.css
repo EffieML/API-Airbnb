@@ -1,17 +1,3 @@
 body {
-    font-family: Roboto, sans-serif
+    font-family: 'Nunito Sans', 'Circular', 'Apple System', 'BlinkMacSystemFont', 'Roboto', 'Helvetica Neue', sans-serif;
 }
-
-/*
-.loginform {
-    width: 500px;
-    padding: 20px 30px;
-    background: white;
-    border: 1px solid black;
-    border-radius: 10px;
-} */
-
-/* .signup-button {
-    background-color: #ff385c;
-    color: white
-} */

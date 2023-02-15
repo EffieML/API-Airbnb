@@ -1,0 +1,40 @@
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getKey } from '../../../store/maps';
+import { searchSpotsThunk } from '../../../store/spots';
+import SearchPageMap from './SearchPageMap';
+
+
+function SearchPageMapContainer() {
+    const key = useSelector((state) => state.maps.key);
+    // console.log('SearchPageMap component key-------------', key)
+
+    const dispatch = useDispatch();
+    const { keyword } = useParams();
+    let markers = [];
+    // const spots = Object.values(useSelector(state => state.spots.allSpots))
+    const spots = useSelector(state => Object.values(state.spots?.searchSpots));
+    console.log('SearchPageMap spots-------------', spots)
+    useEffect(() => {
+        if (!key) {
+            dispatch(getKey());
+        }
+    }, [dispatch, key]);
+
+    useEffect(() => {
+        dispatch(searchSpotsThunk(keyword));
+    }, [dispatch]);
+
+    if (!key) {
+        return null;
+    }
+
+    spots.forEach(spot => markers.push({ id: spot.id, price: ('$ ' + spot.price).toString(), position: { lat: parseFloat(spot.lat), lng: parseFloat(spot.lng) } }))
+    if (!spots || !markers.length) { return null }
+
+    return (
+        <SearchPageMap apiKey={key} markers={markers} spots={spots} />
+    );
+};
+
+export default SearchPageMapContainer;

@@ -49,18 +49,18 @@ function OneSpotList() {
                         </div>
                         <div className='spot-image-section'>
                             <div className='spot-image-main-only'>
-                                {!spot.SpotImages[1] && <img src={spot.SpotImages[0].url} alt='Spot preview image' />}
+                                {!spot.SpotImages[1] && <img src={spot.SpotImages[0].url} onError={e => e.target.src = 'https://mingprojectawsbucket.s3.amazonaws.com/staybnbseed/imagesNotAvailable.png'} />}
                             </div>
                             <div className='spot-image-main-left'>
-                                <img src={spot.SpotImages[0].url} alt='Spot preview image' />
+                                <img src={spot.SpotImages[0].url} onError={e => e.target.src = 'https://mingprojectawsbucket.s3.amazonaws.com/staybnbseed/imagesNotAvailable.png'} />
                             </div>
                             <div className='spot-image-middle'>
-                                {spot.SpotImages[1] && (<img id="spot-img-2" src={spot.SpotImages[1].url} />)}
-                                {spot.SpotImages[2] && (<img id="spot-img-3" src={spot.SpotImages[2].url} />)}
+                                {spot.SpotImages[1] && (<img id="spot-img-2" src={spot.SpotImages[1].url} onError={e => e.target.src = 'https://mingprojectawsbucket.s3.amazonaws.com/staybnbseed/imagesNotAvailable.png'} />)}
+                                {spot.SpotImages[2] && (<img id="spot-img-3" src={spot.SpotImages[2].url} onError={e => e.target.src = 'https://mingprojectawsbucket.s3.amazonaws.com/staybnbseed/imagesNotAvailable.png'} />)}
                             </div>
                             <div className='spot-image-right'>
-                                {spot.SpotImages[3] && (<img id="spot-img-4" src={spot.SpotImages[3].url} />)}
-                                {spot.SpotImages[4] && (<img id="spot-img-5" src={spot.SpotImages[4].url} />)}
+                                {spot.SpotImages[3] && (<img id="spot-img-4" src={spot.SpotImages[3].url} onError={e => e.target.src = 'https://mingprojectawsbucket.s3.amazonaws.com/staybnbseed/imagesNotAvailable.png'} />)}
+                                {spot.SpotImages[4] && (<img id="spot-img-5" src={spot.SpotImages[4].url} onError={e => e.target.src = 'https://mingprojectawsbucket.s3.amazonaws.com/staybnbseed/imagesNotAvailable.png'} />)}
                             </div>
                         </div>
                     </div>
@@ -142,9 +142,9 @@ function OneSpotList() {
                         <div className='spot-reviews'>
                             <ListSpotReviews spot={spot} spotId={spot.id} />
                         </div>
-                        {/* <div className='spot-one-map'>
+                        <div className='spot-one-map'>
                             <OneSpotMapContainer spot={spot} />
-                        </div> */}
+                        </div>
                     </div>
                 </div>
             )}

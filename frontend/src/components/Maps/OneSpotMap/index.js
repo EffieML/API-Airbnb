@@ -6,7 +6,7 @@ import OneSpotMap from './OneSpotMap';
 
 const OneSpotMapContainer = ({ spot }) => {
     const key = useSelector((state) => state.maps.key);
-    console.log('OneSpotMap component key-------------', key)
+    // console.log('OneSpotMap component key-------------', key)
     const dispatch = useDispatch();
 
     useEffect(() => {
