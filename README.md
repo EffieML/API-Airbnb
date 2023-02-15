@@ -56,5 +56,5 @@
 ### User's all review page: 
 <img width="1571" alt="userreview" src="https://user-images.githubusercontent.com/103289506/219101990-bcf3a4d8-b33a-4ee3-bfd8-1cdf88eee2ed.PNG">
 
-### create a new review form: 
+### Create a new review form: 
 <img width="1569" alt="addReview" src="https://user-images.githubusercontent.com/103289506/219102076-ed349dd8-484d-40e9-8773-14cb2cd8feeb.PNG">
