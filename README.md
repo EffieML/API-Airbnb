@@ -1,7 +1,7 @@
 # Welcome to Staybnb! (Express React Project)
 
-Staybnb is inspired by Airbnb, which is a vacation rental website that allows people to rent out their homes and gives travelers the opportunity to find and book the perfect non-hotel vacation accommodation in any city. 
-The purpose of this website is strictly for academic or research-related activities.
+#### Staybnb is inspired by Airbnb, which is a vacation rental website that allows people to rent out their homes and gives travelers the opportunity to find and book the perfect non-hotel vacation accommodation in any city. 
+#### The purpose of this website is strictly for academic or research-related activities.
 
 ## [Staybnb live link](https://airbnb-ming.herokuapp.com/)
 
