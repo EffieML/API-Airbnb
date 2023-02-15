@@ -9,11 +9,6 @@ const containerStyle = {
     height: 'calc(100vh - 151px)',
 };
 
-// const center = {
-//     lat: 35.34447416913044,
-//     lng: -100.07212787530635,
-// };
-
 const SearchPageMap = ({ apiKey, markers, spots }) => {
     const history = useHistory();
     const center = {
@@ -30,9 +25,6 @@ const SearchPageMap = ({ apiKey, markers, spots }) => {
     const handleActiveMarker = (marker) => {
         history.push(`/spots/${marker}`)
     };
-
-    // if (!markers.length) { return null }
-    // console.log('SearchPageMap markers2-------------', markers)
 
     return (
         <div className='search-page-map-container-outer'>
