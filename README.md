@@ -1,6 +1,7 @@
-# Staybnb - Inspired by Airbnb 
+# Welcome to Staybnb! (Express React Project)
 
-Staybnb is a clone of Airbnb, which is a vacation rental website that allows people to rent out their homes and gives travelers the opportunity to find and book the perfect non-hotel vacation accommodation in any city. 
+Staybnb is inspired by Airbnb, which is a vacation rental website that allows people to rent out their homes and gives travelers the opportunity to find and book the perfect non-hotel vacation accommodation in any city. 
+The purpose of this website is strictly for academic or research-related activities.
 
 ## [Staybnb live link](https://airbnb-ming.herokuapp.com/)
 
@@ -9,6 +10,18 @@ Staybnb is a clone of Airbnb, which is a vacation rental website that allows peo
 ## Tech Stack
 React, Redux, JavaScript, NodeJS, Express, Sequelize, HTML, CSS, Heroku 
 
+## Languages, Frameworks, Platforms and Libraries
+### Languages
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+
+### Backend and Database
+![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB) ![Sequelize](https://img.shields.io/badge/Sequelize-52B0E7?style=for-the-badge&logo=Sequelize&logoColor=white) PostgresSQL NodeJS
+
+### Frontend
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+
+### Hosting
+![Heroku](https://img.shields.io/badge/-Heroku-blueviolet)
 ## Major Features:
 
 ### Home Page: 
