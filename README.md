@@ -47,6 +47,3 @@ Staybnb home page new user signup form
 
 ### create a new review form: 
 <img width="1569" alt="addReview" src="https://user-images.githubusercontent.com/103289506/219102076-ed349dd8-484d-40e9-8773-14cb2cd8feeb.PNG">
-
-Ongoing features: 
-Bookings (CRUD)
