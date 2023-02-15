@@ -23,25 +23,25 @@
 ## Major Features:
 
 ### Home Page: 
-Staybnb home page for showing all the spots viewing as list
+#### Staybnb home page for showing all the spots viewing as list
 <img width="1572" alt="homepage1" src="https://user-images.githubusercontent.com/103289506/219094523-467af67f-4f1e-426e-b32b-da0d8f07195d.png">
-Staybnb home page for showing all the spots viewing as map
+#### Staybnb home page for showing all the spots viewing as map
 ![homepagemap](https://user-images.githubusercontent.com/103289506/219094846-406bf528-eb22-4af9-ac58-0856f0f5405e.jpeg)
 
 ### Spot detail page: 
-Staybnb page for showing one spot
+#### Staybnb page for showing one spot
 ![onspot](https://user-images.githubusercontent.com/103289506/219099417-b2c0a1d8-f5d9-4323-a51c-e468cf56d536.jpeg)
 
 ### Spots Search page: 
-Staybnb page for showing search results
+#### Staybnb page for showing search results
 <img width="1571" alt="searchmap" src="https://user-images.githubusercontent.com/103289506/219102415-e388894e-19aa-49de-8565-5a7ecff2a40c.PNG">
 
 ### Login form: 
-Staybnb home page login form
+#### Staybnb home page login form
 <img width="1570" alt="login" src="https://user-images.githubusercontent.com/103289506/219094959-d3dd7518-0c39-4c1d-8e89-7b045f5a5076.PNG">
 
 ### Signup form: 
-Staybnb home page new user signup form
+#### Staybnb home page new user signup form
 <img width="1570" alt="signup" src="https://user-images.githubusercontent.com/103289506/219095010-00702e74-e82e-4771-9086-5bfa2002c77c.PNG">
 
 ### User's trips summary page: 
