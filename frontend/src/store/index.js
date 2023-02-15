@@ -2,6 +2,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import sessionReducer from './session';
 import spotsReducer from './spots';
+import spotimgsReducer from "./spotImg";
 import reviewsReducer from './reviews';
 import bookingsReducer from './bookings';
 import mapsReducer from "./maps";
@@ -10,6 +11,7 @@ const rootReducer = combineReducers({
   // add reducer functions here
   session: sessionReducer,
   spots: spotsReducer,
+  spotimgs: spotimgsReducer,
   reviews: reviewsReducer,
   bookings: bookingsReducer,
   maps: mapsReducer,

@@ -7,8 +7,13 @@
      margin: auto;
      color: #222222;
      font-family: 'Nunito Sans', 'Circular', 'Apple System', 'BlinkMacSystemFont', 'Roboto', 'Helvetica Neue', sans-serif;
+     min-height: calc(100vh - 160px);
+     margin-bottom: 70px;
  }
 
+ .user-listing-page-inner {
+     min-height: calc(100vh - 160px);
+ }
 
  /* title  */
  .user-listing-page-title {
@@ -100,4 +105,18 @@
      cursor: pointer;
      margin-top: 10px;
      margin-bottom: 20px;
+ }
+
+ .listed-spot-add-img-button {
+     border: 0px solid rgb(0, 0, 0);
+     height: 30px;
+     width: 100px;
+     border-radius: 8px;
+     font-size: 13px;
+     font-weight: bold;
+     color: white;
+     background-color: rgb(255, 56, 92);
+     cursor: pointer;
+     margin-top: 53px;
+     margin-left: 4px;
  }

@@ -6,7 +6,8 @@ import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 import AddNewSpotModal from '../AddNewSpotModal/index.js';
-import AddNewSpotForm from '../AddNewSpotModal/AddNewSpotForm';
+// import AddNewSpotForm from '../AddNewSpotModal/AddNewSpotForm';
+import SearchBar from '../Search/SearchBar';
 import './Navigation.css';
 
 function Navigation({ isLoaded }) {
@@ -43,6 +44,9 @@ function Navigation({ isLoaded }) {
                             <div className='nav-bar-name'>Staybnb</div>
                         </div>
                     </NavLink>
+                </div>
+                <div className='nav-bar-middle'>
+                    <SearchBar />
                 </div>
                 <div className='nav-bar-right'>
                     <div className='become-a-host'>

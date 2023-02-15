@@ -85,9 +85,9 @@ router.get('/', async (req, res) => {
 
     //pagination
     if (!page) { page = 1 };
-    if (!size) { size = 20 };
+    if (!size) { size = 40 };
     if (page > 10) { page = 10 };
-    if (size > 20) { size = 20 };
+    if (size > 40) { size = 40 };
 
     let pagination = {};
     if (page >= 1 && size >= 1) {
@@ -159,7 +159,6 @@ router.get('/', async (req, res) => {
         page,
         size
     })
-
 })
 
 

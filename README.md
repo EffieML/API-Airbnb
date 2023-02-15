@@ -1,4 +1,4 @@
-# Staybnb - Clone of Airbnb 
+# Staybnb - Inspired by Airbnb 
 
 Staybnb is a clone of Airbnb, which is a vacation rental website that allows people to rent out their homes and gives travelers the opportunity to find and book the perfect non-hotel vacation accommodation in any city. 
 

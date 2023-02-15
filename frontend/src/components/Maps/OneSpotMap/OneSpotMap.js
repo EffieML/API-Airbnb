@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from "react-router-dom";
 import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
-import housepin from '../../../img/house_droppin.PNG'
-import mlogopin from '../../../img/Mlogo_red.jpg'
+// import housepin from '../../../img/house_droppin.PNG'
+// import mlogopin from '../../../img/Mlogo_red.jpg'
 import './OneSpotMap.css';
 
 const containerStyle = {

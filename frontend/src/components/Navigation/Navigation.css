@@ -68,6 +68,8 @@ body {
     font-size: 14px;
     font-weight: bold;
     background-color: rgb(255, 56, 92);
+    /* background-color: #e4003a; */
+    ;
     cursor: pointer;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -119,7 +121,7 @@ body {
     width: 80px;
     color: #717171;
     border-radius: 22px;
-    border: 1px solid rgb(227, 227, 227);
+    border: 1px solid #dddddd;
     outline: none;
     background-color: white;
     padding: 5px 5px 5px 16px;

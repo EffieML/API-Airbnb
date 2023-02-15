@@ -1,7 +1,8 @@
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
-import { useEffect } from 'react';
+import Reach, { useEffect } from 'react';
 import { listAllSpots } from '../../store/spots';
+import mapbutton from '../../img/mapbutton.PNG';
 import './AllSpotsList.css';
 
 function AllSpotsList() {
@@ -24,7 +25,7 @@ function AllSpotsList() {
                         <NavLink key={spot.id} to={`/spots/${spot.id}`}>
                             <div className='spot-card'>
                                 <div className='spot-image'>
-                                    <img className='spot-image-size' src={spot.previewImage} alt='Spot preview image' />
+                                    <img className='spot-image-size' src={spot.previewImage} onError={e => e.target.src = 'https://mingprojectawsbucket.s3.amazonaws.com/staybnbseed/imagesNotAvailable.png'} />
                                 </div>
                                 <div className='spot-info'>
                                     <div className='spot-info-1'>
@@ -49,6 +50,10 @@ function AllSpotsList() {
                     ))
                 )}
             </div>
+            <NavLink to={'/spotsmap'} className='all-spots-map-container'>
+                <div>Show map</div>
+                <img src={mapbutton} />
+            </NavLink>
         </div>
     )
 }
