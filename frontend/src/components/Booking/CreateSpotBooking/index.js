@@ -28,8 +28,8 @@ function CreateSpotBooking({ spot }) {
     }, [currUser]);
 
     const totalPrice = (spotPrice) => {
-        console.log("calNights2-------------------", calNights)
-        // console.log("calNights2-------------------",calNights)
+        console.log('total price------------', parseInt((spot.price + 10) * (calNights < 0 || isNaN(calNights) ? 0 : calNights) + 100))
+        console.log('total price2------------', parseInt((spot.price + serviceFee) * (calNights < 0 || isNaN(calNights) ? 0 : calNights) + cleanFee))
         return parseInt((spot.price + serviceFee) * (calNights < 0 || isNaN(calNights) ? 0 : calNights) + cleanFee)
     }
 
@@ -128,7 +128,9 @@ function CreateSpotBooking({ spot }) {
                 </div>
                 <div className='booking-form-bttm-r4'>
                     <div className='booking-form-bttm-left2'>Total before taxes</div>
-                    {/* <div className='booking-form-bttm-right2'>{`$${(spot.price + serviceFee) * calNights + cleanFee}`} </div> */}
+                    <div className='booking-form-bttm-right2'>{`$${spot.price * calNights + serviceFee * calNights + cleanFee}`} </div>
+                    <div className='booking-form-bttm-right2'>{`$${(spot.price + serviceFee) * calNights + cleanFee}`} </div>
+                    <div className='booking-form-bttm-right2'>{`$${(Number(spot.price) + serviceFee) * calNights + cleanFee}`} </div>
                     <div className='booking-form-bttm-right2'>${totalPrice(spot.price)} </div>
                 </div>
                 {showLoginModal && (
