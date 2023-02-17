@@ -19,6 +19,7 @@ function CreateSpotBooking({ spot }) {
     const [showLoginModal, setShowLoginModal] = useState(false);
 
     let calNights = parseInt((new Date(endDate).getTime() - new Date(startDate).getTime()) / (1000 * 3600 * 24))
+    console.log("calNights-------------------", calNights)
     let cleanFee = 100;
     let serviceFee = 10;
 
@@ -27,6 +28,8 @@ function CreateSpotBooking({ spot }) {
     }, [currUser]);
 
     const totalPrice = (spotPrice) => {
+        console.log("calNights2-------------------", calNights)
+        // console.log("calNights2-------------------",calNights)
         return parseInt((spot.price + serviceFee) * (calNights < 0 || isNaN(calNights) ? 0 : calNights) + cleanFee)
     }
 
@@ -126,7 +129,7 @@ function CreateSpotBooking({ spot }) {
                 <div className='booking-form-bttm-r4'>
                     <div className='booking-form-bttm-left2'>Total before taxes</div>
                     {/* <div className='booking-form-bttm-right2'>{`$${(spot.price + serviceFee) * calNights + cleanFee}`} </div> */}
-                    <div className='booking-form-bttm-right2'>{`$${totalPrice(spot.price)}`} </div>
+                    <div className='booking-form-bttm-right2'>${totalPrice(spot.price)}</div>
                 </div>
                 {showLoginModal && (
                     <Modal onClose={() => setShowLoginModal(false)}>
