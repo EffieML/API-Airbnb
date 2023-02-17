@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams, Route } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { listOneSpot } from '../../store/spots';
 import ShowCalendar from './Calendar'
 import ListSpotReviews from '../ReviewsForSpot';
@@ -49,18 +49,18 @@ function OneSpotList() {
                         </div>
                         <div className='spot-image-section'>
                             <div className='spot-image-main-only'>
-                                {!spot.SpotImages[1] && <img src={spot.SpotImages[0].url} onError={e => e.target.src = 'https://mingprojectawsbucket.s3.amazonaws.com/staybnbseed/imagesNotAvailable.png'} />}
+                                {!spot.SpotImages[1] && <img src={spot.SpotImages[0].url} alt='spot img' onError={e => e.target.src = 'https://mingprojectawsbucket.s3.amazonaws.com/staybnbseed/imagesNotAvailable.png'} />}
                             </div>
                             <div className='spot-image-main-left'>
-                                <img src={spot.SpotImages[0].url} onError={e => e.target.src = 'https://mingprojectawsbucket.s3.amazonaws.com/staybnbseed/imagesNotAvailable.png'} />
+                                <img src={spot.SpotImages[0].url} alt='spot img' onError={e => e.target.src = 'https://mingprojectawsbucket.s3.amazonaws.com/staybnbseed/imagesNotAvailable.png'} />
                             </div>
                             <div className='spot-image-middle'>
-                                {spot.SpotImages[1] && (<img id="spot-img-2" src={spot.SpotImages[1].url} onError={e => e.target.src = 'https://mingprojectawsbucket.s3.amazonaws.com/staybnbseed/imagesNotAvailable.png'} />)}
-                                {spot.SpotImages[2] && (<img id="spot-img-3" src={spot.SpotImages[2].url} onError={e => e.target.src = 'https://mingprojectawsbucket.s3.amazonaws.com/staybnbseed/imagesNotAvailable.png'} />)}
+                                {spot.SpotImages[1] && (<img id="spot-img-2" alt='spot img' src={spot.SpotImages[1].url} onError={e => e.target.src = 'https://mingprojectawsbucket.s3.amazonaws.com/staybnbseed/imagesNotAvailable.png'} />)}
+                                {spot.SpotImages[2] && (<img id="spot-img-3" alt='spot img' src={spot.SpotImages[2].url} onError={e => e.target.src = 'https://mingprojectawsbucket.s3.amazonaws.com/staybnbseed/imagesNotAvailable.png'} />)}
                             </div>
                             <div className='spot-image-right'>
-                                {spot.SpotImages[3] && (<img id="spot-img-4" src={spot.SpotImages[3].url} onError={e => e.target.src = 'https://mingprojectawsbucket.s3.amazonaws.com/staybnbseed/imagesNotAvailable.png'} />)}
-                                {spot.SpotImages[4] && (<img id="spot-img-5" src={spot.SpotImages[4].url} onError={e => e.target.src = 'https://mingprojectawsbucket.s3.amazonaws.com/staybnbseed/imagesNotAvailable.png'} />)}
+                                {spot.SpotImages[3] && (<img id="spot-img-4" alt='spot img' src={spot.SpotImages[3].url} onError={e => e.target.src = 'https://mingprojectawsbucket.s3.amazonaws.com/staybnbseed/imagesNotAvailable.png'} />)}
+                                {spot.SpotImages[4] && (<img id="spot-img-5" alt='spot img' src={spot.SpotImages[4].url} onError={e => e.target.src = 'https://mingprojectawsbucket.s3.amazonaws.com/staybnbseed/imagesNotAvailable.png'} />)}
                             </div>
                         </div>
                     </div>
@@ -70,7 +70,7 @@ function OneSpotList() {
                             <h2 className='spot-owner-first-name'>{`Entire home hosted by ${spot.Owner.firstName}`}</h2>
                             <div className='spot-info-3secs'>
                                 <div className='spot-info-1sec'>
-                                    <img src={superhost} />
+                                    <img src={superhost} alt='superhost' />
                                     <div className='spot-info-1sec-right'>
                                         <div className='spot-info-1sec-right1'>
                                             {`${spot.Owner.firstName} is a Superhost`}
@@ -81,14 +81,14 @@ function OneSpotList() {
                                     </div>
                                 </div>
                                 <div className='spot-info-1sec'>
-                                    <img src={locationdrop} />
+                                    <img src={locationdrop} alt='locationdrop' />
                                     <div className='spot-info-1sec-right'>
                                         <div className='spot-info-1sec-right1'>Great location</div>
                                         <div className='spot-info-1sec-right2'>100% of recent guests gave the location a 5-star rating.</div>
                                     </div>
                                 </div>
                                 <div className='spot-info-1sec2'>
-                                    <img src={keylogo} />
+                                    <img src={keylogo} alt='keylogo' />
                                     <div className='spot-info-1sec-right'>
                                         <div className='spot-info-1sec-right1'>Great check-in experience</div>
                                         <div className='spot-info-1sec-right2'>100% of recent guests gave the check-in process a 5-star rating.</div>
@@ -96,7 +96,7 @@ function OneSpotList() {
                                 </div>
                             </div>
                             <div className='aircover-sec'>
-                                <img src={aircover} />
+                                <img src={aircover} alt='aircover' />
                                 <div className='aircover-sec-note'>Every booking includes free protection from Host cancellations, listing inaccuracies, and other issues like trouble checking in.</div>
                             </div>
                             <div className='spot-description'>{spot.description}</div>
