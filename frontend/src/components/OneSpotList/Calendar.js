@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Calendar } from 'react-date-range';
 import { getSpotAllBookingsThunk } from "../../store/bookings";
 import { bookingDays } from '../../utils/bookingDays';
-// import { getDaysArray } from "../../utils/functions";
 import './Calendar.css';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
@@ -30,11 +29,7 @@ function ShowCalendar({ spotId }) {
     }
     // console.log('bookedDates1 arr', bookedDates)
 
-    // let disabledDates = []
-    // for (let booking of spotBookingsArr) {
-    //     disabledDates = disabledDates.concat(getDaysArray(booking.startDate, booking.endDate));
-    // }
-    // console.log('disabledDates arr', disabledDates)
+
     return (
         <>
             <div className="onespot-calendar-container">
