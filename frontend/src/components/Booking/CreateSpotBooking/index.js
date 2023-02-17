@@ -129,6 +129,7 @@ function CreateSpotBooking({ spot }) {
                     <div className='booking-form-bttm-left2'>Total before taxes</div>
                     <div className='booking-form-bttm-right2'>{`$${spot.price * calNights + serviceFee * calNights + cleanFee}`} </div>
                     <div className='booking-form-bttm-right2'>{`$${(spot.price + serviceFee) * calNights + cleanFee}`} </div>
+                    <div className='booking-form-bttm-right2'>{`$${(Number(spot.price) + serviceFee) * calNights + cleanFee}`} </div>
                     <div className='booking-form-bttm-right2'>${totalPrice(spot.price)} </div>
                 </div>
                 {showLoginModal && (
