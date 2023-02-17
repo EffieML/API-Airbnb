@@ -26,6 +26,10 @@ function CreateSpotBooking({ spot }) {
         if (currUser) setShowLoginModal(false);
     }, [currUser]);
 
+    const totalPrice = (spotPrice) => {
+        return parseInt((spot.price + serviceFee) * (calNights < 0 || isNaN(calNights) ? 0 : calNights) + cleanFee)
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (currUser) {
@@ -108,8 +112,8 @@ function CreateSpotBooking({ spot }) {
                     </div>
                 </div>
                 <div className='booking-form-bttm-r1'>
-                    <div className='booking-form-bttm-left'>{`$${spot.price}`} x {calNights} nights</div>
-                    <div className='booking-form-bttm-right'>{`$${spot.price * calNights}`} </div>
+                    <div className='booking-form-bttm-left'>{`$${spot.price}`} x {calNights < 0 || isNaN(calNights) ? 0 : calNights} nights</div>
+                    <div className='booking-form-bttm-right'>{`$${spot.price * (calNights < 0 || isNaN(calNights) ? 0 : calNights)}`}</div>
                 </div>
                 <div className='booking-form-bttm-r1'>
                     <div className='booking-form-bttm-left'>Cleaning fee</div>
@@ -117,11 +121,12 @@ function CreateSpotBooking({ spot }) {
                 </div>
                 <div className='booking-form-bttm-r1'>
                     <div className='booking-form-bttm-left'>Service fee</div>
-                    <div className='booking-form-bttm-right'>{`$${serviceFee * calNights}`} </div>
+                    <div className='booking-form-bttm-right'>{`$${serviceFee * (calNights < 0 || isNaN(calNights) ? 0 : calNights)}`} </div>
                 </div>
                 <div className='booking-form-bttm-r4'>
                     <div className='booking-form-bttm-left2'>Total before taxes</div>
-                    <div className='booking-form-bttm-right2'>{`$${(spot.price + serviceFee) * calNights + cleanFee}`} </div>
+                    {/* <div className='booking-form-bttm-right2'>{`$${(spot.price + serviceFee) * calNights + cleanFee}`} </div> */}
+                    <div className='booking-form-bttm-right2'>{`$${totalPrice(spot.price)}`} </div>
                 </div>
                 {showLoginModal && (
                     <Modal onClose={() => setShowLoginModal(false)}>
