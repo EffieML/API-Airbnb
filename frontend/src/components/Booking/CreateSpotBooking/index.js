@@ -122,7 +122,7 @@ function CreateSpotBooking({ spot }) {
                 </div>
                 <div className='booking-form-bttm-r4'>
                     <div className='booking-form-bttm-left2'>Total before taxes</div>
-                    <div className='booking-form-bttm-right2'>{`$${spot.price * calNights + serviceFee * calNights + cleanFee}`} </div>
+                    <div className='booking-form-bttm-right2'>{`$${spot.price * (calNights < 0 || isNaN(calNights) ? 0 : calNights) + serviceFee * (calNights < 0 || isNaN(calNights) ? 0 : calNights) + cleanFee}`} </div>
                 </div>
                 {showLoginModal && (
                     <Modal onClose={() => setShowLoginModal(false)}>
