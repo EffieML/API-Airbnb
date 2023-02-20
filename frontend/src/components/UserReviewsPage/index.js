@@ -6,6 +6,7 @@ import moment from 'moment';
 // import { listUserSpots } from '../../store/spots';
 import { listUserReviewsThunk } from '../../store/reviews';
 import { deleteReviewThunk } from '../../store/reviews';
+import EditReviewModal from '../EditReviewModal';
 import '../UserListingPage/UserListingPage.css';
 
 function UserReviewsPage() {
@@ -65,6 +66,7 @@ function UserReviewsPage() {
                                 </div>
                             </div>
                             <div className='listed-spot-edit-delete-button'>
+                                <EditReviewModal review={review} reviewId={review.id} spotName={review.Spot?.name} />
                                 <button onClick={() => handleDelete(review.id)}>Delete Review</button>
                             </div>
                         </div>
