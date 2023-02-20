@@ -557,7 +557,7 @@ router.get('/:spotId/bookings', requireAuth, async (req, res) => {
 //Get all spots by search term, Auth:false
 router.get('/search/:keyword', async (req, res) => {
     const keyword = req.params.keyword.toLowerCase();
-    console.log("backend API search keyword ----------", keyword)
+    // console.log("backend API search keyword ----------", keyword)
     // const keyword = req.params.keyword;
     const Spots = await Spot.findAll({
         where: {

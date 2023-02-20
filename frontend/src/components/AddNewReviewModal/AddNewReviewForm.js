@@ -7,7 +7,7 @@ import { listOneSpot } from "../../store/spots";
 import '../LoginFormModal/LoginForm.css';
 
 function AddNewReviewForm({ spot, setShowModal, reviewId }) {
-    console.log("AddNewReviewForm:", spot)
+    // console.log("AddNewReviewForm:", spot)
     const dispatch = useDispatch();
     const history = useHistory();
 
