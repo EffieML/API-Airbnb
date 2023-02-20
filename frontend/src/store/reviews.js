@@ -5,6 +5,7 @@ const GET_SPOT_REVIEWS = 'reviews/getSpotReviews';
 const GET_USER_REVIEWS = 'reviews/getUserReviews';
 const ADD_ONE_REVIEW = 'reviews/addOneReview';
 const DELETE_ONE_REVIEW = 'reviews/deleteOneReview';
+const EDIT_ONE_REVIEW = 'reviews/editOneReview';
 
 
 //todo: define action creators
@@ -36,7 +37,13 @@ const deleteOneReviewAction = (reviewId) => {
         reviewId
     }
 }
-
+//action: edit one review
+const editOneReview = (review) => {
+    return {
+        type: EDIT_ONE_REVIEW,
+        review
+    }
+}
 
 //todo: thunks section
 // thunk: get spot's reviews
@@ -93,6 +100,24 @@ export const deleteReviewThunk = (reviewId) => async (dispatch) => {
     }
 };
 
+// thunk: edit one review for current user
+export const editOneReviewThunk = (review, reviewId) => async dispatch => {
+    try {
+        const response = await csrfFetch(`/api/reviews/${reviewId}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': "application/json" },
+            body: JSON.stringify(review)
+        })
+        if (response.ok) {
+            const data = await response.json();
+            dispatch(editOneReview(data));
+            return data
+        }
+    } catch (err) {
+        console.log(err);
+        throw err;
+    }
+}
 
 
 //todo: reducer stuff
@@ -135,6 +160,13 @@ const reviewsReducer = (state = initialState, action) => {
             delete newState.user[action.reviewId];
             // newState = { ...spot };
             // console.log("user reviews newState", newState)
+            return newState;
+
+        case EDIT_ONE_REVIEW:
+            newState = { ...state, spot: { ...state.spot }, user: { ...state.user } };
+            const editReview = { ...action.review };
+            newState.spot[action.review.id] = editReview;
+            newState.user[action.review.id] = editReview;
             return newState;
 
         default:
