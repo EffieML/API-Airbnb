@@ -104,7 +104,6 @@ function OneSpotList() {
                                 <h2 className='spot-calendar'>Check Availability</h2>
                                 <ShowCalendar spotId={spotId} />
                             </div>
-
                         </div>
                         <div className='spot-booking-section-right'>
                             <div className='spot-booking-top'>

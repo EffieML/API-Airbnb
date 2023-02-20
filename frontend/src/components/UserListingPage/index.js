@@ -15,7 +15,7 @@ function UserListingPage() {
     const history = useHistory();
 
     const spots = Object.values(useSelector(state => state.spots.allSpots))
-    console.log("UserListingpage spots: ", spots)
+    // console.log("UserListingpage spots: ", spots)
     //spots is an array obj lists
     const currUser = useSelector(state => state.session.user)
     // console.log('UserListingpage currUserid: ', currUser.id)

@@ -519,8 +519,9 @@ router.post('/:spotId/bookings', requireAuth, validateBooking, async (req, res) 
 
 //Get all bookings for a spot based on the spot's id
 //Auth:true
-router.get('/:spotId/bookings', requireAuth, async (req, res) => {
-    let userId = req.user.id;
+// router.get('/:spotId/bookings', requireAuth, async (req, res) => {
+router.get('/:spotId/bookings', async (req, res) => {
+    // let userId = req.user.id;
     let spotId = parseInt(req.params.spotId);
 
     //check spot exist
@@ -533,31 +534,39 @@ router.get('/:spotId/bookings', requireAuth, async (req, res) => {
         })
     }
 
-    if (spot.toJSON().ownerId == userId) {
-        const Bookings = await Booking.findAll({
-            where: {
-                spotId,
-            },
-            include: [{
-                model: User,
-                attributes: ['id', 'firstName', 'lastName']
-            }]
-        })
-        return res.json({ Bookings });
-    } else {
-        const Bookings = await Booking.findAll({
-            where: { spotId },
-            attributes: ['id', 'spotId', 'startDate', 'endDate']
-        })
-        return res.json({ Bookings });
-    }
+    const Bookings = await Booking.findAll({
+        where: { spotId },
+        include: [{
+            model: User,
+            attributes: ['id', 'firstName', 'lastName']
+        }]
+    })
+    return res.json({ Bookings });
+    // if (spot.toJSON().ownerId == userId) {
+    //     const Bookings = await Booking.findAll({
+    //         where: {
+    //             spotId,
+    //         },
+    //         include: [{
+    //             model: User,
+    //             attributes: ['id', 'firstName', 'lastName']
+    //         }]
+    //     })
+    //     return res.json({ Bookings });
+    // } else {
+    //     const Bookings = await Booking.findAll({
+    //         where: { spotId },
+    //         attributes: ['id', 'spotId', 'startDate', 'endDate']
+    //     })
+    //     return res.json({ Bookings });
+    // }
 })
 
 
 //Get all spots by search term, Auth:false
 router.get('/search/:keyword', async (req, res) => {
     const keyword = req.params.keyword.toLowerCase();
-    console.log("backend API search keyword ----------", keyword)
+    // console.log("backend API search keyword ----------", keyword)
     // const keyword = req.params.keyword;
     const Spots = await Spot.findAll({
         where: {

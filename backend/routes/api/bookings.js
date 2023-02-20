@@ -11,7 +11,7 @@ const { Op } = require('sequelize');
 //Auth:true
 router.get('/current', requireAuth, async (req, res) => {
     let userId = req.user.id;
-    console.log("backend userId---------", userId)
+    // console.log("backend userId---------", userId)
     const Bookings = await Booking.findAll({
         where: { userId },
         raw: true,
