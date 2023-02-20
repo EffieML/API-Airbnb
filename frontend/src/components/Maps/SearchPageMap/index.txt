@@ -14,7 +14,7 @@ function SearchPageMapContainer() {
     let markers = [];
     // const spots = Object.values(useSelector(state => state.spots.allSpots))
     const spots = useSelector(state => Object.values(state.spots?.searchSpots));
-    console.log('SearchPageMap spots-------------', spots)
+    //console.log('SearchPageMap spots-------------', spots)
     useEffect(() => {
         if (!key) {
             dispatch(getKey());
