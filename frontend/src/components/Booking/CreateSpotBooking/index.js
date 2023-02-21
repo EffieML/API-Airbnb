@@ -19,7 +19,7 @@ function CreateSpotBooking({ spot }) {
     const [showLoginModal, setShowLoginModal] = useState(false);
 
     let calNights = parseInt((new Date(endDate).getTime() - new Date(startDate).getTime()) / (1000 * 3600 * 24))
-    console.log("calNights-------------------", calNights)
+    // console.log("calNights-------------------", calNights)
     let cleanFee = 100;
     let serviceFee = 10;
 
