@@ -64,9 +64,11 @@ function AddNewReviewForm({ spot, setShowModal, reviewId }) {
                     <label>
                         Rating
                         <input
-                            type="integer"
+                            type="number"
                             // placeholder="Address"
                             value={stars}
+                            min="1"
+                            max="5"
                             onChange={(e) => setStars(e.target.value)}
                             required
                         />
