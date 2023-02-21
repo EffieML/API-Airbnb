@@ -44,7 +44,7 @@ function Footer() {
                         </a>
                     </div> */}
                     <div className='footer-logo-container'>
-                        <a href='https://github.com/EffieML/Mzone' target="_blank">
+                        <a href='https://github.com/EffieML/API-Airbnb' target="_blank">
                             <div className='footer-links'>
                                 <img src={githublogo} alt='github' />
                                 <div className='footer-logoname'>GitHub</div>

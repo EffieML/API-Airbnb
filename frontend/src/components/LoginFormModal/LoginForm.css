@@ -87,7 +87,8 @@ body {
 .form-elem input[type="float"],
 .form-elem input[type="integer"],
 .form-elem input[type="link"],
-.form-elem input[type="password"] {
+.form-elem input[type="password"],
+.form-elem input[type="number"] {
     margin-top: 5px;
     display: block;
     width: 520px;

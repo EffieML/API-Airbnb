@@ -19,6 +19,7 @@ function CreateSpotBooking({ spot }) {
     const [showLoginModal, setShowLoginModal] = useState(false);
 
     let calNights = parseInt((new Date(endDate).getTime() - new Date(startDate).getTime()) / (1000 * 3600 * 24))
+    // console.log("calNights-------------------", calNights)
     let cleanFee = 100;
     let serviceFee = 10;
 
@@ -30,26 +31,32 @@ function CreateSpotBooking({ spot }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (currUser) {
-            const newBooking = {
-                spotId,
-                startDate,
-                endDate
+            if (currUser?.id === spot?.ownerId) {
+                await window.alert("Sorry, you cannot book your own property. Keep exploring to find a perfect match!")
+                history.push('/')
             }
-            setHasSubmitted(true);
-            const addedBooking = await dispatch(createSpotBookingThunk(newBooking))
-                .catch(
-                    async (res) => {
-                        const data = await res.json();
-                        // console.log('before res.json error--------------', data.errors)
-                        if (data && data.errors) {
-                            setErrors(data.errors);
-                            // console.log('before res.json error--------------', errors)
+            else {
+                const newBooking = {
+                    spotId,
+                    startDate,
+                    endDate
+                }
+                setHasSubmitted(true);
+                const addedBooking = await dispatch(createSpotBookingThunk(newBooking))
+                    .catch(
+                        async (res) => {
+                            const data = await res.json();
+                            // console.log('before res.json error--------------', data.errors)
+                            if (data && data.errors) {
+                                setErrors(data.errors);
+                                // console.log('before res.json error--------------', errors)
+                            }
                         }
-                    }
-                );
-            if (addedBooking) {
-                setErrors([]);
-                history.push(`/bookings/current`)
+                    );
+                if (addedBooking) {
+                    setErrors([]);
+                    history.push(`/bookings/current`)
+                }
             }
         } else {
             setShowLoginModal(true);

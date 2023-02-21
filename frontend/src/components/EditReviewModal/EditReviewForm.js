@@ -47,8 +47,10 @@ function EditReviewForm({ rev, reviewId, setShowModal, spotName }) {
                     <label>
                         Rating
                         <input
-                            type="integer"
+                            type="number"
                             value={stars}
+                            min="1"
+                            max="5"
                             onChange={(e) => setStars(e.target.value)}
                             required
                         />
