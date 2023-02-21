@@ -26,7 +26,7 @@
 #### Staybnb home page for showing all the spots viewing as list
 <img width="1572" alt="homepage1" src="https://user-images.githubusercontent.com/103289506/219094523-467af67f-4f1e-426e-b32b-da0d8f07195d.png">
 #### Staybnb home page for showing all the spots viewing as map
-![homepagemap](https://user-images.githubusercontent.com/103289506/219094846-406bf528-eb22-4af9-ac58-0856f0f5405e.jpeg)
+![homepagemap](https://user-images.githubusercontent.com/103289506/220397640-40ee816c-b11c-477a-9191-aea6e18f2c13.jpeg)
 
 ### Spot detail page: 
 #### Staybnb page for showing one spot
